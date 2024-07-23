@@ -5,10 +5,13 @@ import { getBlockExplorerTxLink } from "@/utils/scaffold-eth/network";
 import { notification } from "@/utils/scaffold-eth/notification";
 import { getPublicClient } from "@wagmi/core";
 import { Hash, SendTransactionParameters, WalletClient } from "viem";
-import { useWalletClient } from "wagmi";
+import { useWalletClient, Config } from "wagmi";
+import { SendTransactionMutate } from "wagmi/query";
 
 type TransactionFunc = (
-  tx: (() => Promise<Hash>) | SendTransactionParameters,
+  tx:
+    | (() => Promise<Hash>)
+    | Parameters<SendTransactionMutate<Config, undefined>>[0],
   options?: TransactorFuncOptions
 ) => Promise<Hash | undefined>;
 
@@ -75,7 +78,9 @@ export const useTransactor = (
         const result = await tx();
         transactionHash = result;
       } else if (tx != null) {
-        transactionHash = await walletClient.sendTransaction(tx);
+        transactionHash = await walletClient.sendTransaction(
+          tx as SendTransactionParameters
+        );
       } else {
         throw new Error("Incorrect transaction passed to transactor");
       }

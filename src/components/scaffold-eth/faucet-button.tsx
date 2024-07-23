@@ -18,13 +18,13 @@ const FaucetButton = () => {
   const { address, chain: onChain } = useAccount();
   const { data: balance } = useWatchBalance({ address });
   const [loading, setLoading] = useState(false);
+
   const faucetTx = useTransactor(localWalletClient);
 
   const sendEther = async () => {
     try {
       setLoading(true);
       await faucetTx({
-        chain: hardhat,
         account: FAUCET_ADDRESS,
         to: address,
         value: parseEther(NUM_OF_ETH),

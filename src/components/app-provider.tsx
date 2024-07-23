@@ -12,11 +12,14 @@ import {
 import BlockieAvatar from "./scaffold-eth/blokie-avatar";
 import { useTheme } from "next-themes";
 import { Header } from "./header";
+import { Footer } from "./footer";
 
 export const SpeedrunApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
+      <main className="relative flex flex-col flex-1">{children}</main>
+      <Footer />
     </div>
   );
 };
