@@ -41,7 +41,7 @@ export const getAlchemyHttpUrl = (chainId: number) => {
 
 export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   [chains.hardhat.id]: {
-    color: "#b8af0c",
+    color: "#fff236",
   },
   [chains.mainnet.id]: {
     color: "#ff8b9e",

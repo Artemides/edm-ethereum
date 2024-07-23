@@ -19,10 +19,9 @@ export const useTargetNetwork = (): {
       (nt) => nt.id === chain?.id
     );
 
-    if (newNetwork && newNetwork.id !== targetNetwork.id)
-      return () => {
-        setTargetNetwork(newNetwork);
-      };
+    if (newNetwork && newNetwork.id !== targetNetwork.id) {
+      setTargetNetwork(newNetwork);
+    }
   }, [chain?.id, setTargetNetwork, targetNetwork.id]);
 
   return {

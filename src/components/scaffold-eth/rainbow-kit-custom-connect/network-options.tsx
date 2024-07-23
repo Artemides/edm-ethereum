@@ -33,6 +33,7 @@ export const NetworkOptions = ({ hidden = false }: NetworkOptionsProps) => {
               <span>
                 Switch to{" "}
                 <span
+                  className="font-semibold"
                   style={{
                     color: getNetworkColor(allowedNetwork, isDarkMode),
                   }}

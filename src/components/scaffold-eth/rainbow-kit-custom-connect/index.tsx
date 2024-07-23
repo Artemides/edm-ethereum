@@ -22,10 +22,9 @@ export const RainbowConnectButton = () => {
         const blockExplorerAddressLink = account
           ? getBlockExplorerAddressLink(targetNetwork, account.address)
           : undefined;
-
         return (
           <>
-            {() => {
+            {(() => {
               if (!connected) {
                 return (
                   <button
@@ -49,7 +48,10 @@ export const RainbowConnectButton = () => {
                       address={account.address as Address}
                       className="min-h-0 h-auto"
                     />
-                    <span className="text-xs" style={{ color: networkColor }}>
+                    <span
+                      className="text-xs font-semibold"
+                      style={{ color: networkColor }}
+                    >
                       {chain.name}
                     </span>
                   </div>
@@ -65,7 +67,7 @@ export const RainbowConnectButton = () => {
                   />
                 </>
               );
-            }}
+            })()}
           </>
         );
       }}

@@ -17,6 +17,5 @@ export const useWatchBalance = (balanceParams: UseBalanceParameters) => {
     queryClient.invalidateQueries({ queryKey });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blockNumber]);
-
   return rest;
 };
