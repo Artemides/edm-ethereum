@@ -13,16 +13,16 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#93BBFB",
+          primary: "#088484",
           "primary-content": "#212638",
-          secondary: "#DAE8FF",
+          secondary: "#0ba5a5",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
           neutral: "#212638",
           "neutral-content": "#ffffff",
-          "base-100": "#ffffff",
-          "base-200": "#f4f8ff",
+          "base-100": "#c8f5ff",
+          "base-200": "#e9fbff",
           "base-300": "#DAE8FF",
           "base-content": "#212638",
           info: "#93BBFB",
@@ -45,7 +45,7 @@ const config: Config = {
       },
       {
         dark: {
-          primary: "#212638",
+          primary: "c8f5ff",
           "primary-content": "#F9FBFF",
           secondary: "#323f61",
           "secondary-content": "#F9FBFF",
