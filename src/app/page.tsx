@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center my-20">
-            <span className="block text-primary text-8xl font-bold tracking-tighter">
+            <span className="block text-8xl font-bold tracking-tighter">
               Speedrun.NFT
             </span>
           </h1>
