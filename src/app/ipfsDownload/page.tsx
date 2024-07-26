@@ -53,31 +53,31 @@ const IpfsDownload = () => {
             autoComplete="off"
           />
         </div>
+        <button
+          className={`btn btn-secondary my-6 ${isLoading ? "loading" : ""}`}
+          disabled={isLoading}
+          onClick={handleDownload}
+        >
+          Download from IPFS
+        </button>
+        {isMounted && (
+          <LazyReactJson
+            style={{ padding: "1rem", borderRadius: "0.75rem" }}
+            src={json}
+            theme="solarized"
+            enableClipboard={false}
+            onEdit={(edit) => {
+              setJson(edit.updated_src);
+            }}
+            onAdd={(add) => {
+              setJson(add.updated_src);
+            }}
+            onDelete={(del) => {
+              setJson(del.updated_src);
+            }}
+          />
+        )}
       </div>
-      <button
-        className={`btn btn-secondary my-6 ${isLoading ? "loading" : ""}`}
-        disabled={isLoading}
-        onClick={handleDownload}
-      >
-        Download from IPFS
-      </button>
-      {isMounted && (
-        <LazyReactJson
-          style={{ padding: "1rem", borderRadius: "0.75rem" }}
-          src={json}
-          theme="solarized"
-          enableClipboard={false}
-          onEdit={(edit) => {
-            setJson(edit.updated_src);
-          }}
-          onAdd={(add) => {
-            setJson(add.updated_src);
-          }}
-          onDelete={(del) => {
-            setJson(del.updated_src);
-          }}
-        />
-      )}
     </>
   );
 };
