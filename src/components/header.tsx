@@ -22,7 +22,7 @@ export const menuLinks: HeaderMenuLink[] = [
 
   {
     label: "My NFTs",
-    href: "/myNFTs",
+    href: "/mynfts",
     icon: <PhotoIcon className="h-4 w-4" />,
   },
   {

@@ -27,6 +27,7 @@ import { useAccount } from "wagmi";
     const tokenIdCounterNumber = Number(tokenIdCounter);
     const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
     const notificationId = notification.loading("Uploading to IPFS");
+    return
     try {
       const uploadedItem = await addToIPFS(currentTokenMetaData);
 
