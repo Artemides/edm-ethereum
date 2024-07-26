@@ -9,8 +9,9 @@ import nftsMetadata from "@/utils/simpleNFT/nftsMetadata";
 import { NextPage } from "next";
 import React from "react";
 import { useAccount } from "wagmi";
+import { Gallery } from "./_components/gallery";
 
- const MyNFTS: NextPage = () => {
+const MyNFTS: NextPage = () => {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount();
 
   const { writeContractAsync } = useSpeedWriteContract("YourCollectible");
@@ -25,9 +26,10 @@ import { useAccount } from "wagmi";
     if (tokenIdCounter === undefined) return;
 
     const tokenIdCounterNumber = Number(tokenIdCounter);
-    const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
+    const currentTokenMetaData =
+      nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
     const notificationId = notification.loading("Uploading to IPFS");
-    return
+    return;
     try {
       const uploadedItem = await addToIPFS(currentTokenMetaData);
 
@@ -62,7 +64,7 @@ import { useAccount } from "wagmi";
           </button>
         )}
       </div>
-      {/* <MyHoldings /> */}
+      <Gallery />
     </>
   );
 };

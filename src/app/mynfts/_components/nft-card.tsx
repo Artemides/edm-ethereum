@@ -5,6 +5,7 @@ import { Address } from "@/components/scaffold-eth/address";
 import { AddressInput } from "@/components/scaffold-eth/input/address-input";
 
 export const NFTCard = ({ nft }: { nft: Collectible }) => {
+  console.log({ nft });
   const [transferToAddress, setTransferToAddress] = useState("");
   const { writeContractAsync } = useSpeedWriteContract("YourCollectible");
   return (
