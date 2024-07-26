@@ -24,6 +24,9 @@ export const getNFTMetadataFromIPFS = async (cid: string) => {
     try {
       const jsJson = JSON.parse(json);
       return jsJson;
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error parsing JSON:", error);
+      return undefined;
+    }
   }
 };

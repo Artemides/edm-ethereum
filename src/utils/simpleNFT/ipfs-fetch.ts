@@ -20,9 +20,9 @@ const fetchFromApi = ({
 export const addToIPFS = (yourJSON: object) =>
   fetchFromApi({ path: "/api/ipfs/add", method: "Post", body: yourJSON });
 
-export const getMetadataFromIPFS = (ipfsHash: string) =>
+export const getMetadataFromIPFS = (cid: string) =>
   fetchFromApi({
     path: "/api/ipfs/get-metadata",
     method: "Post",
-    body: { ipfsHash },
+    body: { cid },
   });
