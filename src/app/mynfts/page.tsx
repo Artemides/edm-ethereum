@@ -29,7 +29,6 @@ const MyNFTS: NextPage = () => {
     const currentTokenMetaData =
       nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
     const notificationId = notification.loading("Uploading to IPFS");
-    return;
     try {
       const uploadedItem = await addToIPFS(currentTokenMetaData);
 
