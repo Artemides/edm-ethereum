@@ -1,6 +1,6 @@
 "use client";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, BugAntIcon, PhotoIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -18,6 +18,12 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     href: "/",
     label: "Menu",
+  },
+
+  {
+    label: "My NFTs",
+    href: "/myNFTs",
+    icon: <PhotoIcon className="h-4 w-4" />,
   },
   {
     label: "Debug Contracts",

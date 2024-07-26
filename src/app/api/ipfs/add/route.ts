@@ -8,6 +8,6 @@ export async function POST(request:Request) {
     } catch (error) {
         console.log("Error adding to ipfs", error);
         return Response.json({ error: "Error adding to ipfs" });
-    }
+    }   
     
 }
