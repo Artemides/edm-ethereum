@@ -1,3 +1,5 @@
+"use client";
+
 import { useSpeedReadContract } from "@/hooks/useSpeedReadContract";
 import { ETHToPrice } from "./eth-to-price";
 import { useWatchBalance } from "@/hooks/useWatchBalance";
