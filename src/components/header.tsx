@@ -6,6 +6,7 @@ import {
   Bars3Icon,
   BugAntIcon,
   PhotoIcon,
+  WalletIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,6 +41,11 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "IPFS Download",
     href: "/ipfsDownload",
     icon: <ArrowDownTrayIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Staker",
+    href: "/staker",
+    icon: <WalletIcon className="size-4" />,
   },
   {
     label: "Debug Contracts",
