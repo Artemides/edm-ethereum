@@ -3,9 +3,12 @@ import { Collectible } from "./gallery";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
 import { Address } from "@/components/scaffold-eth/address";
 import { AddressInput } from "@/components/scaffold-eth/input/address-input";
+import { Address as AddressType } from "abitype";
+import { zeroAddress } from "viem";
 
 export const NFTCard = ({ nft }: { nft: Collectible }) => {
-  const [transferToAddress, setTransferToAddress] = useState("");
+  const [transferToAddress, setTransferToAddress] =
+    useState<AddressType>(zeroAddress);
   const { writeContractAsync } = useSpeedWriteContract("YourCollectible");
   return (
     <div className="card card-compact bg-base-100 shadow-lg w-[300px] shadow-secondary">
@@ -39,7 +42,9 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
           <AddressInput
             value={transferToAddress}
             placeholder="receiver address"
-            onChange={(newValue) => setTransferToAddress(newValue)}
+            onChange={(newValue) =>
+              setTransferToAddress(newValue as AddressType)
+            }
           />
         </div>
         <div className="card-actions justify-end">
