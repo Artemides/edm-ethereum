@@ -52,7 +52,7 @@ export const Staker = () => {
   return (
     <div className="flex items-center flex-col flex-grow w-full px-4 gap-12">
       {isStakingCompleted && (
-        <div className="flex flex-col items-center gap-2 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-12 w-full max-w-lg">
+        <div className="flex flex-col items-center gap-2 bg-base-100 shadow-md shadow-secondary border-2 border-secondary rounded-xl p-6 mt-12 w-full max-w-lg">
           <p className="block m-0 font-semibold">
             {" "}
             🎉 &nbsp; Staking App triggered `SomeContract` &nbsp; 🎉{" "}
@@ -71,7 +71,7 @@ export const Staker = () => {
         </div>
       )}
       <div
-        className={`flex flex-col items-center space-y-8 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 w-full max-w-lg ${
+        className={`flex flex-col items-center space-y-8 bg-base-100 shadow-md shadow-secondary border-2 border-secondary rounded-xl p-6 w-full max-w-lg ${
           !isStakingCompleted ? "mt-24" : ""
         }`}
       >

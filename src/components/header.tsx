@@ -5,6 +5,8 @@ import {
   ArrowUpTrayIcon,
   Bars3Icon,
   BugAntIcon,
+  CircleStackIcon,
+  InboxStackIcon,
   PhotoIcon,
   WalletIcon,
 } from "@heroicons/react/20/solid";
@@ -45,7 +47,12 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Staker",
     href: "/staker",
-    icon: <WalletIcon className="size-4" />,
+    icon: <CircleStackIcon className="size-4" />,
+  },
+  {
+    label: "Stakings",
+    href: "/stakings",
+    icon: <InboxStackIcon className="size-4" />,
   },
   {
     label: "Debug Contracts",

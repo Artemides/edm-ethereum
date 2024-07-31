@@ -8,7 +8,7 @@ import { GenericContractsDeclaration } from "@/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     SomeContract: {
-      address: "0xe1Fd27F4390DcBE165f4D60DBF821e4B9Bb02dEd",
+      address: "0x2Dd78Fd9B8F40659Af32eF98555B8b31bC97A351",
       abi: [
         {
           inputs: [],
@@ -30,11 +30,18 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
+        {
+          inputs: [],
+          name: "reset",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
       ],
       inheritedFunctions: {},
     },
     Staker: {
-      address: "0x3904b8f5b0F49cD206b7d5AABeE5D1F37eE15D8d",
+      address: "0x56fC17a65ccFEC6B7ad0aDe9BD9416CB365B9BE8",
       abi: [
         {
           inputs: [

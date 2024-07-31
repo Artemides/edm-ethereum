@@ -25,7 +25,7 @@ export const useSpeedEventHistory = <
   blockData,
   contractName,
   eventName,
-  enabled,
+  enabled = true,
   fromBlock,
   filters,
   transactionData,
