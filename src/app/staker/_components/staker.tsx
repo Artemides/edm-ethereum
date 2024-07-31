@@ -9,7 +9,7 @@ import { useTargetNetwork } from "@/hooks/useTargetNetwork";
 import humanizeDuration from "humanize-duration";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
 export const Staker = () => {
-  const { address } = useAccount();
+  const { address: userAddress } = useAccount();
   const { targetNetwork } = useTargetNetwork();
   const { data: StakerContract } = useDeployedContractInfo("Staker");
   const { data: SomeContract } = useDeployedContractInfo("SomeContract");
@@ -23,7 +23,7 @@ export const Staker = () => {
   const { data: myStake } = useSpeedReadContract({
     contractName: "Staker",
     functionName: "balances",
-    args: [address],
+    args: [userAddress],
     watch: true,
   });
   const { data: threshold } = useSpeedReadContract({
@@ -77,7 +77,7 @@ export const Staker = () => {
           <p className="block text-2xl mt-0 mb-2 font-semibold">
             Staker Contract
           </p>
-          <Address address={address} size="xl" />
+          <Address address={StakerContract?.address} size="xl" />
         </div>
         <div className="flex items-start justify-around w-full">
           <div className="flex flex-col items-center justify-center w-1/2">
