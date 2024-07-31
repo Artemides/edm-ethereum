@@ -34,7 +34,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Staker: {
-      address: "0xc582Bc0317dbb0908203541971a358c44b1F3766",
+      address: "0x3904b8f5b0F49cD206b7d5AABeE5D1F37eE15D8d",
       abi: [
         {
           inputs: [
@@ -46,6 +46,11 @@ const deployedContracts = {
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "Stake_AlreadyTransfered",
+          type: "error",
         },
         {
           inputs: [],
