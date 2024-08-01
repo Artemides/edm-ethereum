@@ -42,7 +42,7 @@ const Stakings: NextPage = () => {
                 </td>
               </tr>
             ) : (
-              stakeEvents?.map((event, index) => {
+              stakeEvents?.map((event: any, index: any) => {
                 return (
                   <tr key={index}>
                     <td>
