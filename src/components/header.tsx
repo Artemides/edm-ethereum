@@ -13,9 +13,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useRef, useState } from "react";
 import { RainbowConnectButton } from "./scaffold-eth/rainbow-kit-custom-connect";
 import FaucetButton from "./scaffold-eth/faucet-button";
+import { features } from "process";
 
 type HeaderMenuLink = {
   label: string;
@@ -23,45 +24,110 @@ type HeaderMenuLink = {
   icon?: React.ReactNode;
 };
 
-export const menuLinks: HeaderMenuLink[] = [
-  {
-    href: "/",
-    label: "Menu",
-  },
+type MenuOption = {
+  name: Options;
+  features: HeaderMenuLink[];
+  icon?: React.ReactNode;
+};
 
+export const options: MenuOption[] = [
   {
-    label: "My NFTs",
-    href: "/mynfts",
+    name: "NFT",
     icon: <PhotoIcon className="h-4 w-4" />,
+    features: [
+      {
+        label: "My NFTs",
+        href: "/mynfts",
+        icon: <PhotoIcon className="h-4 w-4" />,
+      },
+      {
+        label: "IPFS Upload",
+        href: "/ipfsUpload",
+        icon: <ArrowUpTrayIcon className="h-4 w-4" />,
+      },
+      {
+        label: "IPFS Download",
+        href: "/ipfsDownload",
+        icon: <ArrowDownTrayIcon className="h-4 w-4" />,
+      },
+    ],
   },
   {
-    label: "IPFS Upload",
-    href: "/ipfsUpload",
-    icon: <ArrowUpTrayIcon className="h-4 w-4" />,
-  },
-  {
-    label: "IPFS Download",
-    href: "/ipfsDownload",
-    icon: <ArrowDownTrayIcon className="h-4 w-4" />,
-  },
-  {
-    label: "Staker",
-    href: "/staker",
+    name: "Stake",
     icon: <CircleStackIcon className="size-4" />,
+    features: [
+      {
+        label: "Staker",
+        href: "/staker",
+        icon: <CircleStackIcon className="size-4" />,
+      },
+      {
+        label: "Stakings",
+        href: "/stakings",
+        icon: <InboxStackIcon className="size-4" />,
+      },
+    ],
   },
   {
-    label: "Stakings",
-    href: "/stakings",
-    icon: <InboxStackIcon className="size-4" />,
-  },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
+    name: "Debug",
     icon: <BugAntIcon className="size-4" />,
+    features: [
+      {
+        label: "Debug Contracts",
+        href: "/debug",
+        icon: <BugAntIcon className="size-4" />,
+      },
+    ],
   },
 ];
 
-export const HeaderMenuLinks = () => {
+type TMenuOption = {
+  open: Options | undefined;
+  setOpen: Dispatch<SetStateAction<Options | undefined>>;
+  option: MenuOption;
+};
+
+const MenuOption = ({ open, setOpen, option }: TMenuOption) => {
+  const optionRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(
+    optionRef,
+    useCallback(() => setOpen(undefined), [setOpen])
+  );
+
+  return (
+    <div className="dropdown" ref={optionRef}>
+      <label
+        tabIndex={0}
+        className={`ml-1 btn btn-ghost ${
+          open ? "hover:bg-secondary" : "hover:bg-transparent"
+        }`}
+        onClick={() => {
+          setOpen(option.name);
+        }}
+      >
+        {option.name}
+        {option.icon}
+      </label>
+      {open === option.name && (
+        <ul
+          tabIndex={0}
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          onClick={() => {
+            setOpen(option.name);
+          }}
+        >
+          <HeaderMenuLinks menuLinks={option.features} />
+        </ul>
+      )}
+    </div>
+  );
+};
+export const HeaderMenuLinks = ({
+  menuLinks,
+}: {
+  menuLinks: HeaderMenuLink[];
+}) => {
   const pathname = usePathname();
   return menuLinks.map(({ label, href, icon }) => {
     const isActive = pathname === href;
@@ -81,13 +147,19 @@ export const HeaderMenuLinks = () => {
     );
   });
 };
+
+type Options = "NFT" | "Stake" | "Debug" | undefined;
+
 export const Header = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<Options>();
+  console.log({ isDrawerOpen });
   const burgerMenuRef = useRef<HTMLDivElement>(null);
+
   useOutsideClick(
     burgerMenuRef,
-    useCallback(() => setIsDrawerOpen(false), [])
+    useCallback(() => setIsDrawerOpen(undefined), [])
   );
+
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 border-b-[1px] border-primary px-0 sm:px-2">
       <div className="navbar-start w-auto lg:w-1/2">
@@ -98,7 +170,7 @@ export const Header = () => {
               isDrawerOpen ? "hover:bg-secondary" : "hover:bg-transparent"
             }`}
             onClick={() => {
-              setIsDrawerOpen((prevIsOpenState) => !prevIsOpenState);
+              setIsDrawerOpen(undefined);
             }}
           >
             <Bars3Icon className="h-1/2" />
@@ -108,10 +180,10 @@ export const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               onClick={() => {
-                setIsDrawerOpen(false);
+                setIsDrawerOpen(undefined);
               }}
             >
-              <HeaderMenuLinks />
+              {/* <HeaderMenuLinks menuLinks={menuLinks} /> */}
             </ul>
           )}
         </div>
@@ -134,7 +206,14 @@ export const Header = () => {
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
-          <HeaderMenuLinks />
+          {options.map((option) => (
+            <MenuOption
+              key={option.name}
+              open={isDrawerOpen}
+              option={option}
+              setOpen={setIsDrawerOpen}
+            />
+          ))}
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
