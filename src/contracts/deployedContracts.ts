@@ -250,7 +250,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     StakerEpochs: {
-      address: "0xCBBe2A5c3A22BE749D5DDF24e9534f98951983e2",
+      address: "0xE8F7d98bE6722d42F29b50500B0E318EF2be4fc8",
       abi: [
         {
           inputs: [
@@ -395,13 +395,19 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [],
-          name: "epochBalance",
-          outputs: [
+          inputs: [
             {
               internalType: "uint256",
-              name: "",
+              name: "epoch",
               type: "uint256",
+            },
+          ],
+          name: "epochActive",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
             },
           ],
           stateMutability: "view",
@@ -415,6 +421,63 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "epoch",
+              type: "uint256",
+            },
+          ],
+          name: "epochStake",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "epoch",
+              type: "uint256",
+            },
+          ],
+          name: "epochThreshold",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "epoch",
+              type: "uint256",
+            },
+          ],
+          name: "epochTransfer",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -517,19 +580,6 @@ const deployedContracts = {
         {
           inputs: [],
           name: "timeLeft",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalBalance",
           outputs: [
             {
               internalType: "uint256",
