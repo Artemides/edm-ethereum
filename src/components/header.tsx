@@ -16,7 +16,6 @@ import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useCallback, useRef, useState } from "react";
 import { RainbowConnectButton } from "./scaffold-eth/rainbow-kit-custom-connect";
 import FaucetButton from "./scaffold-eth/faucet-button";
-import { features } from "process";
 
 type HeaderMenuLink = {
   label: string;
@@ -62,12 +61,18 @@ export const options: MenuOption[] = [
         icon: <CircleStackIcon className="size-4" />,
       },
       {
+        label: "Staker Epochs",
+        href: "/staker-epochs",
+        icon: <CircleStackIcon className="size-4" />,
+      },
+      {
         label: "Stakings",
         href: "/stakings",
         icon: <InboxStackIcon className="size-4" />,
       },
     ],
   },
+
   {
     name: "Debug",
     icon: <BugAntIcon className="size-4" />,
@@ -152,7 +157,6 @@ type Options = "NFT" | "Stake" | "Debug" | undefined;
 
 export const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<Options>();
-  console.log({ isDrawerOpen });
   const burgerMenuRef = useRef<HTMLDivElement>(null);
 
   useOutsideClick(

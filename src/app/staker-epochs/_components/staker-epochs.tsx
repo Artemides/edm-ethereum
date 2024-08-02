@@ -1,3 +1,5 @@
+"use client";
+
 import { ETHToPrice } from "@/app/staker/_components/eth-to-price";
 import { Address } from "@/components/scaffold-eth/address";
 import { useDeployedContractInfo } from "@/hooks/useDeployedContract";
