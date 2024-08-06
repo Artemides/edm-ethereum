@@ -2,25 +2,27 @@
 
 import { Address } from "@/components/scaffold-eth/address";
 import { useSpeedEventHistory } from "@/hooks/useSpeedEventHistory";
+import { useTargetNetwork } from "@/hooks/useTargetNetwork";
 import { NextPage } from "next";
 import { formatEther } from "viem";
+import { useBlockNumber } from "wagmi";
 
 const EventsPage: NextPage = () => {
+  const { targetNetwork } = useTargetNetwork();
+  const { data: block } = useBlockNumber({ chainId: targetNetwork.id });
+  const fromBlock = block ? (block > 10 ? block - 10n : 0n) : 0n;
   const { data: buyEvents, isLoading: buyEventsLoading } = useSpeedEventHistory(
     {
       contractName: "Vendor",
       eventName: "BuyTokens",
-      fromBlock: 0n,
-      watch: true,
+      fromBlock,
     }
   );
-
   const { data: sellEvents, isLoading: sellEventsLoading } =
     useSpeedEventHistory({
       contractName: "Vendor",
       eventName: "TokensSold",
-      fromBlock: 0n,
-      watch: true,
+      fromBlock,
     });
 
   return (
