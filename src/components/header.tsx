@@ -81,6 +81,11 @@ export const options: MenuOption[] = [
         href: "/erc20/token-vendor",
         icon: <p className="text-[16px] m-0">📠</p>,
       },
+      {
+        label: "Events",
+        href: "/erc20/token-vendor/events",
+        icon: "⚡️",
+      },
     ],
   },
   {
