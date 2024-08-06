@@ -72,7 +72,17 @@ export const options: MenuOption[] = [
       },
     ],
   },
-
+  {
+    name: "ERC20",
+    icon: <p className="text-[16px]  m-0">🪙</p>,
+    features: [
+      {
+        label: "Vendor",
+        href: "/token-vendor",
+        icon: <p className="text-[16px] m-0">📠</p>,
+      },
+    ],
+  },
   {
     name: "Debug",
     icon: <BugAntIcon className="size-4" />,
@@ -105,7 +115,7 @@ const MenuOption = ({ open, setOpen, option }: TMenuOption) => {
       <label
         tabIndex={0}
         className={`ml-1 btn btn-ghost ${
-          open ? "hover:bg-secondary" : "hover:bg-transparent"
+          open ? "hover:bg-secondary" : "hover:bg-hsla(0, 0%, 0%, 0)"
         }`}
         onClick={() => {
           setOpen(option.name);
@@ -117,7 +127,7 @@ const MenuOption = ({ open, setOpen, option }: TMenuOption) => {
       {open === option.name && (
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          className="menu menu-compact dropdown-content mt-3 p-[1px] shadow bg-base-100 rounded-box w-52"
           onClick={() => {
             setOpen(option.name);
           }}
@@ -153,7 +163,7 @@ export const HeaderMenuLinks = ({
   });
 };
 
-type Options = "NFT" | "Stake" | "Debug" | undefined;
+type Options = "NFT" | "Stake" | "Debug" | "ERC20" | undefined;
 
 export const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<Options>();
