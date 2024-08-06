@@ -27,7 +27,6 @@ const TokenVendorPage: NextPage = () => {
     functionName: "balanceOf",
     args: [address],
   });
-
   const { data: forzaEthRate } = useSpeedReadContract({
     contractName: "Vendor",
     functionName: "TOKENS_PER_ETH",
@@ -121,7 +120,7 @@ const TokenVendorPage: NextPage = () => {
                 try {
                   await writeForzaAsync({
                     functionName: "approve",
-                    args: [vendor?.address, multiplyTo1e18(tokensToSell)],
+                    args: [vendor?.address, BigInt(tokensToSell)],
                   });
                   setIsApproved(true);
                 } catch (err) {
@@ -138,7 +137,7 @@ const TokenVendorPage: NextPage = () => {
                 try {
                   await writeVendorAsync({
                     functionName: "sellTokens",
-                    args: [multiplyTo1e18(tokensToSell)],
+                    args: [BigInt(tokensToSell)],
                   });
                   setIsApproved(false);
                 } catch (err) {
