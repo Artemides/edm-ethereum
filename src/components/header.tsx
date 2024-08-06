@@ -78,7 +78,7 @@ export const options: MenuOption[] = [
     features: [
       {
         label: "Vendor",
-        href: "/token-vendor",
+        href: "/erc20/token-vendor",
         icon: <p className="text-[16px] m-0">📠</p>,
       },
     ],

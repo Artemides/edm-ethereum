@@ -5,7 +5,7 @@ import { useDeployedContractInfo } from "@/hooks/useDeployedContract";
 import { useSpeedReadContract } from "@/hooks/useSpeedReadContract";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
 import { useWatchBalance } from "@/hooks/useWatchBalance";
-import { getTokenPrice } from "@/utils/scaffold-eth/wei";
+import { getTokenPrice, multiplyTo1e18 } from "@/utils/scaffold-eth/wei";
 import { NextPage } from "next";
 import { useState } from "react";
 import { formatEther } from "viem";
@@ -14,6 +14,8 @@ import { useAccount } from "wagmi";
 const TokenVendorPage: NextPage = () => {
   const { address } = useAccount();
   const [tokensToBuy, setTokensToBuy] = useState<bigint | string>("");
+  const [tokensToSell, setTokensToSell] = useState<string>("");
+  const [isApproved, setIsApproved] = useState(false);
 
   const { data: forzaSymbol } = useSpeedReadContract({
     contractName: "ForzaToken",
@@ -98,6 +100,57 @@ const TokenVendorPage: NextPage = () => {
           Buy Tokens
         </button>
       </div>
+
+      {!!addressForzaBalance && (
+        <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+          <div className="text-xl">Sell tokens</div>
+          <div>{forzaEthRate?.toString() || 0} tokens per ETH</div>
+          <div className="w-full flex flex-col space-y-2">
+            <IntegerInput
+              placeholder="amount of tokens to sell"
+              value={tokensToSell}
+              onChange={(value) => setTokensToSell(value as string)}
+              disabled={isApproved}
+              disableMultiplyBy1e18
+            />
+          </div>
+          <div className="flex gap-4">
+            <button
+              className={`btn ${isApproved ? "btn-disabled" : "btn-secondary"}`}
+              onClick={async () => {
+                try {
+                  await writeForzaAsync({
+                    functionName: "approve",
+                    args: [vendor?.address, multiplyTo1e18(tokensToSell)],
+                  });
+                  setIsApproved(true);
+                } catch (err) {
+                  console.error("Error calling approve function");
+                }
+              }}
+            >
+              Approve Tokens
+            </button>
+
+            <button
+              className={`btn ${isApproved ? "btn-secondary" : "btn-disabled"}`}
+              onClick={async () => {
+                try {
+                  await writeVendorAsync({
+                    functionName: "sellTokens",
+                    args: [multiplyTo1e18(tokensToSell)],
+                  });
+                  setIsApproved(false);
+                } catch (err) {
+                  console.error("Error calling sellTokens function");
+                }
+              }}
+            >
+              Sell Tokens
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
