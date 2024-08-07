@@ -71,7 +71,7 @@ const TokenVendorPage: NextPage = () => {
           <span className="font-bold ml-1">ETH</span>
         </div>
       </div>
-      <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+      <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-2 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
         {" "}
         <div className="text-xl">Buy tokens</div>
         <div>{forzaEthRate?.toString() || 0} tokens per ETH</div>
@@ -101,7 +101,7 @@ const TokenVendorPage: NextPage = () => {
       </div>
 
       {!!addressForzaBalance && (
-        <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+        <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-2   border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
           <div className="text-xl">Sell tokens</div>
           <div>{forzaEthRate?.toString() || 0} tokens per ETH</div>
           <div className="w-full flex flex-col space-y-2">
