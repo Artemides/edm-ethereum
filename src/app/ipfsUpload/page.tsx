@@ -5,7 +5,7 @@ import { addToIPFS } from "@/utils/simpleNFT/ipfs-fetch";
 import { NextPage } from "next";
 import { lazy, useEffect, useState } from "react";
 
-const LazyReactJson = lazy(() => import("react-json-view"));
+// const LazyReactJson = lazy(() => import("react-json-view"));
 
 const IpfsUpload: NextPage = () => {
   const [json, setJson] = useState({});
@@ -42,7 +42,7 @@ const IpfsUpload: NextPage = () => {
           <span className="block text-4xl font-bold">Upload to IPFS</span>
         </h1>
 
-        {mounted && (
+        {/* {mounted && (
           <LazyReactJson
             style={{ padding: "1rem", borderRadius: "0.75rem" }}
             src={json}
@@ -58,10 +58,10 @@ const IpfsUpload: NextPage = () => {
               setJson(del.updated_src);
             }}
           />
-        )}
+        )} */}
         <button
           className={`btn btn-secondary mt-4 ${loading ? "loading" : ""}`}
-          disabled={loading}
+          disabled={true}
           onClick={handleIpfsUpload}
         >
           Upload to IPFS

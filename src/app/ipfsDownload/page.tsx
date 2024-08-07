@@ -4,7 +4,7 @@ import { notification } from "@/utils/scaffold-eth/notification";
 import { getMetadataFromIPFS } from "@/utils/simpleNFT/ipfs-fetch";
 import { lazy, useEffect, useState } from "react";
 
-const LazyReactJson = lazy(() => import("react-json-view"));
+// const LazyReactJson = lazy(() => import("react-json-view"));
 
 const IpfsDownload = () => {
   const [json, setJson] = useState({});
@@ -17,6 +17,8 @@ const IpfsDownload = () => {
   }, []);
 
   const handleDownload = async () => {
+    return;
+
     setIsLoading(true);
     const notificationId = notification.loading(
       "Downloading content from IPFS"
@@ -51,16 +53,17 @@ const IpfsDownload = () => {
             value={cid}
             onChange={(e) => setCid(e.target.value)}
             autoComplete="off"
+            disabled
           />
         </div>
         <button
           className={`btn btn-secondary my-6 ${isLoading ? "loading" : ""}`}
-          disabled={isLoading}
+          disabled={true}
           onClick={handleDownload}
         >
           Download from IPFS
         </button>
-        {isMounted && (
+        {/* {isMounted && (
           <LazyReactJson
             style={{ padding: "1rem", borderRadius: "0.75rem" }}
             src={json}
@@ -76,7 +79,7 @@ const IpfsDownload = () => {
               setJson(del.updated_src);
             }}
           />
-        )}
+        )} */}
       </div>
     </>
   );
