@@ -7,8 +7,10 @@ export type ScaffoldConfig = {
   onlyLocalBurnerWallet: boolean;
 };
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const scaffoldConfig = {
-  targetNetworks: [chains.hardhat, chains.sepolia, chains.arbitrum],
+  targetNetworks: [chains.sepolia, chains.arbitrum, chains.hardhat],
   pollingInterval: 30000,
   alchemyApiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || "",
   walletConnectProjId:
