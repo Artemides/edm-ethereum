@@ -26,9 +26,9 @@ const EventsPage: NextPage = () => {
     });
 
   return (
-    <div className="flex items-center flex-col flex-grow pt-10">
+    <div className="w-full flex items-center justify-center gap-12 ">
       {/* BuyTokens Events */}
-      <div>
+      <div className="bg-base-100 rounded-md border-2 border-secondary shadow-lg shadow-secondary">
         <div className="text-center mb-4">
           <span className="block text-2xl font-bold">Buy Token Events</span>
         </div>
@@ -71,7 +71,7 @@ const EventsPage: NextPage = () => {
           </div>
         )}
       </div>
-      <div className="mt-14">
+      <div className="bg-base-100 rounded-md border-2 border-secondary shadow-lg shadow-secondary">
         <div className="text-center mb-4">
           <span className="block text-2xl font-bold">Sell Token Events</span>
         </div>

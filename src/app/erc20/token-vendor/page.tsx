@@ -48,8 +48,8 @@ const TokenVendorPage: NextPage = () => {
     useSpeedWriteContract("Vendor");
 
   return (
-    <div className="flex items-center flex-col flex-grow pt-10">
-      <div className="flex flex-col items-center bg-base-100 shadow-lg shadow-secondary border-2 border-secondary rounded-xl p-6 mt-24 w-full max-w-lg">
+    <div className="flex items-center flex-col flex-grow justify-center ">
+      <div className=" flex flex-col items-center  bg-base-100 shadow-lg shadow-secondary border-2 border-secondary rounded-xl p-6 w-full max-w-lg">
         <div className="text-xl">
           Your token balance:{" "}
           <div className="inline-flex items-center justify-center">
@@ -71,7 +71,7 @@ const TokenVendorPage: NextPage = () => {
           <span className="font-bold ml-1">ETH</span>
         </div>
       </div>
-      <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-2 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
+      <div className=" flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-2 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
         {" "}
         <div className="text-xl">Buy tokens</div>
         <div>{forzaEthRate?.toString() || 0} tokens per ETH</div>

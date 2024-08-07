@@ -86,6 +86,10 @@ const config: Config = {
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
+      backgroundImage: {
+        "radial-orange-to-transparent":
+          "radial-gradient(circle, rgba(255, 165, 0, 1) 0%, rgba(255, 165, 0, 0) 40%)",
+      },
     },
   },
   plugins: [require("daisyui")],
