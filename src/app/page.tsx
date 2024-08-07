@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center my-20">
             <span className="block text-8xl font-bold tracking-tighter">
-              Speedrun.NFT
+              Speedrun.Ethereum
             </span>
           </h1>
         </div>
