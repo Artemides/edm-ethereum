@@ -88,7 +88,7 @@ const config: Config = {
       },
       backgroundImage: {
         "radial-orange-to-transparent":
-          "radial-gradient(circle, rgba(255, 165, 0, 1) 0%, rgba(255, 165, 0, 0) 40%)",
+          "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
       },
     },
   },
