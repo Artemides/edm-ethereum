@@ -17,12 +17,17 @@ const dapps: DaapItemProps[] = [
     image: "/images/token-vendor.svg",
     href: "/erc20/token-vendor",
   },
+  {
+    name: "token vendor daap",
+    image: "/images/diceGame.svg",
+    href: "/dice",
+  },
 ];
 
 export const Daaps = () => {
   return (
-    <div className="flex-grow bg-base-200 w-full ">
-      <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+    <div className=" flex-grow bg-base-200 w-full  ">
+      <div className="flex-wrap flex justify-center items-center gap-12 flex-col sm:flex-row">
         {dapps.map((daap) => (
           <DaapItem
             key={daap.name}
