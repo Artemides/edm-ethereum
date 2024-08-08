@@ -5,16 +5,16 @@ import { useGlobalState } from "@/services/store/store";
 import React, { useEffect, useState } from "react";
 
 type AmountProps = {
-  amount: number;
-  isLoading: boolean;
-  disableToggle: boolean;
-  showUsdPrice?: boolean;
+  amount?: number;
   className?: string;
+  isLoading?: boolean;
+  showUsdPrice?: boolean;
+  disableToggle?: boolean;
 };
 export const Amount = ({
-  amount,
+  amount = 0,
   isLoading,
-  disableToggle,
+  disableToggle = false,
   showUsdPrice = false,
   className,
 }: AmountProps) => {
