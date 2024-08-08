@@ -68,6 +68,7 @@ export const useTransactor = (
     try {
       const network = await walletClient.getChainId();
       // Get full transaction from public client
+      //@ts-ignore
       const publicClient = getPublicClient(wagmiConfig);
 
       notificationId = notification.loading(
@@ -96,7 +97,7 @@ export const useTransactor = (
           blockExplorerLink={blockExplorerTxURL}
         />
       );
-
+      //@ts-ignore
       const transactionReceipt = await publicClient.waitForTransactionReceipt({
         hash: transactionHash,
         confirmations: options?.blockConfirmations,
