@@ -187,7 +187,6 @@ const DicePage: NextPage = () => {
           >
             Rigged Roll!
           </button>
-
           <div className="flex mt-8">
             {rolled ? (
               isRolling ? (
