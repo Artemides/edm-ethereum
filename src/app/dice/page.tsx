@@ -12,15 +12,19 @@ import { Address, formatEther, parseEther } from "viem";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
 import { Amount } from "./_components/amount";
 import { Address as AddressComponent } from "@/components/scaffold-eth/address";
+import { Roller } from "./_components/roller";
+import { useAccount } from "wagmi";
 
 const ROLL_ETH_VALUE = "0.002";
 const MAX_TABLE_ROWS = 10;
 
 const DicePage: NextPage = () => {
+  const { address } = useAccount();
   const [rolled, setRolled] = useState(false);
   const [isRolling, setIsRolling] = useState(false);
   const [rolls, setRolls] = useState<Roll[]>([]);
   const [winners, setWinners] = useState<Winner[]>([]);
+  const [myRoll, setMyRoll] = useState<Roll | undefined>();
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -60,17 +64,23 @@ const DicePage: NextPage = () => {
     ) {
       setIsRolling(false);
 
-      setRolls(
-        (
-          rollEvents?.map(({ args }) => ({
-            address: args.player as Address,
-            amount: Number(args.amount),
-            roll: (args.roll as bigint).toString(16).toUpperCase(),
-          })) || []
-        ).slice(0, MAX_TABLE_ROWS)
+      const _rolls = (
+        rollEvents?.map(({ args }) => ({
+          address: args.player as Address,
+          amount: Number(args.amount),
+          roll: (args.roll as bigint).toString(16).toUpperCase(),
+        })) || []
+      ).slice(0, MAX_TABLE_ROWS);
+
+      setRolls(_rolls);
+      setMyRoll(
+        _rolls.find(
+          (roll) =>
+            roll.address === address || roll.address === RiggleContract?.address
+        )
       );
     }
-  }, [rolls, rollEvents, rollEventLoading]);
+  }, [rollEvents, rollEventLoading]);
 
   useEffect(() => {
     if (
@@ -91,18 +101,24 @@ const DicePage: NextPage = () => {
     }
   }, [winnerEvents, winnerEventsyLoading, winners.length]);
 
-  const { writeContractAsync: writeDiceGameAsync, isError: rollTheDiceError } =
-    useSpeedWriteContract("DiceGame");
+  const {
+    writeContractAsync: writeDiceGameAsync,
+    isError: rollTheDiceFailed,
+    reset: resetDice,
+  } = useSpeedWriteContract("DiceGame");
 
-  const { writeContractAsync: writeRiggedRollAsync, isError: riggedRollError } =
-    useSpeedWriteContract("RiggedRoll");
+  const {
+    writeContractAsync: writeRiggedRollAsync,
+    isError: riggedRollFailed,
+    reset: resetRigged,
+  } = useSpeedWriteContract("RiggedRoll");
 
   useEffect(() => {
-    if (rollTheDiceError || riggedRollError) {
+    if (rollTheDiceFailed || riggedRollFailed) {
       setIsRolling(false);
       setRolled(false);
     }
-  }, [riggedRollError, rollTheDiceError]);
+  }, [riggedRollFailed, rollTheDiceFailed]);
 
   useEffect(() => {
     if (videoRef.current && !isRolling) {
@@ -137,10 +153,13 @@ const DicePage: NextPage = () => {
 
           <button
             onClick={async () => {
+              resetDice();
+              resetRigged();
               if (!rolled) {
                 setRolled(true);
               }
               setIsRolling(true);
+              setMyRoll(undefined);
               try {
                 await writeDiceGameAsync({
                   functionName: "rollTheDice",
@@ -172,51 +191,29 @@ const DicePage: NextPage = () => {
           </div>
           <button
             onClick={async () => {
+              resetDice();
+              resetRigged();
               if (!rolled) {
                 setRolled(true);
               }
               setIsRolling(true);
+              setMyRoll(undefined);
               try {
                 await writeRiggedRollAsync({ functionName: "riggedRoll" });
               } catch (err) {
                 console.error("Error calling riggedRoll function", err);
               }
             }}
-            disabled={isRolling}
+            disabled={isRolling || !riggedBalance?.value}
             className="mt-2 btn btn-secondary btn-xl normal-case font-xl text-lg"
           >
             Rigged Roll!
           </button>
-          <div className="flex mt-8">
-            {rolled ? (
-              isRolling ? (
-                <video
-                  key="rolling"
-                  width={300}
-                  height={300}
-                  loop
-                  src="/rolls/Spin.webm"
-                  autoPlay
-                />
-              ) : (
-                <video
-                  key="rolled"
-                  width={300}
-                  height={300}
-                  src={`/rolls/${rolls[0]?.roll || "0"}.webm`}
-                  autoPlay
-                />
-              )
-            ) : (
-              <video
-                ref={videoRef}
-                key="last"
-                width={300}
-                height={300}
-                src={`/rolls/${rolls[0]?.roll || "0"}.webm`}
-              />
-            )}
-          </div>
+          <Roller
+            rolling={isRolling}
+            failed={riggedRollFailed || rollTheDiceFailed}
+            result={myRoll}
+          />
         </div>
 
         <div className="max-lg:row-start-3">
