@@ -1,0 +1,15 @@
+{
+  "github": {
+    "enabled": true,
+    "autoJobCancelation": true,
+    "silent": false,
+    "deployments": {
+      "production": {
+        "branches": ["main"]
+      },
+      "preview": {
+        "branches": []
+      }
+    }
+  }
+}
