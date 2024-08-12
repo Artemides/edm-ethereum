@@ -300,7 +300,7 @@ const deployedContracts = {
       },
     },
     DEX: {
-      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
+      address: "0x1fA02b2d6A771842690194Cf62D91bdd92BfE28d",
       abi: [
         {
           inputs: [
@@ -449,6 +449,25 @@ const deployedContracts = {
             },
           ],
           stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "lp",
+              type: "address",
+            },
+          ],
+          name: "getLiquidity",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
@@ -2820,7 +2839,7 @@ const deployedContracts = {
       },
     },
     DEX: {
-      address: "0xf9681939F665d9Ed2533CC4E89b7548B02C9f0ed",
+      address: "0x7da3d6486F589c0b3405C53D40982e23cC009462",
       abi: [
         {
           inputs: [
@@ -2969,6 +2988,25 @@ const deployedContracts = {
             },
           ],
           stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "lp",
+              type: "address",
+            },
+          ],
+          name: "getLiquidity",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
