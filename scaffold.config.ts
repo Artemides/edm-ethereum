@@ -11,6 +11,7 @@ const isDevelopment = process.env.NODE_ENV === "development";
 
 export const scaffoldConfig = {
   targetNetworks: [
+    // chains.hardhat,
     chains.sepolia,
     chains.arbitrum,
     ...(isDevelopment ? [chains.hardhat] : []),
