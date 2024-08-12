@@ -8,7 +8,7 @@ const dapps: DaapItemProps[] = [
     href: "/mynfts",
   },
   {
-    name: "staking app",
+    name: "staking dapp",
     image: "/images/staking-app.svg",
     href: "/staker",
   },
@@ -18,9 +18,14 @@ const dapps: DaapItemProps[] = [
     href: "/erc20/token-vendor",
   },
   {
-    name: "token vendor daap",
+    name: "dice gaming daap",
     image: "/images/diceGame.svg",
     href: "/dice",
+  },
+  {
+    name: "dex dapp",
+    image: "/images/dex.svg",
+    href: "/dex",
   },
 ];
 
