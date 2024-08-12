@@ -278,13 +278,7 @@ const Dex: NextPage = () => {
                     try {
                       await writeBalloonsContractAsync({
                         functionName: "approve",
-                        args: [
-                          approveSpender,
-                          // @ts-expect-error - Show error on frontend while sending, if user types invalid number
-                          NUMBER_REGEX.test(approveAmount)
-                            ? parseEther(approveAmount)
-                            : approveAmount,
-                        ],
+                        args: [approveSpender, parseEther(approveAmount)],
                       });
                     } catch (err) {
                       console.error("Error calling approve function");
