@@ -1432,7 +1432,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Streamer: {
-      address: "0xf4B146FbA71F41E0592668ffbF264F1D186b2Ca8",
+      address: "0x4EE6eCAD1c2Dae9f525404De8555724e3c35d07B",
       abi: [
         {
           anonymous: false,
@@ -1519,7 +1519,7 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "challenge",
+          name: "challengeChannel",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",

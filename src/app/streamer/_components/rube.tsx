@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Address as AddressLike,
-  encodePacked,
-  keccak256,
-  parseEther,
-  toBytes,
-} from "viem";
+import { Address as AddressLike, createTestClient, encodePacked, http, keccak256, parseEther, toBytes } from "viem";
 import { useAccount, useSignMessage } from "wagmi";
 import { STREAM_ETH_VALUE } from "./guru";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
+import { hardhat } from "viem/chains";
+import { useSpeedReadContract } from "@/hooks/useSpeedReadContract";
+import humanizeDuration from "humanize-duration";
 
 export type RubeProps = {
   challenged: Array<AddressLike>;
@@ -21,7 +18,7 @@ export type RubeProps = {
 
 export const ETH_PER_CHARACTER = "0.01";
 
-export const Rube = ({ writable, closed }: RubeProps) => {
+export const Rube = ({ writable, closed, challenged }: RubeProps) => {
   const { address } = useAccount();
 
   const channel = useRef<BroadcastChannel>();
@@ -29,8 +26,14 @@ export const Rube = ({ writable, closed }: RubeProps) => {
   const [autoPay, setAutoPay] = useState(false);
 
   const { signMessageAsync } = useSignMessage();
-  const { writeContractAsync: writeStreamAsync } =
-    useSpeedWriteContract("Streamer");
+
+  const { writeContractAsync: writeStreamAsync } = useSpeedWriteContract("Streamer");
+  const { data: timeLeft } = useSpeedReadContract({
+    contractName: "Streamer",
+    functionName: "timeLeft",
+    args: [address],
+    watch: true,
+  });
 
   useEffect(() => {
     if (!address) return;
@@ -44,9 +47,7 @@ export const Rube = ({ writable, closed }: RubeProps) => {
     const duePayment = costPerCharacter * BigInt(wisdom.length);
     const updatedBalance = initialBalance + duePayment;
 
-    const msgRaw = toBytes(
-      keccak256(encodePacked(["uint256"], [updatedBalance]))
-    );
+    const msgRaw = toBytes(keccak256(encodePacked(["uint256"], [updatedBalance])));
     let signature;
     try {
       signature = await signMessageAsync({ message: { raw: msgRaw } });
@@ -102,20 +103,65 @@ export const Rube = ({ writable, closed }: RubeProps) => {
 
           <div className="text-center w-full mt-4">
             <p className="text-xl font-semibold">Received Wisdom</p>
-            <p className="mb-3 text-lg min-h-[1.75rem] border-2 border-primary rounded">
-              {wisdom}
-            </p>
+            <p className="mb-3 text-lg min-h-[1.75rem] border-2 border-primary rounded">{wisdom}</p>
+          </div>
+          <div className="flex flex-col items-center pb-6">
+            <button
+              disabled={challenged.includes(address)}
+              className="btn btn-primary"
+              onClick={async () => {
+                // disable the production of further voucher signatures
+                setAutoPay(false);
+
+                try {
+                  await writeStreamAsync({ functionName: "challengeChannel" });
+                } catch (err) {
+                  console.error("Error calling challengeChannel function");
+                }
+
+                try {
+                  // ensure a 'ticking clock' for the UI without having
+                  // to send new transactions & mine new blocks
+                  createTestClient({
+                    chain: hardhat,
+                    mode: "hardhat",
+                    transport: http(),
+                  })?.setIntervalMining({
+                    interval: 5,
+                  });
+                } catch (e) {}
+              }}
+            >
+              Challenge this channel
+            </button>
+
+            <div className="p-2 mt-6 h-10">
+              {challenged.includes(address) && !!timeLeft && (
+                <>
+                  <span>Time left:</span> {humanizeDuration(Number(timeLeft) * 1000)}
+                </>
+              )}
+            </div>
+            <button
+              className="btn btn-primary"
+              disabled={!challenged.includes(address) || !!timeLeft}
+              onClick={async () => {
+                try {
+                  await writeStreamAsync({ functionName: "defundChannel" });
+                } catch (err) {
+                  console.error("Error calling defundChannel function");
+                }
+              }}
+            >
+              Close and withdraw funds
+            </button>
           </div>
         </div>
       ) : address && closed.includes(address) ? (
         <div className="text-lg">
-          <p>
-            Thanks for stopping by - we hope you have enjoyed the guru&apos;s
-            advice.
-          </p>
+          <p>Thanks for stopping by - we hope you have enjoyed the guru&apos;s advice.</p>
           <p className="mt-8">
-            This UI obstructs you from opening a second channel. Why? Is it safe
-            to open another channel?
+            This UI obstructs you from opening a second channel. Why? Is it safe to open another channel?
           </p>
         </div>
       ) : (
