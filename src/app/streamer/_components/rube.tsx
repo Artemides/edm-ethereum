@@ -13,7 +13,7 @@ import { STREAM_ETH_VALUE } from "./guru";
 import { useSpeedWriteContract } from "@/hooks/useSpeedWriteContract";
 
 export type RubeProps = {
-  challenges: Array<AddressLike>;
+  challenged: Array<AddressLike>;
   opened: Array<AddressLike>;
   closed: Array<AddressLike>;
   writable: Array<AddressLike>;
