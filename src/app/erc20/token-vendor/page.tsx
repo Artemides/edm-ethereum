@@ -18,12 +18,12 @@ const TokenVendorPage: NextPage = () => {
   const [isApproved, setIsApproved] = useState(false);
 
   const { data: forzaSymbol } = useSpeedReadContract({
-    contractName: "ForzaToken",
+    contractName: "YourToken",
     functionName: "symbol",
   });
 
   const { data: addressForzaBalance } = useSpeedReadContract({
-    contractName: "ForzaToken",
+    contractName: "YourToken",
     functionName: "balanceOf",
     args: [address],
   });
@@ -34,7 +34,7 @@ const TokenVendorPage: NextPage = () => {
   const { data: vendor } = useDeployedContractInfo("Vendor");
 
   const { data: vendorForzaBalance } = useSpeedReadContract({
-    contractName: "ForzaToken",
+    contractName: "YourToken",
     functionName: "balanceOf",
     args: [vendor?.address],
   });
@@ -42,10 +42,8 @@ const TokenVendorPage: NextPage = () => {
   const { data: vendorEthBalance } = useWatchBalance({
     address: vendor?.address,
   });
-  const { writeContractAsync: writeForzaAsync } =
-    useSpeedWriteContract("ForzaToken");
-  const { writeContractAsync: writeVendorAsync } =
-    useSpeedWriteContract("Vendor");
+  const { writeContractAsync: writeForzaAsync } = useSpeedWriteContract("YourToken");
+  const { writeContractAsync: writeVendorAsync } = useSpeedWriteContract("Vendor");
 
   return (
     <div className="flex items-center flex-col flex-grow justify-center ">
@@ -66,8 +64,7 @@ const TokenVendorPage: NextPage = () => {
           </div>
         </div>
         <div>
-          Vendor eth balance:{" "}
-          {Number(formatEther(vendorEthBalance?.value || 0n)).toFixed(4)}
+          Vendor eth balance: {Number(formatEther(vendorEthBalance?.value || 0n)).toFixed(4)}
           <span className="font-bold ml-1">ETH</span>
         </div>
       </div>
