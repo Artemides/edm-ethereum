@@ -11,10 +11,10 @@ const isDevelopment = process.env.NODE_ENV === "development";
 
 export const scaffoldConfig = {
   targetNetworks: [
-    // chains.hardhat,
+    chains.hardhat,
     chains.sepolia,
     chains.arbitrum,
-    ...(isDevelopment ? [chains.hardhat] : []),
+    // ...(isDevelopment ? [chains.hardhat] : []),
   ],
   pollingInterval: 30000,
   alchemyApiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || "",
