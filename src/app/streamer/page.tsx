@@ -31,13 +31,13 @@ const StreamerPage: NextPage = () => {
   });
   const { data: closedChannelsHistory } = useSpeedEventHistory({
     contractName: "Streamer",
-    eventName: "Opened",
+    eventName: "Closed",
     fromBlock: 0n,
     watch: true,
   });
   const { data: challengedChannelsHistory } = useSpeedEventHistory({
     contractName: "Streamer",
-    eventName: "Opened",
+    eventName: "Challegenged",
     fromBlock: 0n,
     watch: true,
   });

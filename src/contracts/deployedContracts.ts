@@ -1432,7 +1432,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Streamer: {
-      address: "0xdbC43Ba45381e02825b14322cDdd15eC4B3164E6",
+      address: "0x4C4a2f8c81640e47606d3fd77B353E87Ba015584",
       abi: [
         {
           anonymous: false,
@@ -1440,13 +1440,39 @@ const deployedContracts = {
             {
               indexed: false,
               internalType: "address",
-              name: "channel",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "Challegenged",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "Closed",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "",
               type: "address",
             },
             {
               indexed: false,
               internalType: "uint256",
-              name: "balance",
+              name: "",
               type: "uint256",
             },
           ],
@@ -1470,6 +1496,25 @@ const deployedContracts = {
             },
           ],
           name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "Withdrawn",
           type: "event",
         },
         {
