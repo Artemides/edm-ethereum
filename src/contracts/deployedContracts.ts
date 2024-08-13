@@ -1432,7 +1432,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Streamer: {
-      address: "0x8198f5d8F8CfFE8f9C413d98a0A55aEB8ab9FbB7",
+      address: "0xf4B146FbA71F41E0592668ffbF264F1D186b2Ca8",
       abi: [
         {
           anonymous: false,
@@ -1519,6 +1519,20 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "challenge",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "defundChannel",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "fundChannel",
           outputs: [],
           stateMutability: "payable",
@@ -1542,6 +1556,25 @@ const deployedContracts = {
           name: "renounceOwnership",
           outputs: [],
           stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "channel",
+              type: "address",
+            },
+          ],
+          name: "timeLeft",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
