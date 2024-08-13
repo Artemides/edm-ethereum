@@ -37,44 +37,43 @@ const StreamerPage: NextPage = () => {
   });
   const { data: challengedChannelsHistory } = useSpeedEventHistory({
     contractName: "Streamer",
-    eventName: "Challegenged",
+    eventName: "Challenged",
     fromBlock: 0n,
     watch: true,
   });
 
   useEffect(() => {
     if (!openChannelsHistory) return;
-    if (openChannelsHistory.length === opened?.length) return;
-    const addresses = openChannelsHistory
-      .map((event) => event.args[0])
-      .reverse();
 
-    setOpened(addresses);
+    setOpened((_opened) => {
+      if (openChannelsHistory.length === _opened.length) return _opened;
+
+      const addresses = openChannelsHistory.map((event) => event.args[0]).reverse();
+      return addresses;
+    });
   }, [openChannelsHistory]);
 
   useEffect(() => {
     if (!closedChannelsHistory) return;
-    if (closedChannelsHistory.length === opened?.length) return;
-    const addresses = closedChannelsHistory
-      .map((event) => event.args[0])
-      .reverse();
+    setClosed((_closed) => {
+      if (closedChannelsHistory.length === _closed.length) return _closed;
 
-    setClosed(addresses);
+      const addresses = closedChannelsHistory.map((event) => event.args[0]).reverse();
+      return addresses;
+    });
   }, [closedChannelsHistory]);
 
   useEffect(() => {
     if (!challengedChannelsHistory) return;
-    if (challengedChannelsHistory.length === opened?.length) return;
-    const addresses = challengedChannelsHistory
-      .map((event) => event.args[0])
-      .reverse();
+    setChallenged((_challenged) => {
+      if (challengedChannelsHistory.length === _challenged.length) return _challenged;
 
-    setChallenged(addresses);
+      const addresses = challengedChannelsHistory.map((event) => event.args[0]).reverse();
+      return addresses;
+    });
   }, [challengedChannelsHistory]);
 
-  const writableChannels = opened.filter(
-    (address) => !closed.includes(address)
-  );
+  const writableChannels = opened.filter((address) => !closed.includes(address));
 
   return (
     <>
@@ -82,19 +81,9 @@ const StreamerPage: NextPage = () => {
         <div className="flex flex-col items-center bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-24 w-full max-w-lg">
           {ownerKnown ? (
             isGuru ? (
-              <Guru
-                closed={closed}
-                opened={opened}
-                challenged={challenged}
-                writable={writableChannels}
-              />
+              <Guru closed={closed} opened={opened} challenged={challenged} writable={writableChannels} />
             ) : (
-              <Rube
-                closed={closed}
-                opened={opened}
-                challenged={challenged}
-                writable={writableChannels}
-              />
+              <Rube closed={closed} opened={opened} challenged={challenged} writable={writableChannels} />
             )
           ) : null}
         </div>
