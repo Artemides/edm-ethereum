@@ -27,6 +27,11 @@ const dapps: DaapItemProps[] = [
     image: "/images/dex.svg",
     href: "/dex",
   },
+  {
+    name: "state channels dapp",
+    image: "/images/state.svg",
+    href: "/streamer",
+  },
 ];
 
 export const Daaps = () => {
@@ -34,12 +39,7 @@ export const Daaps = () => {
     <div className=" flex-grow bg-base-200 w-full  ">
       <div className="flex-wrap flex justify-center items-center gap-12 flex-col sm:flex-row">
         {dapps.map((daap) => (
-          <DaapItem
-            key={daap.name}
-            href={daap.href}
-            image={daap.image}
-            name={daap.name}
-          />
+          <DaapItem key={daap.name} href={daap.href} image={daap.image} name={daap.name} />
         ))}
       </div>
     </div>
