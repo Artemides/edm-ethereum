@@ -1432,7 +1432,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Streamer: {
-      address: "0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7",
+      address: "0xe70f935c32dA4dB13e7876795f1e175465e6458e",
       abi: [
         {
           anonymous: false,
