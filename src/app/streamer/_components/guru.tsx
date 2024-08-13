@@ -8,6 +8,7 @@ import { Address as AddressLike, encodePacked, formatEther, keccak256, parseEthe
 import { ETH_PER_CHARACTER } from "./rube";
 import { notification } from "@/utils/scaffold-eth/notification";
 import { CashOutVoucher } from "./cash-out-voucher";
+import { useSpeedEventHistory } from "@/hooks/useSpeedEventHistory";
 
 export type Voucher = { updatedBalance: bigint; signature: `0x${string}` };
 
@@ -29,6 +30,35 @@ export const Guru = ({ opened, writable, challenged, closed }: GuruProps) => {
   const [wisdoms, setWisdoms] = useState<Record<AddressLike, string>>({});
   const [vouchers, setVouchers] = useState<Record<AddressLike, Voucher>>({});
   const [channels, setChannels] = useState<Record<AddressLike, BroadcastChannel>>({});
+
+  const { data: challengeHistory } = useSpeedEventHistory({
+    contractName: "Streamer",
+    eventName: "Challenged",
+    fromBlock: 0n,
+    watch: true,
+  });
+
+  const provideService = (address: AddressLike, wisdom: string) => {
+    const voucher = vouchers[address];
+    const wisdomCost = BigInt(wisdom.length) * parseEther(ETH_PER_CHARACTER);
+    const tolerance = parseEther(ETH_PER_CHARACTER) * 3n;
+
+    if (!voucher && wisdomCost > tolerance) {
+      notification.warning(`${address} Cut off due to unpaid wisdoms`);
+      return;
+    }
+
+    if (voucher) {
+      const wisdomPaid = voucher.updatedBalance - parseEther(STREAM_ETH_VALUE);
+      if (Math.abs(Number(wisdomCost - wisdomPaid)) > tolerance) {
+        notification.warning(`${address} Cut off due to unpaid wisdoms`);
+        return;
+      }
+    }
+
+    setWisdoms((prev) => ({ ...prev, [address]: wisdom }));
+    channels[address]?.postMessage(wisdom);
+  };
 
   const receiveVoucher = useCallback((address: AddressLike) => {
     return async function processVoucher({ data }: { data: Pick<Voucher, "signature"> & { updatedBalance: string } }) {
@@ -82,27 +112,9 @@ export const Guru = ({ opened, writable, challenged, closed }: GuruProps) => {
     });
   }, [opened, receiveVoucher]);
 
-  const provideService = (address: AddressLike, wisdom: string) => {
-    const voucher = vouchers[address];
-    const wisdomCost = BigInt(wisdom.length) * parseEther(ETH_PER_CHARACTER);
-    const tolerance = parseEther(ETH_PER_CHARACTER) * 3n;
-
-    if (!voucher && wisdomCost > tolerance) {
-      notification.warning(`${address} Cut off due to unpaid wisdoms`);
-      return;
-    }
-
-    if (voucher) {
-      const wisdomPaid = voucher.updatedBalance - parseEther(STREAM_ETH_VALUE);
-      if (Math.abs(Number(wisdomCost - wisdomPaid)) > tolerance) {
-        notification.warning(`${address} Cut off due to unpaid wisdoms`);
-        return;
-      }
-    }
-
-    setWisdoms((prev) => ({ ...prev, [address]: wisdom }));
-    channels[address]?.postMessage(wisdom);
-  };
+  useEffect(() => {
+    if (!challengeHistory || challengeHistory.length <= 0) return;
+  }, [challengeHistory]);
 
   return (
     <>
