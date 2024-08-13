@@ -1432,7 +1432,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Streamer: {
-      address: "0x4C4a2f8c81640e47606d3fd77B353E87Ba015584",
+      address: "0x8198f5d8F8CfFE8f9C413d98a0A55aEB8ab9FbB7",
       abi: [
         {
           anonymous: false,
@@ -1553,6 +1553,48 @@ const deployedContracts = {
             },
           ],
           name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "updatedBalance",
+                  type: "uint256",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "bytes32",
+                      name: "r",
+                      type: "bytes32",
+                    },
+                    {
+                      internalType: "bytes32",
+                      name: "s",
+                      type: "bytes32",
+                    },
+                    {
+                      internalType: "uint8",
+                      name: "v",
+                      type: "uint8",
+                    },
+                  ],
+                  internalType: "struct Streamer.Signature",
+                  name: "sig",
+                  type: "tuple",
+                },
+              ],
+              internalType: "struct Streamer.Voucher",
+              name: "voucher",
+              type: "tuple",
+            },
+          ],
+          name: "withdrawEarnings",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
