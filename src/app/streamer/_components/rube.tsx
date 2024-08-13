@@ -19,7 +19,7 @@ export type RubeProps = {
   writable: Array<AddressLike>;
 };
 
-const ETH_PER_CHARACTER = "0.01";
+export const ETH_PER_CHARACTER = "0.01";
 
 export const Rube = ({ writable, closed }: RubeProps) => {
   const { address } = useAccount();

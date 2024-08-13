@@ -13,6 +13,8 @@ import {
   toBytes,
   verifyMessage,
 } from "viem";
+import { ETH_PER_CHARACTER } from "./rube";
+import { notification } from "@/utils/scaffold-eth/notification";
 
 export type Voucher = { updatedBalance: bigint; signature: `0x${string}` };
 
@@ -96,6 +98,23 @@ export const Guru = ({ opened, writable }: GuruProps) => {
   }, [opened, receiveVoucher]);
 
   const provideService = (address: AddressLike, wisdom: string) => {
+    const voucher = vouchers[address];
+    const wisdomCost = BigInt(wisdom.length) * parseEther(ETH_PER_CHARACTER);
+    const tolerance = parseEther(ETH_PER_CHARACTER) * 3n;
+
+    if (!voucher && wisdomCost > tolerance) {
+      notification.warning(`${address} Cut off due to unpaid wisdoms`);
+      return;
+    }
+
+    if (voucher) {
+      const wisdomPaid = voucher.updatedBalance - parseEther(STREAM_ETH_VALUE);
+      if (Math.abs(Number(wisdomCost - wisdomPaid)) > tolerance) {
+        notification.warning(`${address} Cut off due to unpaid wisdoms`);
+        return;
+      }
+    }
+
     setWisdoms((prev) => ({ ...prev, [address]: wisdom }));
     channels[address]?.postMessage(wisdom);
   };
