@@ -4,17 +4,10 @@ import { Address } from "@/components/scaffold-eth/address";
 import { useDeployedContractInfo } from "@/hooks/useDeployedContract";
 import { useWatchBalance } from "@/hooks/useWatchBalance";
 import React, { useCallback, useEffect, useState } from "react";
-import {
-  Address as AddressLike,
-  encodePacked,
-  formatEther,
-  keccak256,
-  parseEther,
-  toBytes,
-  verifyMessage,
-} from "viem";
+import { Address as AddressLike, encodePacked, formatEther, keccak256, parseEther, toBytes, verifyMessage } from "viem";
 import { ETH_PER_CHARACTER } from "./rube";
 import { notification } from "@/utils/scaffold-eth/notification";
+import { CashOutVoucher } from "./cash-out-voucher";
 
 export type Voucher = { updatedBalance: bigint; signature: `0x${string}` };
 
@@ -27,7 +20,7 @@ type GuruProps = {
 
 export const STREAM_ETH_VALUE = "0.5";
 
-export const Guru = ({ opened, writable }: GuruProps) => {
+export const Guru = ({ opened, writable, challenged, closed }: GuruProps) => {
   const { data: Streamer } = useDeployedContractInfo("Streamer");
   const { data: streamerBalance } = useWatchBalance({
     address: Streamer?.address,
@@ -35,23 +28,15 @@ export const Guru = ({ opened, writable }: GuruProps) => {
 
   const [wisdoms, setWisdoms] = useState<Record<AddressLike, string>>({});
   const [vouchers, setVouchers] = useState<Record<AddressLike, Voucher>>({});
-  const [channels, setChannels] = useState<
-    Record<AddressLike, BroadcastChannel>
-  >({});
+  const [channels, setChannels] = useState<Record<AddressLike, BroadcastChannel>>({});
 
   const receiveVoucher = useCallback((address: AddressLike) => {
-    return async function processVoucher({
-      data,
-    }: {
-      data: Pick<Voucher, "signature"> & { updatedBalance: string };
-    }) {
+    return async function processVoucher({ data }: { data: Pick<Voucher, "signature"> & { updatedBalance: string } }) {
       if (!data.updatedBalance) return;
 
       const updatedBalance = BigInt(`0x${data.updatedBalance}`);
 
-      const msgRaw = toBytes(
-        keccak256(encodePacked(["uint256"], [updatedBalance]))
-      );
+      const msgRaw = toBytes(keccak256(encodePacked(["uint256"], [updatedBalance])));
 
       try {
         const isValid = await verifyMessage({
@@ -126,20 +111,15 @@ export const Guru = ({ opened, writable }: GuruProps) => {
         You have {writable.length} channel{writable.length == 1 ? "" : "s"} open
       </p>
       <p className="mt-0 text-lg text-center font-semibold">
-        Total ETH locked:{" "}
-        {Number(formatEther(streamerBalance?.value || 0n)).toFixed(4)} ETH
+        Total ETH locked: {Number(formatEther(streamerBalance?.value || 0n)).toFixed(4)} ETH
       </p>
       <div className="mt-4 text-lg">
-        Channels with <button className="btn btn-sm btn-error">RED</button>{" "}
-        withdrawal buttons are under challenge on-chain, and should be redeemed
-        ASAP.
+        Channels with <button className="btn btn-sm btn-error">RED</button> withdrawal buttons are under challenge
+        on-chain, and should be redeemed ASAP.
       </div>
       <div className="mt-4 w-full flex flex-col">
         {writable.map((clientAddress) => (
-          <div
-            key={clientAddress}
-            className="w-full flex flex-col border-primary border-t py-6"
-          >
+          <div key={clientAddress} className="w-full flex flex-col border-primary border-t py-6">
             <Address address={clientAddress} size="xl" />
             <textarea
               className="mt-3 bg-base-200"
@@ -162,24 +142,20 @@ export const Guru = ({ opened, writable }: GuruProps) => {
                 Received:{" "}
                 <strong id={`claimable-${clientAddress}`}>
                   {vouchers[clientAddress]
-                    ? formatEther(
-                        parseEther(STREAM_ETH_VALUE) -
-                          vouchers[clientAddress].updatedBalance
-                      )
+                    ? formatEther(parseEther(STREAM_ETH_VALUE) - vouchers[clientAddress].updatedBalance)
                     : 0}
                 </strong>
                 &nbsp;ETH
               </div>
             </div>
 
-            {/* Checkpoint 4: */}
-            {/* <CashOutVoucherButton
+            <CashOutVoucher
               key={clientAddress}
               clientAddress={clientAddress}
               challenged={challenged}
               closed={closed}
               voucher={vouchers[clientAddress]}
-            /> */}
+            />
           </div>
         ))}
       </div>
