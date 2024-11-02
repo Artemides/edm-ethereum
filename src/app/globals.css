@@ -28,6 +28,9 @@ p {
    */
   background: linear-gradient(to right, #161623, #0a0b16 30%, #0a0b16 60%, #161623);
 }
+.border-gradient {
+  border: 1px solid linear-gradient(to top, #524bb0, #00000000);
+}
 .btn {
   @apply shadow-md;
 }

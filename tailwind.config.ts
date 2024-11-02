@@ -86,6 +86,9 @@ const config: Config = {
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
+      // borderColor: {
+      //   "gradien-to-t": "",
+      // },
       backgroundImage: {
         "radial-orange-to-transparent": "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
         "gradient-base": "bg-gradient-to-r from-[#161623] via-[#0A0B16] to-[#161623]",
