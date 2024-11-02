@@ -13,11 +13,11 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#C8F5FF",
-          "primary-content": "#026262",
-          secondary: "#89d7e9",
-          "secondary-content": "#088484",
-          accent: "#026262",
+          primary: "#FF9959",
+          "primary-content": "#FFFFFF",
+          secondary: "#323232",
+          "secondary-content": "#A8A8A8",
+          accent: "#CAB3F5",
           "accent-content": "#E9FBFF",
           neutral: "#088484",
           "neutral-content": "#F0FCFF",
@@ -87,8 +87,7 @@ const config: Config = {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       backgroundImage: {
-        "radial-orange-to-transparent":
-          "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
+        "radial-orange-to-transparent": "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
       },
     },
   },
