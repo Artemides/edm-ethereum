@@ -1,14 +1,12 @@
-import { Inter } from "next/font/google";
+import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { getMetadata } from "@/utils/scaffold-eth/getMetadata";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = getMetadata({
-  title: "edm.eth",
-  description: "smart contract developer portfolio",
+  title: "Speedrun NFT",
+  description: "nft`",
 });
 
 export default function RootLayout({
@@ -18,8 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body>
+        <ThemeProvider>
+          <AppProvider>{children}</AppProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
