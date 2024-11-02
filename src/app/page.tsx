@@ -8,6 +8,14 @@ const Portfolio: NextPage = () => {
       <section id="hero" className="grid grid-cols-2">
         <div className="py-14 flex-col justify-items-center">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
+          <div className="text-center">
+            <h2 className="text-3xl ">Edmundo Arias O.</h2>
+            <p>
+              <span>Software Engineer</span>
+              <br />
+              <span>Smart Contrac developer/Auditor</span>
+            </p>
+          </div>
         </div>
         <div>some</div>
       </section>

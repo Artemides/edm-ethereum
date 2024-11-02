@@ -24,7 +24,7 @@ const config: Config = {
           "base-100": "#F0FCFF",
           "base-200": "#E1FAFF",
           "base-300": "#C8F5FF",
-          "base-content": "#088484",
+          "base-content": "#fff",
           info: "#026262",
           success: "#34EEB6",
           warning: "#FFCF72",
@@ -45,11 +45,11 @@ const config: Config = {
       },
       {
         dark: {
-          primary: "#026262",
-          "primary-content": "#C8F5FF",
-          secondary: "#107575",
-          "secondary-content": "#E9FBFF",
-          accent: "#C8F5FF",
+          primary: "#FF9959",
+          "primary-content": "#FFFFFF",
+          secondary: "#323232",
+          "secondary-content": "#A8A8A8",
+          accent: "#CAB3F5",
           "accent-content": "#088484",
           neutral: "#E9FBFF",
           "neutral-content": "#11ACAC",
@@ -86,9 +86,9 @@ const config: Config = {
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
-      // borderColor: {
-      //   "gradien-to-t": "",
-      // },
+      borderColor: {
+        "gradien-to-t": "",
+      },
       backgroundImage: {
         "radial-orange-to-transparent": "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
         "gradient-base": "bg-gradient-to-r from-[#161623] via-[#0A0B16] to-[#161623]",

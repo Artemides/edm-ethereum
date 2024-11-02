@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { getMetadata } from "@/utils/scaffold-eth/getMetadata";
 
-const inter = Inter({ subsets: ["latin"] });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata = getMetadata({
   title: "edm.eth",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={jetbrains.className}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
