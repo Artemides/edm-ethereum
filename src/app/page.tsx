@@ -1,22 +1,60 @@
 import Avatar from "@/components/avatar";
+import { Button } from "@/components/button";
+import { Element } from "@/components/portfolio/element";
+import { Foundry } from "@/components/portfolio/icons/foundry";
+import { Hardhat } from "@/components/portfolio/icons/hardhat";
+import { Rust } from "@/components/portfolio/icons/rust";
+import { Solidity } from "@/components/portfolio/icons/solidity";
+import { Typescript } from "@/components/portfolio/icons/typescript";
 import { NextPage } from "next";
+import Image from "next/image";
 import React from "react";
 
 const Portfolio: NextPage = () => {
   return (
     <div className="min-h-screen gradient-base ">
       <section id="hero" className="grid grid-cols-2">
-        <div className="py-14 flex-col justify-items-center">
+        <div className="text-center py-14 ">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-          <div className="text-center">
+          <div className="my-5 [&>p]:my-0 [&>p]:text-secondary-content">
             <h2 className="text-3xl ">Edmundo Arias O.</h2>
-            <p>
-              <span>Software Engineer</span>
-              <br />
-              <span>Smart Contrac developer/Auditor</span>
-            </p>
+            <p>Software Engineer</p>
+            <p>Smart Contract developer/Auditor</p>
+          </div>
+          <div className="w-2/3 flex gap-x-4 px-10 m-auto">
+            <Button className="flex-1 ">Resume</Button>
+            <Button className="flex-1 text-primary" variant={"secondary"}>
+              Wanna talk?
+            </Button>
+          </div>
+          <small className="text-accent underline">Reach to me as Frontend developer</small>
+          <h2 className="text-primary my-8">Loved tools </h2>
+          <div className="my-4">
+            <div className="inline-flex gap-x-2">
+              <Element className="w-20 inline-flex flex-col justify-evenly items-center ">
+                <Solidity width="30%" />
+                <small>Solidity</small>
+              </Element>
+              <Element className="w-20 inline-flex flex-col justify-evenly items-center ">
+                <Foundry width="60%" />
+                <small>Foundry</small>
+              </Element>
+              <Element className="w-20 inline-flex flex-col justify-evenly items-center ">
+                <Typescript width="50%" />
+                <small>Typescr.</small>
+              </Element>
+              <Element className="w-20 inline-flex flex-col justify-evenly items-center ">
+                <Hardhat width="45" />
+                <small>Hardhat</small>
+              </Element>
+              <Element className="w-20 inline-flex flex-col justify-evenly items-center ">
+                <Rust width="50%" />
+                <small>Rust</small>
+              </Element>
+            </div>
           </div>
         </div>
+
         <div>some</div>
       </section>
     </div>
