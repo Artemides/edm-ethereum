@@ -17,8 +17,8 @@ import React from "react";
 const Portfolio: NextPage = () => {
   return (
     <div className="min-h-screen gradient-base ">
-      <section id="hero" className="grid grid-cols-2">
-        <div className="text-center py-14 ">
+      <section id="hero" className="grid grid-cols-12 pt-[80px]">
+        <div className="text-center py-14 col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
           <div className="my-5 [&>p]:my-0 [&>p]:text-secondary-content">
             <h1 className="text-3xl ">Edmundo Arias O.</h1>
@@ -59,8 +59,8 @@ const Portfolio: NextPage = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2>Approach</h2>
+        <div className="col-span-7">
+          <h2 className="text-3xl tracking-tighter">Approach</h2>
           <Universe />
         </div>
       </section>
