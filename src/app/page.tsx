@@ -8,6 +8,7 @@ import { Rust } from "@/components/portfolio/icons/rust";
 import { Solidity } from "@/components/portfolio/icons/solidity";
 import { Typescript } from "@/components/portfolio/icons/typescript";
 import { Socials } from "@/components/portfolio/socials";
+import { Universe } from "@/components/portfolio/universe";
 import { NextPage } from "next";
 import Image from "next/image";
 import path from "path";
@@ -60,12 +61,7 @@ const Portfolio: NextPage = () => {
         </div>
         <div>
           <h2>Approach</h2>
-          <div id="universe" className="">
-            <Bubble className="w-20 aspect-square" bColor="#FFF459" bgColor="#fff459b0">
-              <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "> 🚀</span>
-            </Bubble>
-            <div></div>
-          </div>
+          <Universe />
         </div>
       </section>
     </div>

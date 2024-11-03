@@ -38,7 +38,12 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
-
+.universe-element {
+  @apply absolute top-1/2 left-1/2 w-10 h-10 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2;
+  /* Calculate the angle and radius for each element */
+  --angle: calc(360deg / 7 * var(--i));
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(120px);
+}
 .gradient-border {
   padding: 10px; /* Space inside the element */
   border-radius: 8px;

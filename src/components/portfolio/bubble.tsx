@@ -1,6 +1,7 @@
 import React from "react";
 
 type BubbleProps = {
+  id: string;
   width?: string;
   height?: string;
   bgColor?: string;
@@ -22,7 +23,7 @@ export const Bubble = ({
   );
 };
 
-export const BubbleBorder = ({ width, height, bgColor = "#fff", bColor = "#fff" }: BubbleProps) => {
+export const BubbleBorder = ({ id, width, height, bgColor = "#fff", bColor = "#fff" }: BubbleProps) => {
   return (
     <svg
       width={width ?? "100%"}
@@ -33,12 +34,18 @@ export const BubbleBorder = ({ width, height, bgColor = "#fff", bColor = "#fff" 
       className="absolute "
     >
       <g filter="url(#filter0_d_2447_648)">
-        <circle cx="48" cy="40" r="47" fill="url(#paint0_radial_2447_648)" shapeRendering="geometricPrecision" />
         <circle
           cx="48"
           cy="40"
           r="47"
-          stroke="url(#paint1_linear_2447_648)"
+          fill={`url(#paint0_radial_2447_648_${id})`}
+          shapeRendering="geometricPrecision"
+        />
+        <circle
+          cx="48"
+          cy="40"
+          r="47"
+          stroke={`url(#paint1_linear_2447_648_${id})`}
           stroke-width="2"
           shapeRendering="geometricPrecision"
         />
@@ -69,7 +76,7 @@ export const BubbleBorder = ({ width, height, bgColor = "#fff", bColor = "#fff" 
           <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2447_648" result="shape" />
         </filter>
         <radialGradient
-          id="paint0_radial_2447_648"
+          id={`paint0_radial_2447_648_${id}`}
           cx="0"
           cy="0"
           r="1"
@@ -79,7 +86,14 @@ export const BubbleBorder = ({ width, height, bgColor = "#fff", bColor = "#fff" 
           <stop offset="0.67" stop-color="#737373" stop-opacity="0" />
           <stop offset="1" stop-color={bgColor} stop-opacity="0.46" />
         </radialGradient>
-        <linearGradient id="paint1_linear_2447_648" x1="48" y1="0" x2="48" y2="80" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id={`paint1_linear_2447_648_${id}`}
+          x1="48"
+          y1="0"
+          x2="48"
+          y2="80"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop offset="0.095" stop-opacity="0" />
           <stop offset="1" stop-color={bColor} />
         </linearGradient>
