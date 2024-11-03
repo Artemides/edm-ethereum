@@ -4,17 +4,40 @@ type BubbleProps = {
   width?: string;
   height?: string;
   bgColor?: string;
-  borderColor?: string;
+  bColor?: string;
 };
-export const Bubble = ({ width, height, bgColor = "#fff", borderColor = "#fff" }: BubbleProps) => {
+
+import { cn } from "@/utils/ui";
+
+export const Bubble = ({
+  children,
+  className,
+  ...props
+}: { children?: React.ReactNode; className?: string } & BubbleProps) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className={cn("relative", className)}>
+      <BubbleBorder {...props} />
+      {children}
+    </div>
+  );
+};
+
+export const BubbleBorder = ({ width, height, bgColor = "#fff", bColor = "#fff" }: BubbleProps) => {
+  return (
+    <svg
+      width={width ?? "100%"}
+      height={height ?? "100%"}
+      viewBox="0 0 96 82"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute "
+    >
       <g filter="url(#filter0_d_2447_648)">
-        <circle cx="48" cy="40" r="40" fill="url(#paint0_radial_2447_648)" shape-rendering="crispEdges" />
+        <circle cx="48" cy="40" r="47" fill="url(#paint0_radial_2447_648)" shapeRendering="geometricPrecision" />
         <circle
           cx="48"
           cy="40"
-          r="39.5"
+          r="47"
           stroke="url(#paint1_linear_2447_648)"
           stroke-width="2"
           shapeRendering="geometricPrecision"
@@ -53,12 +76,12 @@ export const Bubble = ({ width, height, bgColor = "#fff", borderColor = "#fff" }
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(48 -14) rotate(90) scale(94)"
         >
-          <stop offset="0.745" stop-color="#737373" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFF459" stop-opacity="0.46" />
+          <stop offset="0.67" stop-color="#737373" stop-opacity="0" />
+          <stop offset="1" stop-color={bgColor} stop-opacity="0.46" />
         </radialGradient>
         <linearGradient id="paint1_linear_2447_648" x1="48" y1="0" x2="48" y2="80" gradientUnits="userSpaceOnUse">
           <stop offset="0.095" stop-opacity="0" />
-          <stop offset="1" stop-color="#FFF459" />
+          <stop offset="1" stop-color={bColor} />
         </linearGradient>
       </defs>
     </svg>

@@ -58,11 +58,12 @@ const Portfolio: NextPage = () => {
             </div>
           </div>
         </div>
-
         <div>
           <h2>Approach</h2>
           <div id="universe" className="">
-            <Bubble width="80" height="80" />
+            <Bubble className="w-20 aspect-square" bColor="#FFF459" bgColor="#fff459b0">
+              <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "> 🚀</span>
+            </Bubble>
             <div></div>
           </div>
         </div>
