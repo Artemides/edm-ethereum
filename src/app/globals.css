@@ -17,6 +17,7 @@ h3,
 h4 {
   margin-bottom: 0.5rem;
   line-height: 1;
+  letter-spacing: -1px;
 }
 
 p {
@@ -53,4 +54,22 @@ p {
   border-width: 2px;
   border-radius: 16px;
   border-image: linear-gradient(to top, #949494 30%, #4d9f0c, transparent 50%) 5;
+}
+
+.mask-gradient-to-t {
+  mask-image: linear-gradient(black 20%, transparent);
+}
+
+.blured-shadow {
+  box-shadow: 0px 0px 250px 105px #4d3ba9a8;
+}
+
+.estellar-cloud-gradient {
+  background: radial-gradient(circle, transparent 65%, #724fe37f 99%);
+  /* , radial-gradient(circle, purple 0%, transparent 80%) */
+}
+.text-gradient {
+  background: linear-gradient(to bottom, #ffffff, #afefec, #81a2e6, #beaaeb); /* Example gradient */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

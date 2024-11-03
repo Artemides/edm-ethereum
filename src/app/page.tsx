@@ -21,7 +21,7 @@ const Portfolio: NextPage = () => {
         <div className="text-center py-14 col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
           <div className="my-5 [&>p]:my-0 [&>p]:text-secondary-content">
-            <h1 className="text-3xl ">Edmundo Arias O.</h1>
+            <h2 className="text-3xl ">Edmundo Arias O.</h2>
             <p>Software Engineer</p>
             <p>Smart Contract developer/Auditor</p>
           </div>
@@ -62,6 +62,10 @@ const Portfolio: NextPage = () => {
         <div className="col-span-7">
           <h2 className="text-3xl tracking-tighter">Approach</h2>
           <Universe />
+          <div className="m-auto w-2/3 text-gradient text-center tracking-tighter">
+            <h1 className="text-4xl">From inception to execution</h1>
+            <p className="text-xl"> every line of code is fortified with security️ and foresight.</p>
+          </div>
         </div>
       </section>
     </div>

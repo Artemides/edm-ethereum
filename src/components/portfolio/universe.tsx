@@ -1,5 +1,6 @@
 import React from "react";
 import { Bubble } from "./bubble";
+import Image from "next/image";
 
 const topics = [
   {
@@ -55,8 +56,20 @@ const topics = [
 
 export const Universe = () => {
   return (
-    <div id="universe" className="">
-      <div className="m-auto relative w-[450px] aspect-square border-[1px] border-white/5 rounded-full">
+    <div id="universe" className="mb-24">
+      <div className="m-auto relative w-[450px] aspect-square border-[1px] border-white/5  rounded-full estellar-cloud-gradient ">
+        <div className="absolute w-2/3 aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  border-[1px] border-white/5  rounded-full"></div>
+
+        <div className="absolute w-1/3 aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  border-[1px] border-white/5  rounded-full"></div>
+
+        <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow"></div>
+        <Image
+          src={"/images/portfolio/ether.webp"}
+          alt="ether"
+          width={130}
+          height={200}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
+        />
         {/* 
             a = (360 / 7) * i 
             x = (cx+ radius) * cos(a)  - half \
