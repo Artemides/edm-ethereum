@@ -1,5 +1,6 @@
 import Avatar from "@/components/avatar";
 import { Button } from "@/components/button";
+import { Bubble } from "@/components/portfolio/bubble";
 import { Element } from "@/components/portfolio/element";
 import { Foundry } from "@/components/portfolio/icons/foundry";
 import { Hardhat } from "@/components/portfolio/icons/hardhat";
@@ -19,7 +20,7 @@ const Portfolio: NextPage = () => {
         <div className="text-center py-14 ">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
           <div className="my-5 [&>p]:my-0 [&>p]:text-secondary-content">
-            <h2 className="text-3xl ">Edmundo Arias O.</h2>
+            <h1 className="text-3xl ">Edmundo Arias O.</h1>
             <p>Software Engineer</p>
             <p>Smart Contract developer/Auditor</p>
           </div>
@@ -58,7 +59,13 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
 
-        <div>some</div>
+        <div>
+          <h2>Approach</h2>
+          <div id="universe" className="">
+            <Bubble width="80" height="80" />
+            <div></div>
+          </div>
+        </div>
       </section>
     </div>
   );
