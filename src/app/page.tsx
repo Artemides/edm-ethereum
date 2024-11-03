@@ -6,8 +6,10 @@ import { Hardhat } from "@/components/portfolio/icons/hardhat";
 import { Rust } from "@/components/portfolio/icons/rust";
 import { Solidity } from "@/components/portfolio/icons/solidity";
 import { Typescript } from "@/components/portfolio/icons/typescript";
+import { Socials } from "@/components/portfolio/socials";
 import { NextPage } from "next";
 import Image from "next/image";
+import path from "path";
 import React from "react";
 
 const Portfolio: NextPage = () => {
@@ -21,6 +23,7 @@ const Portfolio: NextPage = () => {
             <p>Software Engineer</p>
             <p>Smart Contract developer/Auditor</p>
           </div>
+          <Socials />
           <div className="w-2/3 flex gap-x-4 px-10 m-auto">
             <Button className="flex-1 ">Resume</Button>
             <Button className="flex-1 text-primary" variant={"secondary"}>
