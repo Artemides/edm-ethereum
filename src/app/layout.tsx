@@ -1,15 +1,14 @@
-import "@rainbow-me/rainbowkit/styles.css";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { getMetadata } from "@/utils/scaffold-eth/getMetadata";
 
-const inter = Inter({ subsets: ["latin"] });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata = getMetadata({
-  title: "Speedrun NFT",
-  description: "nft`",
+  title: "edm.eth",
+  description: "smart contract developer portfolio",
 });
 
 export default function RootLayout({
@@ -18,11 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>
-          <AppProvider>{children}</AppProvider>
-        </ThemeProvider>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <body className={jetbrains.className}>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

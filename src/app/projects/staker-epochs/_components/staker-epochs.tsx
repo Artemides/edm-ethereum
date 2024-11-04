@@ -1,6 +1,6 @@
 "use client";
 
-import { ETHToPrice } from "@/app/staker/_components/eth-to-price";
+import { ETHToPrice } from "@/app/projects/staker/_components/eth-to-price";
 import { Address } from "@/components/scaffold-eth/address";
 import { useDeployedContractInfo } from "@/hooks/useDeployedContract";
 import { useSpeedReadContract } from "@/hooks/useSpeedReadContract";
@@ -61,23 +61,17 @@ export const StakerEpochs = () => {
         }`}
       >
         <div className="flex flex-col w-full items-center">
-          <p className="block text-2xl mt-0 mb-2 font-semibold">
-            Staker Epochs Contract
-          </p>
+          <p className="block text-2xl mt-0 mb-2 font-semibold">Staker Epochs Contract</p>
           <Address address={StakerEpochs?.address} size="xl" />
         </div>
         <div className="flex items-start justify-around w-full">
           <div className="flex flex-col items-center justify-center w-1/2">
-            <p className="block text-xl mt-0 mb-1 font-semibold">
-              Current Epoch
-            </p>
+            <p className="block text-xl mt-0 mb-1 font-semibold">Current Epoch</p>
             <p className="m-0 p-0">{currentEpoch ? Number(currentEpoch) : 0}</p>
           </div>
           <div className="flex flex-col items-center justify-center w-1/2">
             <p className="block text-xl mt-0 mb-1 font-semibold">Time Left</p>
-            <p className="m-0 p-0">
-              {timeLeft ? `${humanizeDuration(Number(timeLeft) * 1000)}` : 0}
-            </p>
+            <p className="m-0 p-0">{timeLeft ? `${humanizeDuration(Number(timeLeft) * 1000)}` : 0}</p>
           </div>
           <div className="flex flex-col items-center w-1/2">
             <p className="block text-xl mt-0 mb-1 font-semibold">You Staked</p>
@@ -88,21 +82,11 @@ export const StakerEpochs = () => {
           </div>
         </div>
         <div className="flex flex-col items-center shrink-0 w-full">
-          <p className="block text-xl mt-0 mb-1 font-semibold">
-            Epoch Stakings
-          </p>
+          <p className="block text-xl mt-0 mb-1 font-semibold">Epoch Stakings</p>
           <div className="flex space-x-2">
-            {
-              <ETHToPrice
-                value={epochStake ? formatEther(epochStake) : undefined}
-              />
-            }
+            {<ETHToPrice value={epochStake ? formatEther(epochStake) : undefined} />}
             <span>/</span>
-            {
-              <ETHToPrice
-                value={epochThreshold ? formatEther(epochThreshold) : undefined}
-              />
-            }
+            {<ETHToPrice value={epochThreshold ? formatEther(epochThreshold) : undefined} />}
           </div>
         </div>
         <div className="flex flex-col space-y-5">

@@ -1,51 +1,56 @@
-"use client";
+import Avatar from "@/components/avatar";
+import { Button } from "@/components/button";
+import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
+import { Galaxy } from "@/components/portfolio/galaxy";
+import { Header } from "@/components/portfolio/header";
 
+import { Socials } from "@/components/portfolio/socials";
+import { NextPage } from "next";
 import Link from "next/link";
-import type { NextPage } from "next";
-import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "@/components/scaffold-eth/address";
-import Image from "next/image";
-import { Daaps } from "./_components/dapps";
+import React from "react";
 
-const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
-
+const Portfolio: NextPage = () => {
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center my-20">
-            <span className="block text-8xl font-bold tracking-tighter">
-              Speedrun.Ethereum
-            </span>
-          </h1>
+    <div className="min-h-screen gradient-base ">
+      <Header />
+      <section id="hero" className=" grid grid-cols-12 my-4">
+        <div className="text-center py-14 col-span-5">
+          <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
+          <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
+            <h2 className="text-3xl ">Edmundo Arias O.</h2>
+            <p>Software Engineer</p>
+            <p>Smart Contract Developer/Auditor</p>
+          </div>
+          <hr className="mx-auto my-4 w-3/6 border-t border-secondary/75" />
+          <div className="w-2/3 px-10 m-auto">
+            <Socials />
+            <div className=" flex gap-x-4  my-4">
+              <Button className="flex-1 ">Resume</Button>
+              <Button className="flex-1 text-primary" variant={"secondary"}>
+                Wanna talk?
+              </Button>
+            </div>
+            <Link href={"/"} className="text-accent/90 underline text-xs hover:text-accent">
+              reach out for Frontend Development
+            </Link>
+          </div>
+          <hr className="mx-auto my-4 w-2/3 border-t border-secondary/75" />
+          <h2 className="text-primary text-sm">
+            {`{`} coding arsenal {`}`}
+          </h2>
+          <CodingArsenal />
         </div>
-
-        <Daaps />
-        <div className="flex-grow bg-base-200 w-full px-8 ">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col p-2 text-center items-center max-w-xs rounded-xl">
-              <p className="text-4xl block">🪲</p>
-              <p className="m-0">
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>
-              </p>
-            </div>
-            <div className="flex flex-col p-2 text-center items-center max-w-xs rounded-3xl">
-              <p className="text-4xl  ">🔎</p>
-              <p className="m-0">
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>
-              </p>
-            </div>
+        <div className="col-span-7">
+          <h2 className="text-4xl tracking-tighter">Approach</h2>
+          <Galaxy />
+          <div className="m-auto w-2/3 text-gradient text-center tracking-tighter">
+            <h1 className="text-4xl">From inception to execution</h1>
+            <p className="text-xl"> every line of code is fortified with security️ and foresight.</p>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   );
 };
 
-export default Home;
+export default Portfolio;

@@ -76,7 +76,7 @@ const Dex: NextPage = () => {
 
   const { data: userLiquidity } = useSpeedReadContract({
     contractName: "DEX",
-    functionName: "liquidity",
+    functionName: "getLiquidity",
     args: [connectedAccount],
   });
 
