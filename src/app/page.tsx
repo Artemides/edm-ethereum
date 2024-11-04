@@ -3,6 +3,7 @@ import { Button } from "@/components/button";
 import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
 import { Header } from "@/components/portfolio/header";
+import { SectionDesign } from "@/components/portfolio/section-design";
 
 import { Socials } from "@/components/portfolio/socials";
 import { NextPage } from "next";
@@ -49,6 +50,7 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
       </section>
+      <SectionDesign />
     </div>
   );
 };

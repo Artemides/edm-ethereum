@@ -31,7 +31,7 @@ const routes = [
 
 export const Header = () => {
   return (
-    <nav className="sticky top-0 w-full h-[70px] bg-[#11111B7f] backdrop-blur-sm  border-b-[1px] border-b-indigo-900/40 shadow-md shadow-black z-20">
+    <nav className="sticky top-0 w-full h-[70px] bg-[#11111B7f] backdrop-blur-md  border-b-[1px] border-b-indigo-900/40 shadow-md shadow-black z-20">
       <ul className="m-auto h-full w-fit flex  items-center ">
         {routes.map(({ active, title }) => (
           <li
