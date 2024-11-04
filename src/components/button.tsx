@@ -2,12 +2,12 @@ import { cn } from "@/utils/ui";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-primary/10    text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-zinc-300 ",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-primary/10 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-zinc-300 hover:bg-primary active:scale-[0.97]",
   {
     variants: {
       variant: {
         default: "border-[1px] border-primary text-primary-content",
-        secondary: "border-[1px] border-secondary text-secondat-content bg-secondary/10",
+        secondary: "border-[1px] border-secondary text-secondat-content bg-secondary/10 hover:bg-secondary ",
       },
       size: {
         auto: "h-auto py-5",

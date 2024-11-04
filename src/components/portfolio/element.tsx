@@ -1,11 +1,18 @@
 import { cn } from "@/utils/ui";
-
-export const Element = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+export const Element = ({
+  children,
+  className,
+  href,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  href: string;
+}) => {
   return (
-    <div className={cn("relative p-2", className)}>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("relative p-2", className)}>
       <ElementBorder />
       {children}
-    </div>
+    </a>
   );
 };
 

@@ -31,7 +31,7 @@ const socials = [
 
 export const Socials = () => {
   return (
-    <div className="p-2 m-auto flex justify-center gap-x-2">
+    <div className="p-2 m-auto flex justify-center gap-x-3">
       {socials.map((social) => (
         <Link
           href={"/"}

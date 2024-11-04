@@ -55,7 +55,7 @@ const topics = [
   },
 ];
 
-export const Universe = () => {
+export const Galaxy = () => {
   const orbitElements = topics.map((topic, i) => {
     return (
       <div className="">
