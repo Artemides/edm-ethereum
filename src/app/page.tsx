@@ -20,20 +20,24 @@ const Portfolio: NextPage = () => {
       <section id="hero" className="grid grid-cols-12 pt-[80px]">
         <div className="text-center py-14 col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-          <div className="my-5 [&>p]:my-0 [&>p]:text-secondary-content">
+          <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content">
             <h2 className="text-3xl ">Edmundo Arias O.</h2>
             <p>Software Engineer</p>
             <p>Smart Contract developer/Auditor</p>
           </div>
-          <Socials />
-          <div className="w-2/3 flex gap-x-4 px-10 m-auto">
-            <Button className="flex-1 ">Resume</Button>
-            <Button className="flex-1 text-primary" variant={"secondary"}>
-              Wanna talk?
-            </Button>
+          <hr className="mx-auto my-4 w-3/6 border-t border-secondary/75" />
+          <div className="w-2/3 px-10 m-auto">
+            <Socials />
+            <div className=" flex gap-x-4  my-4">
+              <Button className="flex-1 ">Resume</Button>
+              <Button className="flex-1 text-primary" variant={"secondary"}>
+                Wanna talk?
+              </Button>
+            </div>
+            <small className="text-accent underline">Reach to me as Frontend developer</small>
           </div>
-          <small className="text-accent underline">Reach to me as Frontend developer</small>
-          <h2 className="text-primary my-8">Loved tools </h2>
+          <hr className="mx-auto my-4 w-2/3 border-t border-secondary/75" />
+          <h2 className="text-primary ">Loved tools </h2>
           <div className="my-4">
             <div className="inline-flex gap-x-2">
               <Element className="w-20 inline-flex flex-col justify-evenly items-center ">

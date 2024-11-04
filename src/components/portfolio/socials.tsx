@@ -16,7 +16,7 @@ export const Socials = () => {
   return (
     <div className="p-2 m-auto flex justify-center gap-x-2">
       {socials.map((url) => (
-        <Image src={url} alt={path.basename(url)} width={21} height={21} />
+        <Image src={url} alt={path.basename(url)} width={18} height={18} />
       ))}
     </div>
   );
