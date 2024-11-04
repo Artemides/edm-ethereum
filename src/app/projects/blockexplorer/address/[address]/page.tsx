@@ -2,19 +2,16 @@ import { isZeroAddress } from "@/utils/scaffold-eth/common";
 import fs from "fs";
 import path from "path";
 import { hardhat } from "viem/chains";
-import deployedContracts from "../../../../contracts/deployedContracts";
 import { AddressComponent } from "../../_components/address-component";
 import { Address } from "viem";
 import { GenericContractsDeclaration } from "@/utils/scaffold-eth/contract";
+import deployedContracts from "@/contracts/deployedContracts";
 
 type PageProps = {
   params: { address: string };
 };
 
-async function fetchByteCodeAndAssembly(
-  buildInfoDirectory: string,
-  contractPath: string
-) {
+async function fetchByteCodeAndAssembly(buildInfoDirectory: string, contractPath: string) {
   const buildInfoFiles = fs.readdirSync(buildInfoDirectory);
   let bytecode = "";
   let assembly = "";
@@ -26,12 +23,8 @@ async function fetchByteCodeAndAssembly(
 
     if (buildInfo.output.contracts[contractPath]) {
       for (const contract in buildInfo.output.contracts[contractPath]) {
-        bytecode =
-          buildInfo.output.contracts[contractPath][contract].evm.bytecode
-            .object;
-        assembly =
-          buildInfo.output.contracts[contractPath][contract].evm.bytecode
-            .opcodes;
+        bytecode = buildInfo.output.contracts[contractPath][contract].evm.bytecode.object;
+        assembly = buildInfo.output.contracts[contractPath][contract].evm.bytecode.opcodes;
         break;
       }
     }
@@ -70,9 +63,7 @@ const getContractData = async (address: string) => {
   }
 
   const deployedContractsOnChain = contracts ? contracts[chainId] : {};
-  for (const [contractName, contractInfo] of Object.entries(
-    deployedContractsOnChain
-  )) {
+  for (const [contractName, contractInfo] of Object.entries(deployedContractsOnChain)) {
     if (contractInfo.address.toLowerCase() === address.toLowerCase()) {
       contractPath = `contracts/${contractName}.sol`;
       break;
@@ -84,10 +75,7 @@ const getContractData = async (address: string) => {
     return null;
   }
 
-  const { bytecode, assembly } = await fetchByteCodeAndAssembly(
-    buildInfoDirectory,
-    contractPath
-  );
+  const { bytecode, assembly } = await fetchByteCodeAndAssembly(buildInfoDirectory, contractPath);
 
   return { bytecode, assembly };
 };
@@ -102,8 +90,7 @@ const AddressPage = async ({ params }: PageProps) => {
 
   if (isZeroAddress(address)) return null;
 
-  const contractData: { bytecode: string; assembly: string } | null =
-    await getContractData(address);
+  const contractData: { bytecode: string; assembly: string } | null = await getContractData(address);
   return <AddressComponent address={address} contractData={contractData} />;
 };
 

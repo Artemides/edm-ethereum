@@ -5,32 +5,32 @@ const dapps: DaapItemProps[] = [
   {
     name: "nft daap",
     image: "/images/simpleNFT.svg",
-    href: "/mynfts",
+    href: "/projects/mynfts",
   },
   {
     name: "staking dapp",
     image: "/images/staking-app.svg",
-    href: "/staker",
+    href: "/projects/staker",
   },
   {
     name: "token vendor daap",
     image: "/images/token-vendor.svg",
-    href: "/erc20/token-vendor",
+    href: "/projects/erc20/token-vendor",
   },
   {
     name: "dice gaming daap",
     image: "/images/diceGame.svg",
-    href: "/dice",
+    href: "/projects/dice",
   },
   {
     name: "dex dapp",
     image: "/images/dex.svg",
-    href: "/dex",
+    href: "/projects/dex",
   },
   {
     name: "state channels dapp",
     image: "/images/state.svg",
-    href: "/streamer",
+    href: "/projects/streamer",
   },
 ];
 

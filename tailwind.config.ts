@@ -13,18 +13,18 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#C8F5FF",
-          "primary-content": "#026262",
-          secondary: "#89d7e9",
-          "secondary-content": "#088484",
-          accent: "#026262",
+          primary: "#FF9959",
+          "primary-content": "#FFFFFF",
+          secondary: "#323232",
+          "secondary-content": "#A8A8A8",
+          accent: "#CAB3F5",
           "accent-content": "#E9FBFF",
           neutral: "#088484",
           "neutral-content": "#F0FCFF",
           "base-100": "#F0FCFF",
           "base-200": "#E1FAFF",
           "base-300": "#C8F5FF",
-          "base-content": "#088484",
+          "base-content": "#fff",
           info: "#026262",
           success: "#34EEB6",
           warning: "#FFCF72",
@@ -45,11 +45,11 @@ const config: Config = {
       },
       {
         dark: {
-          primary: "#026262",
-          "primary-content": "#C8F5FF",
-          secondary: "#107575",
-          "secondary-content": "#E9FBFF",
-          accent: "#C8F5FF",
+          primary: "#FF9959",
+          "primary-content": "#FFFFFF",
+          secondary: "#323232",
+          "secondary-content": "#A8A8A8",
+          accent: "#CAB3F5",
           "accent-content": "#088484",
           neutral: "#E9FBFF",
           "neutral-content": "#11ACAC",
@@ -85,10 +85,21 @@ const config: Config = {
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "rotate-slow": "rotate 30s linear infinite",
+        "rotate-fast": "rotate 5s linear infinite",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
+          "100%": { transform: " translate(-50%, -50%) rotate(360deg)" },
+        },
+      },
+      borderColor: {
+        "gradien-to-t": "",
       },
       backgroundImage: {
-        "radial-orange-to-transparent":
-          "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
+        "radial-orange-to-transparent": "radial-gradient(circle, rgba(255, 166, 0, 0.5) 0%, rgba(255, 165, 0, 0) 70%)",
+        "gradient-base": "bg-gradient-to-r from-[#161623] via-[#0A0B16] to-[#161623]",
       },
     },
   },
