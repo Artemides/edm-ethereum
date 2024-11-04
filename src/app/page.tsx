@@ -20,7 +20,7 @@ const Portfolio: NextPage = () => {
       <section id="hero" className="grid grid-cols-12 pt-[80px]">
         <div className="text-center py-14 col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-          <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content">
+          <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
             <h2 className="text-3xl ">Edmundo Arias O.</h2>
             <p>Software Engineer</p>
             <p>Smart Contract developer/Auditor</p>

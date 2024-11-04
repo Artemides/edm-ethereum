@@ -3,20 +3,46 @@
 import Image from "next/image";
 import path from "path";
 import React from "react";
+import { Codehawks, Github, Gmail, Linkedin, Upwork } from "./icons/socials-icons";
+import Link from "next/link";
 
 const socials = [
-  "/images/portfolio/social/github.svg",
-  "/images/portfolio/social/linkedin.svg",
-  "/images/portfolio/social/upwork.svg",
-  "/images/portfolio/social/codehawks.svg",
-  "/images/portfolio/social/gmail.svg",
+  {
+    title: "github",
+    icon: <Github className="hover:fill-[#fff]" />,
+  },
+  {
+    title: "linkedin",
+    icon: <Linkedin className="hover:fill-[#1f75ca]" />,
+  },
+  {
+    title: "upwork",
+    icon: <Upwork className="hover:fill-[#6FDA44]" />,
+  },
+  {
+    title: "codehawks",
+    icon: <Codehawks className="hover:fill-[#ff692e]" />,
+  },
+  {
+    title: "gmail",
+    icon: <Gmail className="hover:fill-[#d74f4b]" />,
+  },
 ];
 
 export const Socials = () => {
   return (
     <div className="p-2 m-auto flex justify-center gap-x-2">
-      {socials.map((url) => (
-        <Image src={url} alt={path.basename(url)} width={18} height={18} />
+      {socials.map((social) => (
+        <Link
+          href={"/"}
+          key={social.title}
+          className="
+        w-[18px] transition duration-300 hover:scale-[1.3]
+        [&>svg]:fill-secondary-content
+        "
+        >
+          {social.icon}
+        </Link>
       ))}
     </div>
   );
