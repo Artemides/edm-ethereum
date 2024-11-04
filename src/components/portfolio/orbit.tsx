@@ -32,6 +32,7 @@ export const Orbit = ({ elements, className }: OrbitProps) => {
         const left = radius + radius * Math.cos((angle * Math.PI) / 180) - (refs[i].current?.clientWidth ?? 0) / 2;
         return (
           <div
+            key={i}
             ref={refs[i]}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-orbit-reverse-origin"
             style={{ top, left }}

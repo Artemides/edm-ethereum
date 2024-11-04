@@ -58,7 +58,7 @@ const topics = [
 export const Galaxy = () => {
   const orbitElements = topics.map((topic, i) => {
     return (
-      <div className="">
+      <div key={topic.title} className="">
         <Bubble
           id={`border-gradient-${i}`}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "
