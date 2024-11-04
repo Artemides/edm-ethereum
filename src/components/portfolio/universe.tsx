@@ -69,7 +69,7 @@ export const Universe = () => {
         </Bubble>
         <p
           style={{ backgroundColor: topic.bgColor2, borderColor: topic.bColor }}
-          className="mt-36 px-8 py-1 rounded-full border-[1px]"
+          className="mt-36 px-2 py-[2px] rounded-full border-[1px] text-sm "
         >
           {topic.title}
         </p>

@@ -51,30 +51,6 @@ export const BubbleBorder = ({ id, width, height, bgColor = "#fff", bColor = "#f
         />
       </g>
       <defs>
-        <filter
-          id="filter0_d_2447_648"
-          x="0"
-          y="0"
-          width="96"
-          height="100"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_2447_648" />
-          <feOffset dy="12" />
-          <feGaussianBlur stdDeviation="2" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2447_648" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2447_648" result="shape" />
-        </filter>
         <radialGradient
           id={`paint0_radial_2447_648_${id}`}
           cx="0"
