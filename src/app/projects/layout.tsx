@@ -1,5 +1,5 @@
 import "@rainbow-me/rainbowkit/styles.css";
-import "./globals.css";
+import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { getMetadata } from "@/utils/scaffold-eth/getMetadata";
