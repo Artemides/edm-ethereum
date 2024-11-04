@@ -48,7 +48,7 @@ const topics = [
   },
   {
     title: "monitor",
-    icon: "📺",
+    icon: "🤖",
     bColor: "#87A9F0",
     bgColor: "#87A9F0b0",
     bgColor2: "#87a8f014",

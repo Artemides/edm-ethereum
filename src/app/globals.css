@@ -75,7 +75,7 @@ p {
 }
 
 .animate-orbit {
-  animation: spin 75s linear infinite;
+  animation: spin 45s linear infinite;
 }
 
 .animate-orbit-reverse {
@@ -87,7 +87,7 @@ p {
 }
 
 .animate-orbit-reverse-origin {
-  animation: spin-origin 75s linear infinite reverse;
+  animation: spin-origin 44s linear infinite reverse;
 }
 
 .orbit-eye-bounce {
