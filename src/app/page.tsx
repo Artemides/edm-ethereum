@@ -2,6 +2,7 @@ import Avatar from "@/components/avatar";
 import { Button } from "@/components/button";
 import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
+import { Header } from "@/components/portfolio/header";
 
 import { Socials } from "@/components/portfolio/socials";
 import { NextPage } from "next";
@@ -11,7 +12,8 @@ import React from "react";
 const Portfolio: NextPage = () => {
   return (
     <div className="min-h-screen gradient-base ">
-      <section id="hero" className=" grid grid-cols-12 pt-[80px]">
+      <Header />
+      <section id="hero" className=" grid grid-cols-12 my-4">
         <div className="text-center py-14 col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
           <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
