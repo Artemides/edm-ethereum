@@ -73,3 +73,53 @@ p {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.animate-orbit {
+  animation: spin 75s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: spin 1min linear infinite reverse;
+}
+
+.animate-orbit-origin {
+  animation: spin-origin 1min linear infinite;
+}
+
+.animate-orbit-reverse-origin {
+  animation: spin-origin 75s linear infinite reverse;
+}
+
+.orbit-eye-bounce {
+  animation: bounce 3s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-origin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-40%);
+    animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
+  }
+}

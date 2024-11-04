@@ -87,3 +87,26 @@ export const Gmail = ({ className }: SocialIconProps) => {
     </svg>
   );
 };
+
+export const Ether = ({ className }: SocialIconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path d="M7.91086 0L7.80359 0.36459V10.9441L7.91086 11.0512L12.8218 8.1484L7.91086 0Z" fill="#343434"></path>
+      <path d="M7.91091 0L3 8.1484L7.91091 11.0513V5.91626V0Z" fill="#eeeeee"></path>
+      <path
+        d="M7.91091 11.9811L7.85046 12.0548V15.8234L7.91091 16L12.8247 9.07971L7.91091 11.9811Z"
+        fill="#909090"
+      ></path>
+      <path d="M7.91091 16V11.981L3 9.07965L7.91091 16Z" fill="#eeeeee"></path>
+      <path d="M7.91089 11.0512L12.8217 8.14846L7.91089 5.91632V11.0512Z" fill="#464646"></path>
+      <path d="M3 8.14846L7.91084 11.0512V5.91632L3 8.14846Z" fill="#909090"></path>
+    </svg>
+  );
+};

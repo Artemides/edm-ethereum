@@ -85,6 +85,14 @@ const config: Config = {
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "rotate-slow": "rotate 30s linear infinite",
+        "rotate-fast": "rotate 5s linear infinite",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
+          "100%": { transform: " translate(-50%, -50%) rotate(360deg)" },
+        },
       },
       borderColor: {
         "gradien-to-t": "",

@@ -33,7 +33,7 @@ export const Orbit = ({ elements, className }: OrbitProps) => {
         return (
           <div
             ref={refs[i]}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-orbit-reverse-origin"
             style={{ top, left }}
           >
             {el}
