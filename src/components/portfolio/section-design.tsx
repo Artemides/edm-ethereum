@@ -9,14 +9,10 @@ export const SectionDesign = () => {
   const design = topics.find((t) => t.title == "design")!;
 
   return (
-    <section
-      className="min-h-screen relative px-2 py-8 
-      flash-light before:via-[#CAB3F5]
-    "
-    >
+    <section className="min-h-screen relative p-2">
       <Bubble
         id={`border-gradient-${design.title}`}
-        className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
+        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
         bColor={design.bColor}
         bgColor={design.bgColor}
       >
