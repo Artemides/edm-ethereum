@@ -3,6 +3,7 @@ import { Button } from "@/components/button";
 import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
 import { Header } from "@/components/portfolio/header";
+import { Ether } from "@/components/portfolio/icons/socials-icons";
 import { SectionDesign } from "@/components/portfolio/section-design";
 
 import { Socials } from "@/components/portfolio/socials";
@@ -50,6 +51,9 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
       </section>
+      <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
+        <Ether className="w-12" />
+      </div>
       <SectionDesign />
     </div>
   );
