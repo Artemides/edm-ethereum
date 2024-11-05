@@ -1,4 +1,5 @@
-import { cn } from "@/utils/ui";
+import { cn } from "@/utils";
+
 export const Element = ({
   children,
   className,

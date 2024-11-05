@@ -1,5 +1,4 @@
-import { cn } from "@/utils/ui";
-import React from "react";
+import { cn } from "@/utils";
 
 type LangIconProps = {
   className?: string;

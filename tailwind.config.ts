@@ -82,6 +82,7 @@ const config: Config = {
     extend: {
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
+        spot: "0px 0px 250px 105px #4d3ba9a8;",
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",

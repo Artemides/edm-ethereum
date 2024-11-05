@@ -1,3 +1,4 @@
+import { cn } from "@/utils";
 import React from "react";
 
 type BubbleProps = {
@@ -7,8 +8,6 @@ type BubbleProps = {
   bgColor?: string;
   bColor?: string;
 };
-
-import { cn } from "@/utils/ui";
 
 export const Bubble = ({
   children,

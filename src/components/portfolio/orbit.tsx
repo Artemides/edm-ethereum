@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/utils/ui";
+import { cn } from "@/utils";
 import React, { createRef, useEffect, useRef, useState } from "react";
 
 type OrbitProps = {
