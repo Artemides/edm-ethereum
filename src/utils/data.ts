@@ -61,7 +61,7 @@ export const defiProtocols = [
     bgColor: "#9391F77f",
   },
   {
-    title: "uni",
+    title: "uniswap",
     className: "row-start-2 col-span-2",
     image: "/images/portfolio/defi/uniswap.png",
     bColor: "#FF007A",
@@ -75,7 +75,7 @@ export const defiProtocols = [
     bgColor: "#FCB5037f",
   },
   {
-    title: "compund",
+    title: "compound",
     className: "col-start-6 row-start-3 col-span-2",
     image: "/images/portfolio/defi/compound.png",
     bColor: "#00D395",
@@ -95,14 +95,14 @@ export const contracts = [
     title: "contract-contract",
     className: "col-start-1 row-start-2 col-span-2 row-span-2",
     code: `Contract {
-    uint balance;
-    mapping s_owner;
-    constructor()
-    do(address) {
-      .call("swap");
-    }
-    receive()    
-  }`,
+ uint balance;
+ mapping s_owner;
+ constructor()
+ do(address) {
+  .call("swap");
+ }
+ receive()    
+}`,
   },
   {
     title: "contract-uniswap",

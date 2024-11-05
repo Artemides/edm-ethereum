@@ -21,7 +21,7 @@ export const CodeWindow = ({ code, className }: { code: string; className?: stri
         className
       )}
     >
-      <div className="text-sm">
+      <div className="text-xs">
         {windowOptions()}
         <pre>
           <code className={jetbrains.className}>{highlightSol(code)}</code>
