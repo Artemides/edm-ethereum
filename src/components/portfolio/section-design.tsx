@@ -17,11 +17,11 @@ export const SectionDesign = () => {
     >
       <Bubble
         id={`border-gradient-${design.title}`}
-        className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "
+        className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
         bColor={design.bColor}
         bgColor={design.bgColor}
       >
-        <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{design.icon}</span>
+        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{design.icon}</span>
       </Bubble>
       <div className="mx-auto w-8/12 col-span-6 text-center  [&>div]:mt-4">
         <h2 className=" text-gradient tracking-tighter text-4xl mb-10">... into Robust Architectures</h2>
