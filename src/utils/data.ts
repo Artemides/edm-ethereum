@@ -127,3 +127,74 @@ export const contracts = [
   }`,
   },
 ];
+
+export const requirementContracts = [
+  {
+    title: "contract-contract",
+    className: "col-start-1 row-start-2 col-span-2 row-span-2",
+    code: `Contract {
+   uint balance;
+   mapping s_owner;
+   constructor()
+   do(address) {
+    .call("swap");
+   }
+   receive()    
+  }`,
+  },
+  {
+    title: "contract-uniswap",
+    className: "col-start-5 col-span-2 row-span-2 ",
+    code: `Uniswap {
+      address token0;
+      address token1;
+      swap(uint) {
+        /* impl */
+      }
+    }`,
+  },
+
+  {
+    title: "contract-oracle",
+    className: "col-start-4 row-start-3 col-span-2 row-span-2",
+    code: `Oracle {
+      priceEth() {
+        /* impl */
+      }
+    }`,
+  },
+];
+
+export const tokens = [
+  {
+    title: "dai",
+    className: "row-start-4 col-start-1 col-span-2",
+    image: "/images/portfolio/defi/dai.png",
+    bColor: "#F5AC37",
+    bgColor: "#F5AC377f",
+  },
+  {
+    title: "maker",
+    className: "row-start-4 col-start-1 col-span-2",
+    image: "/images/portfolio/defi/maker.png",
+    bColor: "#59B6A7",
+    bgColor: "#59B6A77f",
+  },
+  {
+    title: "usdc",
+    className: "row-start-4 col-start-1 col-span-2",
+    image: "/images/portfolio/defi/usdc.png",
+    bColor: "#2775CA",
+    bgColor: "#2775CA7f",
+  },
+];
+
+export const marketplaces = [
+  {
+    title: "opensea",
+    className: "row-start-4 col-start-1 col-span-2",
+    image: "/images/portfolio/defi/opensea.svg",
+    bColor: "#2081E2",
+    bgColor: "#2081E27f",
+  },
+];

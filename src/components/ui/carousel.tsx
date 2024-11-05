@@ -181,6 +181,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
           orientation === "horizontal"
             ? "-left-12 top-1/2 -translate-y-1/2"
             : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          !canScrollPrev ? "hidden" : "inline-flex",
           className
         )}
         disabled={!canScrollPrev}
@@ -209,6 +210,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
           orientation === "horizontal"
             ? "-right-12 top-1/2 -translate-y-1/2"
             : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          !canScrollNext ? "hidden" : "inline-flex",
           className
         )}
         disabled={!canScrollNext}

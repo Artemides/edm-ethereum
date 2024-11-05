@@ -4,7 +4,7 @@ export const highlightSol = (code: string) => {
   return lines.map((line, index) => {
     // Combined regex to capture comments, keywords, numbers, strings, and function names
     const highlightedLine = line.replace(
-      /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(Contract|ERC20|ERC721|Uniswap|Oracle|function|require|uint|int|address|bool|mapping|string|public|private|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
+      /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(Contract|ERC20|ERC721|Uniswap|Oracle|Proxy|Logic|Modular|EntryPoint|Paymaster|Wallet|function|require|uint|int|address|bool|mapping|string|public|private|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
       (match, p1, p2, p3, p4, p5, p6) => {
         // Match comments
         if (/^\/\/|\/\*/.test(match)) {
