@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CodeWindow } from "./code-window";
 import { title } from "process";
 import { contracts, defiProtocols, topics } from "@/utils/data";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 
 export const SectionDesign = () => {
   const design = topics.find((t) => t.title == "design")!;
@@ -86,6 +87,75 @@ export const SectionDesign = () => {
                 {"/*"} security and compliance requirements: Identify security constraints, such as access control,
                 reentrancy protection, rate-limiting, and compliance with regulatory requirements if applicable. {"*/"}
               </p>
+              <Carousel className="hover:cursor-pointer select-none">
+                <CarouselContent>
+                  <CarouselItem>
+                    <div className="text-start relative grid grid-cols-[1fr_auto_1fr] items-center justify-items-center my-12 ">
+                      <CodeWindow
+                        code={`Contract {
+ uint balance;
+ mapping s_owner;
+ constructor()
+ do(address) {
+  .call("swap");
+ }
+ receive()    
+}`}
+                      />
+                      <span className="col-">is</span>
+                      <div className="space-y-2 font-light text-sm text-center">
+                        <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
+                          <p>Access Control</p>
+                        </div>
+                        <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
+                          <p>Ownable</p>
+                        </div>
+                        <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
+                          <p>NonReentrant</p>
+                        </div>
+                        <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
+                          <p>Governance</p>
+                        </div>
+                        <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
+                          <p>Finance</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="max-w-full">
+                    <h2 className="my-2">Tokenized</h2>
+                    <div className="grid grid-cols-2 gap-x-2 items-end justify-items-center text-start p-8">
+                      <CodeWindow
+                        code={`
+ERC20 {
+  string public symbol;
+  uint totalSupply;
+  mapping balanceOf;
+
+  transfer(){
+   /* impl */
+  }
+}
+`}
+                      />
+                      <CodeWindow
+                        code={`
+ERC721 {
+ uint tokenId;
+ mapping ownerOf;
+ mint(){
+   /* impl */
+ }      
+}
+`}
+                      />
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>3</CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="-left-10 border-indigo-900 hover:bg-indigo-900/50" />
+                <CarouselNext className="-right-5 border-indigo-900 hover:bg-indigo-900/50" />
+              </Carousel>
             </div>
             <div role="tabpanel" className="hidden col-span-3 peer-checked/tab3:block ">
               <p className="text-secondary-content pl-4 text-sm font-thin">

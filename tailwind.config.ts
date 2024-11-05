@@ -92,8 +92,12 @@ const config: Config = {
       },
       keyframes: {
         rotate: {
-          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
-          "100%": { transform: " translate(-50%, -50%) rotate(360deg)" },
+          "0%": {
+            transform: "translate(-50%, -50%) rotate(0deg)",
+          },
+          "100%": {
+            transform: " translate(-50%, -50%) rotate(360deg)",
+          },
         },
       },
       borderColor: {
@@ -105,6 +109,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-animate")],
 };
 export default config;
