@@ -77,7 +77,7 @@ export const SectionTest = () => {
           </div>
         ))}
       </Accordion>
-      <div className="w-full b px-10 absolute bottom-0 mask-gradient-to-t flex justify-end">
+      <div className="w-full b px-10 py-2 absolute bottom-0 mask-gradient-to-t flex justify-end">
         <Console
           code={`testMustUpdateAllocation() 
  testOnlyCanSetNotActiveIfActive() 
