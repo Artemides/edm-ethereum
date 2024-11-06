@@ -4,7 +4,8 @@ import { devConsiderations, devPullRequests, topics } from "@/utils/data";
 import { Github } from "./icons/socials-icons";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { CodeWindow, Window } from "./code-window";
+import { CodeWindow } from "./code-window";
+import { Window } from "./window-tab";
 
 export const SectionDevelop = () => {
   const develop = topics.find((t) => t.title == "develop")!;

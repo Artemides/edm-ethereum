@@ -94,7 +94,7 @@ export const contracts = [
   {
     title: "contract-contract",
     className: "col-start-1 row-start-2 col-span-2 row-span-2",
-    code: `Contract {
+    code: `contract Contract {
  uint balance;
  mapping s_owner;
  constructor()
@@ -132,7 +132,7 @@ export const requirementContracts = [
   {
     title: "contract-contract",
     className: "col-start-1 row-start-2 col-span-2 row-span-2",
-    code: `Contract {
+    code: `contract Contract {
    uint balance;
    mapping s_owner;
    constructor()

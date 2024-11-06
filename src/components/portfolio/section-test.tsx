@@ -8,6 +8,8 @@ import {
 } from "@radix-ui/react-icons";
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import Image from "next/image";
+import { CodeWindow } from "./code-window";
 
 const testTopics = [
   {
@@ -74,6 +76,30 @@ export const SectionTest = () => {
           </div>
         ))}
       </Accordion>
+      <div className="">
+        <CodeWindow
+          codeClassName="text-[11px]  leading-3 "
+          code={`
+function testDOSonWithdrawFees() public {
+ Owner owner = new Owner();
+ SpookySwap.Treat memory treat = 
+    SpookySwap.Treat("candy", 0.1 ether, "ipfs://candy-cid");
+ SpookySwap.Treat[] memory treats = new SpookySwap.Treat[](1);
+ treats[0] = treat;
+
+ vm.prank(address(owner));
+ SpookySwap _protocol = new SpookySwap(treats);
+
+ vm.prank(user);
+ _protocol.trickOrTreat{ value: 0.2 ether }("candy");
+
+ vm.prank(address(owner));
+ vm.expectRevert();
+ _protocol.withdrawFees();
+}
+`}
+        />
+      </div>
     </section>
   );
 };

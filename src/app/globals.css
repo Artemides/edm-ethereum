@@ -162,11 +162,17 @@ p {
   font-style: italic;
 }
 .sol-keyword {
-  color: #cab3f5;
+  color: #c5a1ef;
 }
 .sol-string {
   color: #95da8e;
 }
 .sol-function-name {
-  color: #77a3f7;
+  color: #89b4fa;
+}
+.sol-object {
+  color: #f9e2af;
+}
+.sol-number {
+  color: #f38ba8;
 }
