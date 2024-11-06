@@ -52,7 +52,7 @@ export const SectionDevelop = () => {
   const develop = topics.find((t) => t.title == "develop")!;
 
   return (
-    <section className="p-4  relative">
+    <section className="min-height p-2  relative">
       <Bubble
         id={`border-gradient-${develop.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "

@@ -56,6 +56,9 @@ p {
   border-image: linear-gradient(to top, #949494 30%, #4d9f0c, transparent 50%) 5;
 }
 
+.min-height {
+  min-height: calc(100vh - 70px);
+}
 .mask-gradient-to-t {
   mask-image: linear-gradient(black 20%, transparent);
 }

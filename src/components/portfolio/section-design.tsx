@@ -9,7 +9,7 @@ export const SectionDesign = () => {
   const design = topics.find((t) => t.title == "design")!;
 
   return (
-    <section className="min-h-screen relative p-2">
+    <section className="min-height relative p-2">
       <Bubble
         id={`border-gradient-${design.title}`}
         className="absolute top-4 right-0 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -45,10 +45,11 @@ export const SectionDesign = () => {
           </label>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab1:block ">
             <p className="max-w-full text-secondary-content pl-4 text-sm font-thin">
-              {"/*"} clearly outline what the smart contract should do, including specific functions and interactions
-              with other contracts or external data. {"*/"}
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> clearly outline what the smart
+              contract should do, including specific functions and interactions with other contracts or external data.{" "}
+              {"*/"}
             </p>
-            <h2 className="text-center my-10 text-2xl">On & Off chain Interactions</h2>
+            <h2 className="text-center my-8 text-2xl">On & Off chain Interactions</h2>
             <div className="text-start relative grid grid-rows-4 justify-items-center ">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#1F1832] "></div>
               {defiProtocols.map((protocol) => (
@@ -75,8 +76,9 @@ export const SectionDesign = () => {
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab2:block ">
             <p className="text-secondary-content pl-4 text-sm font-thin">
-              {"/*"} security and compliance requirements: Identify security constraints, such as access control,
-              reentrancy protection, rate-limiting, and compliance with regulatory requirements if applicable. {"*/"}
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> security and compliance requirements:
+              Identify security constraints, such as access control, reentrancy protection, rate-limiting, and
+              compliance with regulatory requirements if applicable. {"*/"}
             </p>
             <Carousel className="hover:cursor-pointer select-none">
               <CarouselContent>
@@ -189,8 +191,8 @@ Wallet {
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab3:block ">
             <p className="text-secondary-content pl-4 text-sm font-thin">
-              {"/*"} factors like interactions, dependencies, token standards (e.g., ERC-20, ERC-721), and expected user
-              behaviors. {"*/"}
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> factors like interactions,
+              dependencies, token standards (e.g., ERC-20, ERC-721), and expected user behaviors. {"*/"}
             </p>
             <h2 className="my-2  text-2xl">Tokenized</h2>
             <div className="grid grid-cols-2  items-end justify-items-center text-start p-8">

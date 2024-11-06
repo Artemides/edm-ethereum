@@ -15,7 +15,7 @@ export const Bubble = ({
   ...props
 }: { children?: React.ReactNode; className?: string } & BubbleProps) => {
   return (
-    <div className={cn("relative ", className)}>
+    <div className={cn(" relative shadow-lg shadow-black/75 rounded-full", className)}>
       <BubbleBorder {...props} />
       {children}
     </div>
