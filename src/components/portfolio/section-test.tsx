@@ -11,6 +11,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "..
 import Image from "next/image";
 import { CodeWindow } from "./code-window";
 import { Window } from "./window-tab";
+import { Bubble } from "./bubble";
+import { topics } from "@/utils/data";
 
 const testTopics = [
   {
@@ -46,8 +48,19 @@ const testTopics = [
 ];
 
 export const SectionTest = () => {
+  const test = topics.find((t) => t.title == "test")!;
+
   return (
     <section className="relative min-height p-2 overflow-hidden">
+      <Bubble
+        id={`border-gradient-${test.title}`}
+        className="absolute top-4 right-0 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
+        bColor={test.bColor}
+        bgColor={test.bgColor}
+      >
+        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{test.icon}</span>
+      </Bubble>
+
       <h2 className="text-4xl mb-8 text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>

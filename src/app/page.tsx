@@ -60,7 +60,7 @@ const Portfolio: NextPage = () => {
         <SectionDesign />
         <SectionDevelop />
       </div>
-      <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
+      <div className="divider before:h-[0] after:h-[0]">
         <Ether className="w-12" />
       </div>
       <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
@@ -69,7 +69,6 @@ const Portfolio: NextPage = () => {
       <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
         <Ether className="w-12" />
       </div>
-      <section className="min-height"></section>
     </div>
   );
 };
