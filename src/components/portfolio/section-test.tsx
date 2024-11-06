@@ -10,6 +10,7 @@ import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import Image from "next/image";
 import { CodeWindow } from "./code-window";
+import { Window } from "./window-tab";
 
 const testTopics = [
   {
@@ -60,7 +61,7 @@ export const SectionTest = () => {
         {testTopics.map((topic) => (
           <div
             key={topic.title}
-            className="px-4 py-2 bg-[#0F101B] text-base rounded-lg border-[1px] border-gray-600/40"
+            className="px-4 py-2 bg-[#0F101B] text-base rounded-lg border-[1px] border-gray-600/40 z-10"
           >
             <AccordionItem value={`item-${topic.title}`}>
               <AccordionTrigger>
@@ -76,11 +77,23 @@ export const SectionTest = () => {
           </div>
         ))}
       </Accordion>
-      <CodeWindow
-        className=" absolute left-1/2 -translate-x-1/2 mask-gradient-to-t select-none "
-        codeClassName="text-[10px]  leading-[8px] "
-        code={`
-function testDOSonWithdrawFees() public {
+      <div className="w-full b px-10 absolute bottom-0 mask-gradient-to-t flex justify-end">
+        <Console
+          code={`testMustUpdateAllocation() 
+ testOnlyCanSetNotActiveIfActive() 
+ testOnlyVaultGuardiansCanSet() 
+ testOnlyVaultGuardiansCanUpdate() 
+ testOnlyUpdateWhenActive() 
+ testRebalanceTheSameOutcome() 
+ testRedeem() 
+ testSetNotActive() 
+ testSetupVaultShares() 
+ testUpdateHolding) `}
+        />
+        <CodeWindow
+          codeClassName="text-[11px]  leading-3 "
+          code={`
+function test_DOSonWithdrawFeesFuzz(address recipient) public {
  Owner owner = new Owner();
  SpookySwap.Treat memory treat = 
     SpookySwap.Treat("candy", 0.1 ether, "ipfs://candy-cid");
@@ -98,11 +111,32 @@ function testDOSonWithdrawFees() public {
  _protocol.withdrawFees();
 }
 `}
-      />
+        />
+      </div>
     </section>
   );
 };
 
-export const TestItem = () => {
-  return <div>Hello</div>;
+export const Console = ({ code }: { code: string }) => {
+  const lines = code.split("\n");
+  return (
+    <Window className="absolute -bottom-4 left-4  ">
+      <>
+        <p className="m-[2px] text-secondary-content text-[10px] ">
+          Suite result: <span className="text-[#73e766]">ok. 14 </span>passed; <span className="text-red-500">0</span>{" "}
+          failed; <span className="text-yellow-300">0</span> skipped; <br />
+          finished in 1.66s (7.87ms CPU time)
+        </p>
+        <br />
+        {lines.map((line) => (
+          <p className="text-[10px]  text-secondary-content m-[2px] leading-[10px]">
+            <span className="text-[#73e766]">
+              {"["}Pass{"]"}
+            </span>{" "}
+            {line}
+          </p>
+        ))}
+      </>
+    </Window>
+  );
 };
