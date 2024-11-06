@@ -17,7 +17,7 @@ const config: Config = {
           primary: "#FF9959",
           "primary-content": "#FFFFFF",
           secondary: "#323232",
-          "secondary-content": "#A8A8A8",
+          "secondary-content": "#c3c3c3",
           accent: "#CAB3F5",
           "accent-content": "#E9FBFF",
           neutral: "#088484",
@@ -89,6 +89,8 @@ const config: Config = {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "rotate-slow": "rotate 30s linear infinite",
         "rotate-fast": "rotate 5s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         rotate: {
@@ -97,6 +99,22 @@ const config: Config = {
           },
           "100%": {
             transform: " translate(-50%, -50%) rotate(360deg)",
+          },
+        },
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
           },
         },
       },

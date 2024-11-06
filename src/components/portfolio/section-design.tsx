@@ -12,7 +12,7 @@ export const SectionDesign = () => {
     <section className="min-h-screen relative p-2">
       <Bubble
         id={`border-gradient-${design.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
+        className="absolute top-4 right-0 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
         bColor={design.bColor}
         bgColor={design.bgColor}
       >
@@ -49,7 +49,7 @@ export const SectionDesign = () => {
               with other contracts or external data. {"*/"}
             </p>
             <h2 className="text-center my-10 text-2xl">On & Off chain Interactions</h2>
-            <div className="text-start relative grid  grid-rows-5 justify-items-center ">
+            <div className="text-start relative grid grid-rows-4 justify-items-center ">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#1F1832] "></div>
               {defiProtocols.map((protocol) => (
                 <div key={protocol.title} className={protocol.className}>

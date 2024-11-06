@@ -73,14 +73,23 @@ p {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.text-gradient-title {
+  background: linear-gradient(to bottom, #ffffff, #afefec, #81a2e6); /* Example gradient */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .flash-light::before {
   @apply content-[''] absolute top-1/2 -translate-y-1/2 left-1/2 w-[1px] h-3/4 bg-gradient-to-t from-transparent  via-indigo-700 to-transparent;
+}
+.flash-light-to-b::before {
+  @apply content-[''] absolute top-1/2 -translate-y-1/2 left-1/2 w-[1px] h-3/4 bg-gradient-to-t  from-transparent to-indigo-700;
 }
 .drop-shadow {
   box-shadow: 0px 0px 0px 6px rgba(0, 0, 0, 0.25);
 }
-
+.drop-shadow-white {
+  box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.27);
+}
 .animate-orbit {
   animation: spin 45s linear infinite;
 }
