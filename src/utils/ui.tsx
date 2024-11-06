@@ -4,7 +4,7 @@ export const highlightSol = (code: string) => {
   return lines.map((line, index) => {
     // Combined regex to capture special comments, regular comments, keywords, numbers, strings, and function names
     const highlightedLine = line.replace(
-      /(\/\/@[a-zA-Z_]+\s[a-zA-Z_\s]*|\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(pragma|Core|Contract|ERC20|ERC721|Uniswap|Oracle|Proxy|Logic|Modular|EntryPoint|Paymaster|Wallet|using|for|function|require|uint|int|address|bool|mapping|string|public|private|external|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
+      /(\/\/@[a-zA-Z_]+\s[a-zA-Z_\s\.']*|\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(contract|import|pragma|Core|Contract|ERC20|ERC721|Uniswap|Oracle|Proxy|Logic|Modular|EntryPoint|Paymaster|Wallet|using|for|function|require|uint|int|address|bool|mapping|string|public|private|external|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
       (match, p1, p2, p3, p4, p5, p6) => {
         // Match special //@word comments
         if (/^\/\/@[a-zA-Z_]+\s[a-zA-Z_\s]*/.test(match)) {

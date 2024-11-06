@@ -1,95 +1,10 @@
 import React from "react";
 import { Bubble } from "./bubble";
-import { topics } from "@/utils/data";
+import { devConsiderations, devPullRequests, topics } from "@/utils/data";
 import { Github } from "./icons/socials-icons";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { CodeWindow, Window } from "./code-window";
-
-const considerations = [
-  {
-    title: "Math Validation",
-    description: "Mathematical issues, especially precision and overflows across different versions.",
-  },
-  {
-    title: "Code Review",
-    description: "Frequent code reviews and sessions to catch vulnerabilities early.",
-  },
-  {
-    title: "Nat Specting",
-    description: "Make contracts accessible, secure, and comprehensible for both users and developers.",
-  },
-];
-
-const pullRequests = [
-  {
-    text: "Automated Testing (Fuzz)",
-    success: true,
-    ci: null,
-  },
-  {
-    text: "Static Analysis",
-    success: true,
-    ci: null,
-  },
-  {
-    text: "Security Audit",
-    success: false,
-    ci: `
-pragma solidity ^0.7.0;
-Core {
- mapping(address => uint) balances;
- function withdraw(uint amount) external {
-  /* @audit possible overflow */ 
-  /* @audit precision loss */ 
-  uint value = balances[msg.sender] * amount / 1000;
-  /* @audit Transfers before updating balances (Reentrancy) */ 
-  msg.sender.transfer(value);
-  balances[msg.sender] -= amountToWithdraw;
- }
-}`,
-  },
-  {
-    text: "Simulation on forked Mainnet",
-    success: true,
-    ci: `
-//SPDX-License-Identifier: MIT
-pragma solidity ^0.7.0;    
-Contract {
- using SafeMath for uint;
- //@notice stores the balance of each user
- mapping(address => uint) s_balances;
-
- //@notice Withdraws a specified percentage  of the user's balance
- //@param amount The percentage of the user's balance to withdraw
- //@dev Uses SafeMath for updating balances before transfer.
- //@custom security Prevents reentrancy by updating balance before sending Ether
-
- function withdraw(uint amount) external {
-  uint value = s_balances[msg.sender].mul(amount).div(100);
-  require(s_balances[msg.sender] >= value, "Insufficient balance");
-  s_balances[msg.sender] = s_balances[msg.sender].sub(value);
-  (bool success, ) = msg.sender.call{value: value}("");
-  require(success, "Transfer failed");
- }
-}`,
-  },
-  {
-    text: "Gas Optimization",
-    success: true,
-    ci: null,
-  },
-  {
-    text: "Automated Dependency Updates",
-    success: false,
-    ci: `
-//SPDX-License-Identifier: MIT
-//@note function 
-pragma solidity ^0.5.27;
-/* @audit overflow/underflow */
-`,
-  },
-];
 
 export const SectionDevelop = () => {
   const develop = topics.find((t) => t.title == "develop")!;
@@ -128,7 +43,7 @@ export const SectionDevelop = () => {
           </Bubble>
 
           <div className="grid grid-cols-2 gap-x-8 items-start gap-y-4 pt-20">
-            {pullRequests.map((pr) =>
+            {devPullRequests.map((pr) =>
               pr.success && !!!pr.ci ? (
                 <PullRequest key={pr.text} success={pr.success} text={pr.text} pulse={false} />
               ) : (
@@ -136,7 +51,7 @@ export const SectionDevelop = () => {
                   <TooltipTrigger>
                     <PullRequest success={pr.success} text={pr.text} pulse />
                   </TooltipTrigger>
-                  <TooltipContent className="w-[300px] bg-transparent">
+                  <TooltipContent className="bg-transparent">
                     <CodeWindow code={pr.ci!} codeClassName="text-[13px]" />
                   </TooltipContent>
                 </Tooltip>
@@ -151,7 +66,7 @@ export const SectionDevelop = () => {
         </p>
       </div>
       <div className="flex justify-around my-8">
-        {considerations.map((con) => (
+        {devConsiderations.map((con) => (
           <Tooltip key={con.title} delayDuration={0}>
             <TooltipTrigger>
               <h3 className="text-[#F0647A] text-sm hover:scale-125 transition">

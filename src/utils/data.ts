@@ -198,3 +198,91 @@ export const marketplaces = [
     bgColor: "#2081E27f",
   },
 ];
+
+export const devConsiderations = [
+  {
+    title: "Math Validation",
+    description: "Mathematical issues, especially precision and overflows across different versions.",
+  },
+  {
+    title: "Code Review",
+    description: "Frequent code reviews and sessions to catch vulnerabilities early.",
+  },
+  {
+    title: "Nat Specting",
+    description: "Make contracts accessible, secure, and comprehensible for both users and developers.",
+  },
+];
+
+export const devPullRequests = [
+  {
+    text: "Automated Testing (Fuzz)",
+    success: true,
+    ci: null,
+  },
+  {
+    text: "Static Analysis",
+    success: true,
+    ci: null,
+  },
+  {
+    text: "Security Audit",
+    success: false,
+    ci: `
+pragma solidity ^0.7.0;
+contract Withdrawer {
+ mapping(address => uint) balances;
+ /* @i natspec missing */ 
+ function withdraw(uint percentage) external {
+  /* @audit possible overflow */ 
+  /* @audit precision loss */ 
+  uint amount = balances[msg.sender] * percentage / 100;
+  /* @audit Transfers before updating balances (Reentrancy) */ 
+  /* @audit Use of 'transfer' instead of 'call' */ 
+  payable(msg.sender).transfer(amount);
+  balances[msg.sender] -= amount;
+ }
+}`,
+  },
+  {
+    text: "Simulation on forked Mainnet",
+    success: true,
+    ci: `
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.7.0;    
+import "@openzeppelin/contracts/math/SafeMath.sol";
+contract Withdrawer {
+ using SafeMath for uint;
+ //@notice Stores the balance of each user.
+ mapping(address => uint) private s_balances;
+
+ //@notice Withdraws a percentage of the user's balance.
+ //@param percentage of the user's balance to withdraw.
+ //@dev Uses SafeMath to update balances before transferring Ether.
+ //@custom security Prevents reentrancy by updating balance before 
+ //sending Ether
+
+ function withdraw(uint percentage) external {
+  uint amount = s_balances[msg.sender].mul(percentage).div(100);
+  require(s_balances[msg.sender] >= amount, "Insufficient balance");
+  s_balances[msg.sender] = s_balances[msg.sender].sub(amount);
+  (bool success, ) = msg.sender.call{value: amount}("");
+  require(success, "Transfer failed");
+ }
+}`,
+  },
+  {
+    text: "Gas Optimization",
+    success: true,
+    ci: null,
+  },
+  {
+    text: "Automated Dependency Updates",
+    success: false,
+    ci: `
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.5.27;
+/* @audit overflow/underflow */
+`,
+  },
+];
