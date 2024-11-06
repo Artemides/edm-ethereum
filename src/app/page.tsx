@@ -6,6 +6,7 @@ import { Header } from "@/components/portfolio/header";
 import { Ether } from "@/components/portfolio/icons/socials-icons";
 import { SectionDesign } from "@/components/portfolio/section-design";
 import { SectionDevelop } from "@/components/portfolio/section-develop";
+import { SectionTest } from "@/components/portfolio/section-test";
 
 import { Socials } from "@/components/portfolio/socials";
 import { NextPage } from "next";
@@ -58,6 +59,12 @@ const Portfolio: NextPage = () => {
       <div className="relative grid grid-cols-2 flash-light before:via-[#361882]">
         <SectionDesign />
         <SectionDevelop />
+      </div>
+      <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
+        <Ether className="w-12" />
+      </div>
+      <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
+        <SectionTest />
       </div>
     </div>
   );
