@@ -60,7 +60,7 @@ p {
   min-height: calc(100vh - 70px);
 }
 .mask-gradient-to-t {
-  mask-image: linear-gradient(black 20%, transparent);
+  mask-image: linear-gradient(black 25%, transparent);
 }
 
 .blured-shadow {

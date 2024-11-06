@@ -46,7 +46,7 @@ const testTopics = [
 
 export const SectionTest = () => {
   return (
-    <section className="min-height p-2">
+    <section className="relative min-height p-2 overflow-hidden">
       <h2 className="text-4xl mb-8 text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>
@@ -76,10 +76,10 @@ export const SectionTest = () => {
           </div>
         ))}
       </Accordion>
-      <div className="">
-        <CodeWindow
-          codeClassName="text-[11px]  leading-3 "
-          code={`
+      <CodeWindow
+        className=" absolute left-1/2 -translate-x-1/2 mask-gradient-to-t select-none "
+        codeClassName="text-[10px]  leading-[8px] "
+        code={`
 function testDOSonWithdrawFees() public {
  Owner owner = new Owner();
  SpookySwap.Treat memory treat = 
@@ -98,8 +98,7 @@ function testDOSonWithdrawFees() public {
  _protocol.withdrawFees();
 }
 `}
-        />
-      </div>
+      />
     </section>
   );
 };
