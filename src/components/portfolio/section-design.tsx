@@ -133,7 +133,7 @@ Proxy {
                       code={`
 Logic {
  function run() {
-  /* impl */
+  //impl...
  }
 }
 `}
@@ -143,10 +143,10 @@ Logic {
                       code={`
 Modular {
  function install() {
-  /* impl */
+  //impl...
  }
  function hook(){
-  /* impl */
+  //impl...
  }
 }
 `}
@@ -178,7 +178,7 @@ Paymaster {
                       code={`
 Wallet {
  function exec() {
-  /* impl */
+  //impl...
  }
 }`}
                     />
@@ -204,7 +204,7 @@ ERC20 {
   mapping balanceOf;
 
   transfer(){
-   /* impl */
+   //impl...
   }
 }
 `}
@@ -215,7 +215,7 @@ ERC721 {
  uint tokenId;
  mapping ownerOf;
  mint(){
-   /* impl */
+   //impl...
  }
 }
 `}
@@ -223,6 +223,7 @@ ERC721 {
               <div className="flex gap-x-2">
                 {tokens.map((token) => (
                   <Bubble
+                    key={token.title}
                     id={`border-gradient-${token.title}`}
                     className=" top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 aspect-square "
                     bColor={token.bColor}
@@ -235,6 +236,7 @@ ERC721 {
                 ))}
                 {marketplaces.map((marketplace) => (
                   <Bubble
+                    key={marketplace.title}
                     id={`border-gradient-${marketplace.title}`}
                     className=" top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 aspect-square "
                     bColor={marketplace.bColor}

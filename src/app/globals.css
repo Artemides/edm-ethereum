@@ -148,8 +148,18 @@ p {
 .sol-code {
   font-family: inherit;
 }
-.sol-comment {
+.sol-comment-multi {
+  color: #ff4a4a;
+  font-style: italic;
+}
+.sol-comment-single {
   color: #a8a8a8;
+  font-style: italic;
+}
+.sol-nat {
+  color: #ff9959;
+  font-weight: bold;
+  font-style: italic;
 }
 .sol-keyword {
   color: #cab3f5;

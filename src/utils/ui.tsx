@@ -2,14 +2,26 @@ export const highlightSol = (code: string) => {
   const lines = code.split("\n");
 
   return lines.map((line, index) => {
-    // Combined regex to capture comments, keywords, numbers, strings, and function names
+    // Combined regex to capture special comments, regular comments, keywords, numbers, strings, and function names
     const highlightedLine = line.replace(
-      /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(Contract|ERC20|ERC721|Uniswap|Oracle|Proxy|Logic|Modular|EntryPoint|Paymaster|Wallet|function|require|uint|int|address|bool|mapping|string|public|private|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
+      /(\/\/@[a-zA-Z_]+\s[a-zA-Z_\s]*|\/\/[^\n]*|\/\*[\s\S]*?\*\/|\b(pragma|Contract|ERC20|ERC721|Uniswap|Oracle|Proxy|Logic|Modular|EntryPoint|Paymaster|Wallet|function|require|uint|int|address|bool|mapping|string|public|private|view|returns|memory|storage)\b|\d+|"([^"]*)"|'([^']*)'|([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\()|\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?!\s*\())/g,
       (match, p1, p2, p3, p4, p5, p6) => {
-        // Match comments
-        if (/^\/\/|\/\*/.test(match)) {
-          return `<span class="sol-comment">${match}</span>`;
+        // Match special //@word comments
+        if (/^\/\/@[a-zA-Z_]+\s[a-zA-Z_\s]*/.test(match)) {
+          let [nat, comment] = match.split(" ");
+          return `<span class="sol-comment-single">${nat.slice(0, 2)}</span><span class="sol-nat">${nat.slice(
+            2
+          )}</span> <span class="sol-comment-single">${comment}</span>`;
         }
+        // Match regular single-line comments
+        if (match.startsWith("//")) {
+          return `<span class="sol-comment-single">${match}</span>`;
+        }
+        // Match multi-line comments
+        if (match.startsWith("/*")) {
+          return `<span class="sol-comment-multi">${match}</span>`;
+        }
+
         // Match keywords
         if (p2) {
           return `<span class="sol-keyword">${p2}</span>`;
@@ -30,6 +42,7 @@ export const highlightSol = (code: string) => {
         if (p4) {
           return `<span class="sol-string">'${p4}'</span>`;
         }
+
         // Return the original match for anything else (e.g., symbols)
         return match;
       }

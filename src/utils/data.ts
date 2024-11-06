@@ -112,7 +112,7 @@ export const contracts = [
     address token1;
   
     swap(uint) {
-      /* impl */
+      //impl...
     }
   }`,
   },
@@ -122,7 +122,7 @@ export const contracts = [
     className: "col-start-4 row-start-3 col-span-2 row-span-2",
     code: `Oracle {
     priceEth() {
-      /* impl */
+      //impl...
     }
   }`,
   },
@@ -149,7 +149,7 @@ export const requirementContracts = [
       address token0;
       address token1;
       swap(uint) {
-        /* impl */
+        //impl...
       }
     }`,
   },
@@ -159,7 +159,7 @@ export const requirementContracts = [
     className: "col-start-4 row-start-3 col-span-2 row-span-2",
     code: `Oracle {
       priceEth() {
-        /* impl */
+        //impl...
       }
     }`,
   },

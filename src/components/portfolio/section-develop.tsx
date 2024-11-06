@@ -4,7 +4,7 @@ import { topics } from "@/utils/data";
 import { Github } from "./icons/socials-icons";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { Window } from "./code-window";
+import { CodeWindow, Window } from "./code-window";
 
 const considerations = [
   {
@@ -25,26 +25,37 @@ const pullRequests = [
   {
     text: "Automated Testing (Fuzz)",
     success: true,
+    ci: null,
   },
   {
     text: "Static Analysis",
     success: true,
+    ci: null,
   },
   {
     text: "Security Audit",
     success: false,
+    ci: `contract { }`,
   },
   {
     text: "Simulation on forked Mainnet",
     success: true,
+    ci: `Contract { }`,
   },
   {
     text: "Gas Optimization",
     success: true,
+    ci: null,
   },
   {
     text: "Automated Dependency Updates",
     success: false,
+    ci: `
+//SPDX-License-Identifier: MIT
+//@note function 
+pragma solidity ^0.5.27;
+/* @audit overflow/underflow */
+`,
   },
 ];
 
@@ -85,9 +96,20 @@ export const SectionDevelop = () => {
           </Bubble>
 
           <div className="grid grid-cols-2 gap-x-8 items-start gap-y-4 pt-20">
-            {pullRequests.map((pr) => (
-              <PullRequest success={pr.success} text={pr.text} />
-            ))}
+            {pullRequests.map((pr) =>
+              pr.success && !!!pr.ci ? (
+                <PullRequest key={pr.text} success={pr.success} text={pr.text} pulse={false} />
+              ) : (
+                <Tooltip key={pr.text} delayDuration={0} disableHoverableContent>
+                  <TooltipTrigger>
+                    <PullRequest success={pr.success} text={pr.text} pulse />
+                  </TooltipTrigger>
+                  <TooltipContent className="w-[300px] bg-transparent">
+                    <CodeWindow code={pr.ci!} />
+                  </TooltipContent>
+                </Tooltip>
+              )
+            )}
           </div>
         </div>
         <p className="m-2 leading-5 text-sm text-secondary-content font-light text-center ">
@@ -98,7 +120,7 @@ export const SectionDevelop = () => {
       </div>
       <div className="flex justify-around my-8">
         {considerations.map((con) => (
-          <Tooltip delayDuration={0}>
+          <Tooltip key={con.title} delayDuration={0}>
             <TooltipTrigger>
               <h3 className="text-[#F0647A] text-sm hover:scale-125 transition">
                 {"{"} <span className="text-[#77a3f7]">{con.title}</span> {"}"}
@@ -107,13 +129,16 @@ export const SectionDevelop = () => {
             <TooltipContent className="w-[300px] bg-transparent" sideOffset={14}>
               <Window>
                 <p className="m-0 leading-5 text-sm text-secondary-content font-light ">
-                  /*<span className="font-semibold text-primary">@notice:</span> {con.description}*/
+                  {"/*"}
+                  <span className="font-semibold text-primary">@notice:</span> {con.description}
+                  {"*/"}
                 </p>
               </Window>
             </TooltipContent>
           </Tooltip>
         ))}
       </div>
+
       <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
         using security best <br /> practices...
       </h2>
@@ -121,11 +146,23 @@ export const SectionDevelop = () => {
   );
 };
 
-const PullRequest = ({ text, success }: { text: string; success: boolean }) => {
+const PullRequest = ({ text, success, pulse }: { text: string; success: boolean; pulse: boolean }) => {
   return (
     <div className="relative pl-[10px] px-2 rounded-lg bg-[#F2F3FF] drop-shadow-white">
       {success ? (
-        <CheckCircleIcon width={21} height={21} fill="#3BAE53" className="absolute top-1/2 -translate-y-1/2 left-1" />
+        pulse ? (
+          <span className="absolute flex h-3 w-3 top-1/2 -translate-y-1/2 left-2 ">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#29C031] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#29C031] "></span>
+          </span>
+        ) : (
+          <CheckCircleIcon width={21} height={21} fill="#3BAE53" className="absolute top-1/2 -translate-y-1/2 left-1" />
+        )
+      ) : pulse ? (
+        <span className="absolute flex h-3 w-3 top-1/2 -translate-y-1/2 left-2 ">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FD4646] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FD4646] "></span>
+        </span>
       ) : (
         <div className="absolute top-1/2 -translate-y-1/2 left-1">
           <svg width="21" height="21" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +175,10 @@ const PullRequest = ({ text, success }: { text: string; success: boolean }) => {
           </svg>
         </div>
       )}
-      <p className="textarea-sm text-secondary font-semibold tracking-tighter m-[6px] leading-5">{text}</p>
+
+      <p className="pl-3 py-2 text-sm text-start text-secondary font-semibold tracking-tighter m-[6px] leading-5">
+        {text}
+      </p>
     </div>
   );
 };
