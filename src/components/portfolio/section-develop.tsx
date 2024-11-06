@@ -35,12 +35,44 @@ const pullRequests = [
   {
     text: "Security Audit",
     success: false,
-    ci: `contract { }`,
+    ci: `
+pragma solidity ^0.7.0;
+Core {
+ mapping(address => uint) balances;
+ function withdraw(uint amount) external {
+  /* @audit possible overflow */ 
+  /* @audit precision loss */ 
+  uint value = balances[msg.sender] * amount / 1000;
+  /* @audit Transfers before updating balances (Reentrancy) */ 
+  msg.sender.transfer(value);
+  balances[msg.sender] -= amountToWithdraw;
+ }
+}`,
   },
   {
     text: "Simulation on forked Mainnet",
     success: true,
-    ci: `Contract { }`,
+    ci: `
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.7.0;    
+Contract {
+ using SafeMath for uint;
+ //@notice stores the balance of each user
+ mapping(address => uint) s_balances;
+
+ //@notice Withdraws a specified percentage  of the user's balance
+ //@param amount The percentage of the user's balance to withdraw
+ //@dev Uses SafeMath for updating balances before transfer.
+ //@custom security Prevents reentrancy by updating balance before sending Ether
+
+ function withdraw(uint amount) external {
+  uint value = s_balances[msg.sender].mul(amount).div(100);
+  require(s_balances[msg.sender] >= value, "Insufficient balance");
+  s_balances[msg.sender] = s_balances[msg.sender].sub(value);
+  (bool success, ) = msg.sender.call{value: value}("");
+  require(success, "Transfer failed");
+ }
+}`,
   },
   {
     text: "Gas Optimization",
@@ -105,7 +137,7 @@ export const SectionDevelop = () => {
                     <PullRequest success={pr.success} text={pr.text} pulse />
                   </TooltipTrigger>
                   <TooltipContent className="w-[300px] bg-transparent">
-                    <CodeWindow code={pr.ci!} />
+                    <CodeWindow code={pr.ci!} codeClassName="text-[13px]" />
                   </TooltipContent>
                 </Tooltip>
               )

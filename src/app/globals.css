@@ -150,11 +150,9 @@ p {
 }
 .sol-comment-multi {
   color: #ff4a4a;
-  font-style: italic;
 }
 .sol-comment-single {
   color: #a8a8a8;
-  font-style: italic;
 }
 .sol-nat {
   color: #ff9959;
