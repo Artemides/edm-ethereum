@@ -78,7 +78,7 @@ p {
   box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.27);
 }
 .animate-orbit {
-  animation: spin 45s linear infinite;
+  animation: spin 30s linear infinite;
 }
 
 .animate-orbit-reverse {
@@ -90,7 +90,7 @@ p {
 }
 
 .animate-orbit-reverse-origin {
-  animation: spin-origin-rev 45s linear infinite;
+  animation: spin-origin 30s linear infinite reverse;
 }
 
 .orbit-eye-bounce {
@@ -98,31 +98,25 @@ p {
 }
 
 @keyframes spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin-origin {
-  from {
+  0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-  to {
+
+  100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-@keyframes spin-origin-rev {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
-}
 @keyframes bounce {
   0%,
   100% {
@@ -131,7 +125,7 @@ p {
   }
   50% {
     transform: translateX(-50%) translateY(-40%);
-    animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0.75, 1);
   }
 }
 
@@ -162,9 +156,17 @@ p {
 .sol-function-name {
   color: #89b4fa;
 }
-.sol-object {
-  color: #f9e2af;
+.sol-object,
+.certora-var {
+  color: #f7dd9f;
 }
 .sol-number {
   color: #f38ba8;
+}
+.sol-operator {
+  color: #84ddcb;
+}
+
+.editor-line-number {
+  @apply absolute left-0 top-0 text-gray-500 text-[11px];
 }

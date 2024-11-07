@@ -8,6 +8,7 @@ import { SectionDesign } from "@/components/portfolio/section-design";
 import { SectionDevelop } from "@/components/portfolio/section-develop";
 import { SectionSecurity } from "@/components/portfolio/section-security";
 import { SectionTest } from "@/components/portfolio/section-test";
+import { SectionVerify } from "@/components/portfolio/section-verify";
 
 import { Socials } from "@/components/portfolio/socials";
 import { NextPage } from "next";
@@ -49,8 +50,7 @@ const Portfolio: NextPage = () => {
           <h2 className="text-4xl tracking-tighter">Approach</h2>
           <Galaxy />
           <div className="m-auto w-2/3 text-gradient text-center tracking-tighter">
-            <h1 className="text-4xl">From inception to execution</h1>
-            <p className="text-xl"> every line of code is fortified with security️ and foresight.</p>
+            <h1 className="text-4xl">From brainstorming through execution and beyond.</h1>
           </div>
         </div>
       </section>
@@ -67,6 +67,9 @@ const Portfolio: NextPage = () => {
       <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
         <SectionTest />
         <SectionSecurity />
+      </div>
+      <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
+        <SectionVerify />
       </div>
     </div>
   );

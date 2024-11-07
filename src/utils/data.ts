@@ -108,23 +108,23 @@ export const contracts = [
     title: "contract-uniswap",
     className: "col-start-5 col-span-2 row-span-2 ",
     code: `Uniswap {
-    address token0;
-    address token1;
+  address token0;
+  address token1;
   
-    swap(uint) {
-      //impl...
-    }
-  }`,
+  swap(uint) {
+    //impl...
+  }
+}`,
   },
 
   {
     title: "contract-oracle",
     className: "col-start-4 row-start-3 col-span-2 row-span-2",
     code: `Oracle {
-    priceEth() {
-      //impl...
-    }
-  }`,
+  priceEth() {
+    //impl...
+  }
+}`,
   },
 ];
 
@@ -228,8 +228,7 @@ export const devPullRequests = [
   {
     text: "Security Audit",
     success: false,
-    ci: `
-pragma solidity ^0.7.0;
+    ci: `pragma solidity ^0.7.0;
 contract Withdrawer {
  mapping(address => uint) balances;
  /* @i natspec missing */ 
@@ -247,8 +246,7 @@ contract Withdrawer {
   {
     text: "Simulation on forked Mainnet",
     success: true,
-    ci: `
-//SPDX-License-Identifier: MIT
+    ci: `//SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;    
 import "@openzeppelin/contracts/math/SafeMath.sol";
 contract Withdrawer {
@@ -279,8 +277,7 @@ contract Withdrawer {
   {
     text: "Automated Dependency Updates",
     success: false,
-    ci: `
-//SPDX-License-Identifier: MIT
+    ci: `//SPDX-License-Identifier: MIT
 pragma solidity ^0.5.27;
 /* @audit overflow/underflow */
 `,
