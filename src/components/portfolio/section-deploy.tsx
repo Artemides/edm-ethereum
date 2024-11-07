@@ -6,13 +6,10 @@ import { Arbitrum, Ethereum, Optimism, Zksync } from "./icons/chains";
 
 const chains = [
   {
-    title: "ethereum",
+    title: "Ethereum",
     icon: <Ethereum />,
   },
-  {
-    title: "Zksync",
-    icon: <Zksync />,
-  },
+
   {
     title: "Arbitrum",
     icon: <Arbitrum />,
@@ -21,22 +18,21 @@ const chains = [
     title: "Optimism",
     icon: <Optimism />,
   },
+  {
+    title: "Zksync",
+    icon: <Zksync />,
+  },
 ];
 
 export const SectionDeploy = () => {
   const deploy = topics.find((t) => t.title == "deploy")!;
   const orbitChains = chains.map((chains, i) => {
     return (
-      <div key={chains.title} className="">
-        <Bubble
-          id={`border-gradient-${chains.title}`}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "
-        >
-          <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-            {chains.icon}
-          </span>
+      <div key={chains.title} className=" ">
+        <Bubble id={`border-gradient-${chains.title}`} className="absolute-center w-16 aspect-square z-10">
+          <span className="absolute-center w-2/3 z-0">{chains.icon}</span>
         </Bubble>
-        <p className="mt-36 ">{chains.title}</p>
+        <p className="mt-28 tracking-tight font-semibold text-sm">{chains.title}</p>
       </div>
     );
   });
@@ -52,8 +48,19 @@ export const SectionDeploy = () => {
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{deploy.icon}</span>
       </Bubble>
       <div className="relative w-full aspect-square">
-        <Orbit elements={orbitChains.slice(1)} className="absolute-center w-full " />
-        <Orbit elements={orbitChains.slice(0, 1)} className="absolute-center w-2/3" />
+        <Orbit
+          elements={orbitChains.slice(1)}
+          offsetDegree={-119}
+          gap={12}
+          className="absolute-center w-full "
+          rotateElements={false}
+        />
+        <Orbit
+          elements={orbitChains.slice(0, 1)}
+          className="absolute-center w-2/3"
+          rotateElements={false}
+          offsetDegree={-89}
+        />
       </div>
 
       <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
