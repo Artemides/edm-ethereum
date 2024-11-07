@@ -14,7 +14,7 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#FF9959",
+          primary: "#f7dd9f",
           "primary-content": "#FFFFFF",
           secondary: "#323232",
           "secondary-content": "#c3c3c3",
@@ -91,6 +91,7 @@ const config: Config = {
         "rotate-fast": "rotate 5s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        typing: "typing 2s steps(20, end) forwards, blink 0.7s step-end infinite",
       },
       keyframes: {
         rotate: {
@@ -116,6 +117,14 @@ const config: Config = {
           to: {
             height: "0",
           },
+        },
+        typing: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        blink: {
+          "0%, 50%": { borderColor: "transparent" },
+          "50%, 100%": { borderColor: "black" },
         },
       },
       borderColor: {

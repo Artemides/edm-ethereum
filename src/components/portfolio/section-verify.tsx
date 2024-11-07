@@ -2,17 +2,26 @@ import { topics } from "@/utils/data";
 import React from "react";
 import { Bubble } from "./bubble";
 import {
+  CaretRightIcon,
+  ChevronRightIcon,
+  CrossCircledIcon,
   EnterIcon,
   ExclamationTriangleIcon,
   EyeOpenIcon,
+  GearIcon,
   LightningBoltIcon,
+  LinkBreak2Icon,
   MagicWandIcon,
+  MixerHorizontalIcon,
+  MixerVerticalIcon,
   MixIcon,
   PersonIcon,
+  PlayIcon,
   ReloadIcon,
   UpdateIcon,
 } from "@radix-ui/react-icons";
 import { CodeWindow } from "./code-window";
+import { Element } from "./element";
 
 const commonVulnerabilities = [
   {
@@ -53,10 +62,33 @@ const commonVulnerabilities = [
   },
 ];
 
+const certoraSteps = [
+  {
+    text: "invariants",
+    icon: <GearIcon />,
+  },
+  {
+    text: "rules",
+    icon: <MixerVerticalIcon />,
+  },
+  {
+    text: "run",
+    icon: <PlayIcon />,
+  },
+  {
+    text: "edge cases",
+    icon: <LinkBreak2Icon />,
+  },
+  {
+    text: "re-run",
+    icon: <ReloadIcon />,
+  },
+];
+
 export const SectionVerify = () => {
   const verify = topics.find((t) => t.title == "verify")!;
   return (
-    <section className="min-height p-2  relative">
+    <section className="min-height px-2 py-4  relative">
       <Bubble
         id={`border-gradient-${verify.title}`}
         className="absolute top-4 right-4 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -69,14 +101,46 @@ export const SectionVerify = () => {
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
       <p className="m-auto leading-5 text-sm text-secondary-content font-light text-center w-2/3">
-        &#47;* <span className="text-[#f06479] font-semibold">@note:</span>I do personally recommend formal
-        verification, in order to proof or validate the properties (Invariants) of the working Protocol within a
-        Mathematical Approach.. *&#47;
+        &#47;* <span className="text-purple-400  font-semibold">@note:</span>I do personally recommend{" "}
+        <b className="font-bold">formal verification</b>, in order to proof or validate the properties (Invariants) of
+        the working Protocol within a Mathematical Approach.*&#47;
       </p>
-      <div>
-        <div className="mask-gradient-to-t p-2">
+
+      <div className="my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center border-x-[1px] border-x-white/25">
+        {certoraSteps.map((step, idx) => (
+          <>
+            <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
+              {React.cloneElement(step.icon, { className: " w-6 h-6  text-[#94e2d5] inline" })}{" "}
+              <p className=" my-1 text-sm tracking-tighter text-[#f9e2af]  font-semibold   ">{step.text} </p>
+            </div>
+            {idx < certoraSteps.length - 1 && <ChevronRightIcon className="w-5 h-5  " />}
+          </>
+        ))}
+      </div>
+
+      <div className="relative w-4/5 mx-auto ">
+        <h2 className="col-span-2 text-[#f9e2af] font-semibold text-xl text-center mt-14 mb-36"> Preferred Tools</h2>
+        <div className="relative  grid grid-cols-2 gap-x-4 z-10 ">
+          <div className="bg-black/30 border-[1px] border-secondary/50 p-2 rounded-md backdrop-blur-sm  drop-shadow ">
+            <h4 className="text-[#c5a1ef] font-semibold ">
+              Certora <span className="font-light">(Solidity based)</span>
+            </h4>
+            <p className="leading-5 text-sm text-secondary-content font-light">
+              {"/*"} <span className="text-[#c5a1ef] font-semibold">@note:</span>Provides mechanisms through (CVL) to
+              define custom specification (invariants and rules) so as to run them against symbolic inputs {"*/"}
+            </p>
+          </div>
+          <div className="bg-black/30 border-[1px] border-secondary/50 p-2 rounded-md backdrop-blur-sm  drop-shadow ">
+            <h4 className="text-[#c5a1ef] font-semibold">Halmos</h4>
+            <p className="leading-5 text-sm text-secondary-content font-light">
+              {"/*"} <span className="text-[#c5a1ef] font-semibold">@note:</span>A tool to proof our invariants based on
+              our testing rules and coverage {"*/"}
+            </p>
+          </div>
+        </div>
+        <div className="absolute -top-12 scale-50 left-1/2 -translate-x-1/2  mask-gradient-to-t p-2 hover:scale-100 hover:-translate-y-1/4 transition duration-300 hover:cursor-pointer z-0 hover:mask-square hover:z-20">
           <CodeWindow
-            className="m-auto mt-6  [&>p*]:m-0"
+            className="m-auto mt-6  [&>p*]:m-0 "
             codeClassName="text-[12px] leading-[14px] "
             lang="certora"
             code={`methods {
