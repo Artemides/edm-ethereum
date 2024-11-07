@@ -25,9 +25,9 @@ export const topics: Approach[] = [
   {
     title: "secure",
     icon: "⚔️",
-    bColor: "#FF4C4C",
-    bgColor: "#FF4C4Cb0",
-    bgColor2: "#FF4C4C14",
+    bColor: "#f06479",
+    bgColor: "#f06479b0",
+    bgColor2: "#f0647914",
   },
   {
     title: "verify",
