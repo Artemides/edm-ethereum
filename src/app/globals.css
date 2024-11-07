@@ -90,7 +90,7 @@ p {
 }
 
 .animate-orbit-reverse-origin {
-  animation: spin-origin 45s linear infinite reverse;
+  animation: spin-origin-rev 45s linear infinite;
 }
 
 .orbit-eye-bounce {
@@ -115,6 +115,14 @@ p {
   }
 }
 
+@keyframes spin-origin-rev {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
 @keyframes bounce {
   0%,
   100% {

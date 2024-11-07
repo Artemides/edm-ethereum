@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/utils";
-import React, { createRef, useEffect, useRef, useState } from "react";
+import React, { createRef, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 type OrbitProps = {
   className?: string;
@@ -24,8 +24,6 @@ export const Orbit = ({ elements, className }: OrbitProps) => {
       className={cn("m-auto relative w-[100px] aspect-square border-[1px] border-white/5  rounded-full ", className)}
     >
       {elements.map((el, i) => {
-        if (!orbitRef.current) return null;
-
         let angle = (360 / elements.length) * i;
         const radius = orbitDim.width / 2;
         const top = radius + radius * Math.sin((angle * Math.PI) / 180) - (refs[i].current?.clientHeight ?? 0) / 2;
@@ -34,8 +32,8 @@ export const Orbit = ({ elements, className }: OrbitProps) => {
           <div
             key={i}
             ref={refs[i]}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-orbit-reverse-origin"
-            style={{ top, left }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  animate-orbit-reverse-origin transition-all duration-1000"
+            style={{ ...(top && left ? { top, left } : {}) }}
           >
             {el}
           </div>
