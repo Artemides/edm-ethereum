@@ -105,8 +105,7 @@ export const SectionTest = () => {
         />
         <CodeWindow
           codeClassName="text-[11px]  leading-3 "
-          code={`
-function test_DOSonWithdrawFeesFuzz(address recipient) public {
+          code={`function test_DOSonWithdrawFeesFuzz(address recipient) public {
  Owner owner = new Owner();
  SpookySwap.Treat memory treat = 
     SpookySwap.Treat("candy", 0.1 ether, "ipfs://candy-cid");

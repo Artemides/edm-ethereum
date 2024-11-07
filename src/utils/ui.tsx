@@ -66,7 +66,6 @@ export const highlightCertora = (code: string) => {
       <p
         dangerouslySetInnerHTML={{ __html: `${lineNumber} ${highlightedLine || " "}` }}
         className="relative pl-3 m-[2px] hover:bg-accent/20 rounded-sm"
-        s
       />
     );
   });

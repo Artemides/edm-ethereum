@@ -121,35 +121,29 @@ export const SectionDesign = () => {
 
                   <div className="m-auto w-fit grid  grid-cols-2 gap-4 text-start p-4 place-items-center">
                     <CodeWindow
-                      code={`
-Proxy {
+                      code={`Proxy {
  fallback() {
   .deletagecall()
  }
-}
-`}
+}`}
                     />
                     <CodeWindow
-                      code={`
-Logic {
+                      code={`Logic {
  function run() {
   //impl...
  }
-}
-`}
+}`}
                     />
                     <CodeWindow
                       className="col-span-2"
-                      code={`
-Modular {
+                      code={`Modular {
  function install() {
   //impl...
  }
  function hook(){
   //impl...
  }
-}
-`}
+}`}
                     />
                   </div>
                 </CarouselItem>
@@ -159,24 +153,21 @@ Modular {
                   <div className="m-auto w-fit grid  grid-cols-2 gap-4 text-start p-6 place-items-center">
                     <CodeWindow
                       className="col-span-2"
-                      code={`
-EntryPoint {
+                      code={`EntryPoint {
  function handleOps() {
   wallet.call("")
  }
 }`}
                     />
                     <CodeWindow
-                      code={`
-Paymaster {
+                      code={`Paymaster {
  function sponsor() {
   call{ether}(".")
  }
 }`}
                     />
                     <CodeWindow
-                      code={`
-Wallet {
+                      code={`Wallet {
  function exec() {
   //impl...
  }
@@ -197,8 +188,7 @@ Wallet {
             <h2 className="my-2  text-2xl">Tokenized</h2>
             <div className="grid grid-cols-2  items-end justify-items-center text-start p-8">
               <CodeWindow
-                code={`
-ERC20 {
+                code={`ERC20 {
   string public symbol;
   uint totalSupply;
   mapping balanceOf;
@@ -206,19 +196,16 @@ ERC20 {
   transfer(){
    //impl...
   }
-}
-`}
+}`}
               />
               <CodeWindow
-                code={`
-ERC721 {
+                code={`ERC721 {
  uint tokenId;
  mapping ownerOf;
  mint(){
    //impl...
  }
-}
-`}
+}`}
               />
               <div className="flex gap-x-2">
                 {tokens.map((token) => (
