@@ -28,12 +28,14 @@ export const SectionDeploy = () => {
   const deploy = topics.find((t) => t.title == "deploy")!;
   const orbitChains = chains.map((chains, i) => {
     return (
-      <div key={chains.title} className=" ">
-        <Bubble id={`border-gradient-${chains.title}`} className="absolute-center w-16 aspect-square z-10">
-          <span className="absolute-center w-2/3 z-0">{chains.icon}</span>
-        </Bubble>
+      <Bubble
+        key={chains.title}
+        id={`border-gradient-${chains.title}`}
+        className="absolute-center w-16 aspect-square z-10"
+      >
+        <span className="absolute-center w-2/3 z-0">{chains.icon}</span>
         <p className="mt-28 tracking-tight font-semibold text-sm">{chains.title}</p>
-      </div>
+      </Bubble>
     );
   });
 
