@@ -4,6 +4,7 @@ import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
 import { Header } from "@/components/portfolio/header";
 import { Ether } from "@/components/portfolio/icons/socials-icons";
+import { SectionDeploy } from "@/components/portfolio/section-deploy";
 import { SectionDesign } from "@/components/portfolio/section-design";
 import { SectionDevelop } from "@/components/portfolio/section-develop";
 import { SectionSecurity } from "@/components/portfolio/section-security";
@@ -70,6 +71,7 @@ const Portfolio: NextPage = () => {
       </div>
       <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
         <SectionVerify />
+        <SectionDeploy />
       </div>
     </div>
   );

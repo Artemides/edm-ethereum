@@ -39,6 +39,9 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
+.absolute-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
 
 .min-height {
   min-height: calc(100vh - 70px);

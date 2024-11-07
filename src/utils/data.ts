@@ -34,7 +34,7 @@ export const topics: Approach[] = [
     icon: "♻️",
     bColor: "#94e2d5",
     bgColor: "#94e2d5b0",
-    bgColor2: "#9853FF14",
+    bgColor2: "#94e2d514",
   },
   {
     title: "deploy",
