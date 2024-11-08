@@ -3,7 +3,7 @@ import React from "react";
 import { Bubble } from "./bubble";
 import { Window } from "./window-tab";
 import {
-  ChevronRightIcon,
+  CaretRightIcon,
   EnterIcon,
   ExclamationTriangleIcon,
   EyeOpenIcon,
@@ -57,7 +57,7 @@ const commonVulnerabilities = [
 export const SectionSecurity = () => {
   const secure = topics.find((t) => t.title == "secure")!;
   return (
-    <section className="min-height p-2  relative">
+    <section className="min-height p-2  relative text-sm ">
       <Bubble
         id={`border-gradient-${secure.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -66,16 +66,16 @@ export const SectionSecurity = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{secure.icon}</span>
       </Bubble>
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-8 text-center">
         ...Embedding security as <br /> a core commitment
       </h2>
-      <p className="m-auto leading-5 text-sm text-secondary-content font-light text-center w-2/3">
-        &#47;* <span className="text-[#f06479] font-semibold">@audit:</span>
-        Ensuring the security of smart contracts is critical, given the immutable nature of blockchain technology and
-        the significant financial stakes often involved. *&#47;
+      <p className="m-auto leading-5 text-secondary-content text-center w-2/3 font-light ">
+        &#47;* <span className="text-primary font-semibold">@audit:</span> Ensuring the security of smart contracts is
+        critical, given the immutable nature of blockchain technology and the significant financial stakes often
+        involved. *&#47;
       </p>
 
-      <div className="text-sm my-4 tabs">
+      <div className="my-4 tabs [&>label]:text-sm">
         <input
           type="radio"
           name="security-tabs"
@@ -85,52 +85,52 @@ export const SectionSecurity = () => {
         />
         <label
           htmlFor="security-tab1"
-          className="tab  border-b-2 border-secondary peer-checked/security-tab1:text-[#f06479] peer-checked/security-tab1:border-b-2 peer-checked/security-tab1:border-[#f06479]"
+          className="tab  border-b-2 border-secondary peer-checked/security-tab1:text-[#f38ba8] peer-checked/security-tab1:border-b-2 peer-checked/security-tab1:border-[#f38ba8]"
         >
           {"{"} Manual Review {"}"}
         </label>
         <input type="radio" name="security-tabs" id="security-tab2" className="hidden peer/security-tab2" />
         <label
           htmlFor="security-tab2"
-          className="tab  border-b-2 border-secondary peer-checked/security-tab2:text-[#f06479] peer-checked/security-tab2:border-b-2 peer-checked/security-tab2:border-[#f06479]"
+          className="tab  border-b-2 border-secondary peer-checked/security-tab2:text-[#f38ba8] peer-checked/security-tab2:border-b-2 peer-checked/security-tab2:border-[#f38ba8]"
         >
           {"{"} Static Analysis {"}"}
         </label>
         <input type="radio" name="security-tabs" id="security-tab3" className="hidden peer/security-tab3" />
         <label
           htmlFor="security-tab3"
-          className="tab  border-b-2 border-secondary peer-checked/security-tab3:text-[#f06479] peer-checked/security-tab3:border-b-2 peer-checked/security-tab3:border-[#f06479]"
+          className="tab  border-b-2 border-secondary peer-checked/security-tab3:text-[#f38ba8] peer-checked/security-tab3:border-b-2 peer-checked/security-tab3:border-[#f38ba8]"
         >
           {"{"} Internal {"}"}
         </label>
         <input type="radio" name="security-tabs" id="security-tab4" className="hidden peer/security-tab4" />
         <label
           htmlFor="security-tab4"
-          className="tab  border-b-2 border-secondary peer-checked/security-tab4:text-[#f06479] peer-checked/security-tab4:border-b-2 peer-checked/security-tab4:border-[#f06479]"
+          className="tab  border-b-2 border-secondary peer-checked/security-tab4:text-[#f38ba8] peer-checked/security-tab4:border-b-2 peer-checked/security-tab4:border-[#f38ba8]"
         >
           {"{"} Private {"}"}
         </label>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab1:block ">
-          <p className="text-secondary-content pl-4 text-sm font-thin text-center">
-            {"/*"} <span className="font-semibold text-[#f06479]">@notice:</span> Thoroughly examine the code line by
-            line to identify any issues that automated tools might miss. {"*/"}
+          <p className="text-secondary-content pl-4 text-center">
+            {"/*"} <span className="font-semibold text-primary">@notice:</span> Thoroughly examine the code line by line
+            to identify any issues that automated tools might miss. {"*/"}
           </p>
         </div>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab2:block ">
-          <p className="text-secondary-content pl-4 text-sm font-thin text-center">
-            {"/*"} <span className="font-semibold text-[#f06479]">@notice:</span> Run static analysis tools (e.g.,
-            Slither or Aderyn) to detect common vulnerabilities such as reentrancy. {"*/"}
+          <p className="text-secondary-content pl-4 text-center">
+            {"/*"} <span className="font-semibold text-primary">@notice:</span> Run static analysis tools (e.g., Slither
+            or Aderyn) to detect common vulnerabilities such as reentrancy. {"*/"}
           </p>
         </div>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab3:block ">
-          <p className="text-secondary-content pl-4 text-sm font-thin text-center">
-            {"/*"} <span className="font-semibold text-[#f06479]">@notice:</span> Engage third-party auditors who
+          <p className="text-secondary-content pl-4 text-center">
+            {"/*"} <span className="font-semibold text-primary">@notice:</span> Engage third-party auditors who
             specialize in Solidity and blockchain security for a full audit report. {"*/"}
           </p>
         </div>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab4:block ">
-          <p className="text-secondary-content pl-4 text-sm font-thin text-center">
-            {"/*"} <span className="font-semibold text-[#f06479]">@notice:</span> Work closely together with an auditing
+          <p className="text-secondary-content pl-4 text-center">
+            {"/*"} <span className="font-semibold text-primary">@notice:</span> Work closely together with an auditing
             firm or independent security expert under a confidentiality agreement. {"*/"}
           </p>
         </div>
@@ -139,16 +139,16 @@ export const SectionSecurity = () => {
         <p className="m-1">
           <span className="text-cyan-400 font-semibold">~security </span>
           <span className="text-green-400 font-semibold">main</span>
-          <ChevronRightIcon className="w-5 h-5 inline-block text-green-400" /> slither ./core.sol
+          <CaretRightIcon className="w-5 h-5 inline-block text-green-400" /> slither ./core.sol
         </p>
         <p className="m-1">
           <span className="text-cyan-400 font-semibold">~security </span>
           <span className="text-green-400 font-semibold">main</span>
-          <ChevronRightIcon className="w-5 h-5 inline-block text-green-400" /> aderyn ./core.sol
+          <CaretRightIcon className="w-5 h-5 inline-block text-green-400" /> aderyn ./core.sol
         </p>
       </Window>
       <div className="absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#f064797e] z-0"></div>
-      <div className="relative mx-auto grid grid-cols-3 gap-2 m-4 p-4 z-20 text-sm">
+      <div className="relative mx-auto grid grid-cols-3 gap-2 mt-4 p-4 z-20 ">
         {commonVulnerabilities.map((v) => (
           <div
             key={v.text}
