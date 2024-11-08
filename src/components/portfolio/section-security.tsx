@@ -66,7 +66,9 @@ export const SectionSecurity = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{secure.icon}</span>
       </Bubble>
-
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+        ...Embedding security as <br /> a core commitment
+      </h2>
       <p className="m-auto leading-5 text-sm text-secondary-content font-light text-center w-2/3">
         &#47;* <span className="text-[#f06479] font-semibold">@audit:</span>
         Ensuring the security of smart contracts is critical, given the immutable nature of blockchain technology and
@@ -161,9 +163,6 @@ export const SectionSecurity = () => {
           </div>
         ))}
       </div>
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
-        ...Embedding security as a core commitment
-      </h2>
     </section>
   );
 };

@@ -25,26 +25,26 @@ export const SectionDesign = () => {
           <input type="radio" name="tabs" id="tab1" className="hidden peer/tab1" defaultChecked />
           <label
             htmlFor="tab1"
-            className="tab  border-b-2 border-secondary peer-checked/tab1:text-primary peer-checked/tab1:border-b-2 peer-checked/tab1:border-primary"
+            className="tab  border-b-2 border-secondary peer-checked/tab1:text-primary peer-checked/tab1:border-b-2 peer-checked/tab1:border-primary text-base"
           >
             {"{"} Core {"}"}
           </label>
           <input type="radio" name="tabs" id="tab2" className="hidden peer/tab2" />
           <label
             htmlFor="tab2"
-            className="tab  border-b-2 border-secondary peer-checked/tab2:text-primary peer-checked/tab2:border-b-2 peer-checked/tab2:border-primary"
+            className="tab  border-b-2 border-secondary peer-checked/tab2:text-primary peer-checked/tab2:border-b-2 peer-checked/tab2:border-primary text-base"
           >
             {"{"} Requirements{"}"}
           </label>
           <input type="radio" name="tabs" id="tab3" className="hidden peer/tab3" />
           <label
             htmlFor="tab3"
-            className="tab  border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary"
+            className="tab  border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary text-base"
           >
             {"{"} Standards {"}"}
           </label>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab1:block ">
-            <p className="max-w-full text-secondary-content pl-4 text-sm font-thin">
+            <p className="max-w-full text-secondary-content pl-4 ">
               {"/*"} <span className="font-semibold text-primary">@notice:</span> clearly outline what the smart
               contract should do, including specific functions and interactions with other contracts or external data.{" "}
               {"*/"}
@@ -75,7 +75,7 @@ export const SectionDesign = () => {
             </div>
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab2:block ">
-            <p className="text-secondary-content pl-4 text-sm font-thin">
+            <p className="text-secondary-content pl-4">
               {"/*"} <span className="font-semibold text-primary">@notice:</span> security and compliance requirements:
               Identify security constraints, such as access control, reentrancy protection, rate-limiting, and
               compliance with regulatory requirements if applicable. {"*/"}
@@ -96,7 +96,7 @@ export const SectionDesign = () => {
 }`}
                     />
                     <span className="col-">is</span>
-                    <div className="space-y-2 font-light text-sm text-center">
+                    <div className="space-y-2 font-light  text-center">
                       <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
                         <p>Access Control</p>
                       </div>
@@ -181,7 +181,7 @@ export const SectionDesign = () => {
             </Carousel>
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab3:block ">
-            <p className="text-secondary-content pl-4 text-sm font-thin">
+            <p className="text-secondary-content pl-4">
               {"/*"} <span className="font-semibold text-primary">@notice:</span> factors like interactions,
               dependencies, token standards (e.g., ERC-20, ERC-721), and expected user behaviors. {"*/"}
             </p>
