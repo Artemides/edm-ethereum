@@ -29,7 +29,7 @@ export const SectionDevelop = () => {
         <span className="font-semibold">(blockchain systems)</span>. {"*/"}
       </p>
       <div className="mx-auto w-9/12 my-4">
-        <p className="inline-block mb-16 text-center text-xl font-light">
+        <p className=" mb-16 text-center text-xl">
           Continuous Integration <br />
           on every{" "}
           <span className="text-[#6CFE89] font-semibold">
@@ -42,7 +42,7 @@ export const SectionDevelop = () => {
 
           <Bubble
             id={`develop-border-gradient-github`}
-            className="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square"
+            className="absolute -top-[7px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square"
             bColor="#6CFE89"
             bgColor="#6CFE897f"
           >

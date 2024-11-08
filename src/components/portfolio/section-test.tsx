@@ -51,7 +51,7 @@ export const SectionTest = () => {
   const test = topics.find((t) => t.title == "test")!;
 
   return (
-    <section className="relative min-height p-2 overflow-hidden">
+    <section className="relative min-height p-2 text-sm">
       <Bubble
         id={`border-gradient-${test.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square  "
@@ -61,7 +61,7 @@ export const SectionTest = () => {
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{test.icon}</span>
       </Bubble>
 
-      <h2 className="text-4xl mb-8 text-gradient-title text-center">
+      <h2 className="text-4xl text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>
       <p className="m-auto leading-5  text-secondary-content text-center w-2/3">
@@ -84,7 +84,7 @@ export const SectionTest = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <p className="m-1 leading-5 text-sm text-secondary-content font-light">{topic.description}</p>
+                <p className="m-1 leading-5 text-secondary-content">{topic.description}</p>
               </AccordionContent>
             </AccordionItem>
           </div>
