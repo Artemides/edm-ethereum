@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { getMetadata } from "@/utils/scaffold-eth/getMetadata";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -18,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body className={jetbrains.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(jetbrains.className, "overflow-x-hidden")}>
         <TooltipProvider>
           <ThemeProvider>{children}</ThemeProvider>
         </TooltipProvider>

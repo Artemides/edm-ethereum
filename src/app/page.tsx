@@ -12,6 +12,16 @@ import { SectionTest } from "@/components/portfolio/section-test";
 import { SectionVerify } from "@/components/portfolio/section-verify";
 
 import { Socials } from "@/components/portfolio/socials";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
@@ -55,6 +65,15 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
       </section>
+      <Drawer>
+        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerContent
+          className="h-[95%] w-[50%] fixed left-[calc(50%-25%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
+         "
+        >
+          <SectionDevelop />
+        </DrawerContent>
+      </Drawer>
       <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
         <Ether className="w-12" />
       </div>

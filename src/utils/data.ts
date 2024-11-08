@@ -11,14 +11,14 @@ export const topics: Approach[] = [
   {
     title: "develop",
     icon: "🛠️",
-    bColor: "#42dac1",
+    bColor: "#94e2d5",
     bgColor: "#94e2d5b0",
     bgColor2: "#94e2d514",
   },
   {
     title: "test",
     icon: "🪲",
-    bColor: "#51de45",
+    bColor: "#a6e3a1",
     bgColor: "#a6e3a1b0",
     bgColor2: "#a6e3a114",
   },

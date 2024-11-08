@@ -20,6 +20,9 @@ export const SectionDevelop = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{develop.icon}</span>
       </Bubble>
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+        using security best <br /> practices...
+      </h2>
       <div className="mx-auto w-9/12">
         <h3 className="mb-16 text-center text-2xl font-light">
           Continuous Integration <br />
@@ -86,10 +89,6 @@ export const SectionDevelop = () => {
           </Tooltip>
         ))}
       </div>
-
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
-        using security best <br /> practices...
-      </h2>
     </section>
   );
 };

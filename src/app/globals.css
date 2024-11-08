@@ -29,6 +29,11 @@ p {
    */
   background: linear-gradient(to right, #161623, #0a0b16 30%, #0a0b16 60%, #161623);
 }
+.gradient-base2 {
+  /* @apply bg-gradient-to-r from-[#161623] via-[#0A0B16] via-30%  to-[#161623];
+   */
+  background: linear-gradient(to right, #11111e, #0a0b16 20%, #0a0b16 80%, #11111e);
+}
 .border-gradient {
   border: 1px solid linear-gradient(to top, #524bb0, #00000000);
 }
@@ -90,7 +95,7 @@ p {
 }
 
 .animate-orbit {
-  animation: spin 30s linear infinite;
+  animation: spin 40s linear infinite;
 }
 
 .animate-orbit-reverse {
@@ -102,7 +107,7 @@ p {
 }
 
 .animate-orbit-reverse-origin {
-  animation: spin-origin 30s linear infinite reverse;
+  animation: spin-origin 40s linear infinite reverse;
 }
 
 .orbit-eye-bounce {
