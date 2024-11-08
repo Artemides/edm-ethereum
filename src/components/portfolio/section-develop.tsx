@@ -24,7 +24,7 @@ export const SectionDevelop = () => {
         using security best <br /> practices...
       </h2>
       <div className="mx-auto w-9/12">
-        <h3 className="mb-16 text-center text-2xl font-light">
+        <h3 className="mb-16 text-center text-xl font-light">
           Continuous Integration <br />
           on every{" "}
           <span className="text-[#6CFE89] font-semibold">
@@ -63,10 +63,10 @@ export const SectionDevelop = () => {
             )}
           </div>
         </div>
-        <p className="m-2 leading-5 text-sm text-secondary-content font-light text-center ">
+        <p className="m-2 leading-5 text-secondary-content text-center ">
           {"/*"} <span className="font-semibold text-primary">@dev:</span> Development is highly technical and requires
           a detailed approach tailored to the unique requirements of the Protocol{" "}
-          <span className="font-normal">(blockchain systems)</span>. {"*/"}
+          <span className="font-semibold">(blockchain systems)</span>. {"*/"}
         </p>
       </div>
       <div className="flex justify-around my-8">
