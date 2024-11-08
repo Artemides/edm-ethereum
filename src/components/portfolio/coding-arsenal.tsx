@@ -33,7 +33,7 @@ const codingArsenal = [
 
 export const CodingArsenal = () => {
   return (
-    <div className="my-4 inline-flex gap-x-2">
+    <div className="my-4 inline-flex ">
       {codingArsenal.map((tool) => (
         <Element
           key={tool.title}

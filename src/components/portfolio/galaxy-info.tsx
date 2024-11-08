@@ -11,6 +11,7 @@ import { SectionTest } from "./section-test";
 import { SectionSecurity } from "./section-security";
 import { SectionVerify } from "./section-verify";
 import { SectionDeploy } from "./section-deploy";
+import { SectionMonitor } from "./section-monitor";
 
 export const sections: { [key: string]: React.ReactNode } = {
   "sm-approach-design": <SectionDesign />,
@@ -19,7 +20,7 @@ export const sections: { [key: string]: React.ReactNode } = {
   "sm-approach-secure": <SectionSecurity />,
   "sm-approach-verify": <SectionVerify />,
   "sm-approach-deploy": <SectionDeploy />,
-  "sm-approach-monitor": <div>Monitor</div>,
+  "sm-approach-monitor": <SectionMonitor />,
 };
 
 export const GalaxyInfo = () => {

@@ -13,6 +13,7 @@ import { SectionTest } from "@/components/portfolio/section-test";
 import { SectionVerify } from "@/components/portfolio/section-verify";
 
 import { Socials } from "@/components/portfolio/socials";
+import { Window } from "@/components/portfolio/window-tab";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -22,16 +23,16 @@ const Portfolio: NextPage = () => {
   return (
     <div className="h-screen gradient-base ">
       <Header />
-      <section id="hero" className=" grid grid-cols-12 py-4">
-        <div className="text-center col-span-5">
+      <section id="hero" className="pt-16 grid grid-cols-12 py-4 place-items-center">
+        <div className=" text-center col-span-5  py-4">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-          <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
-            <h2 className="text-3xl ">Edmundo Arias O.</h2>
+          <div className="my-3 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
+            <h2 className="text-2xl ">Edmundo Arias O.</h2>
             <p>Software Engineer</p>
             <p>Smart Contract Developer/Auditor</p>
           </div>
           <hr className="mx-auto my-4 w-3/6 border-t border-secondary/75" />
-          <div className="w-2/3 px-10 m-auto">
+          <div className=" px-10 m-auto">
             <Socials />
             <div className=" flex gap-x-4  my-4">
               <Button className="flex-1 ">Resume</Button>
@@ -50,7 +51,7 @@ const Portfolio: NextPage = () => {
           <CodingArsenal />
         </div>
         <div className="my-auto col-span-7">
-          <h2 className="text-4xl tracking-tighter">Approach</h2>
+          <h2 className="text-4xl tracking-tighter">My approach</h2>
           <Galaxy />
           <div className="m-auto w-2/3 text-gradient-title text-center tracking-tighter">
             <h1 className="text-4xl">From brainstorming through execution and beyond.</h1>
