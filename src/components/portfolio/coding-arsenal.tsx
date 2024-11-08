@@ -45,7 +45,13 @@ export const CodingArsenal = () => {
   return (
     <div className="inline-flex items-end gap-x-5 ">
       {codingArsenal.map((tool) => (
-        <a key={tool.title} href={tool.href} className="group  inline-flex flex-col gap-1   items-center rounded-md ">
+        <a
+          key={tool.title}
+          href={tool.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group  inline-flex flex-col gap-1   items-center rounded-md "
+        >
           {tool.icon}
         </a>
       ))}
