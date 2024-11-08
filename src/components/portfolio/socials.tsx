@@ -37,7 +37,7 @@ export const Socials = () => {
           href={"/"}
           key={social.title}
           className="
-        w-[18px] transition duration-300 hover:scale-[1.3]
+        w-5 transition duration-300 hover:scale-[1.3]
         [&>svg]:fill-secondary-content
         "
         >

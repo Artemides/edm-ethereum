@@ -30,6 +30,7 @@ const config: Config = {
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
+          peach: "#fab387",
 
           "--rounded-btn": "9999rem",
 
@@ -62,6 +63,7 @@ const config: Config = {
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
+          peach: "#fab387",
 
           "--rounded-btn": "9999rem",
 
@@ -81,6 +83,9 @@ const config: Config = {
   },
   theme: {
     extend: {
+      colors: {
+        peach: "#fab387",
+      },
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
         spot: "0px 0px 250px 105px #4d3ba9a8;",

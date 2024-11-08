@@ -23,35 +23,44 @@ const Portfolio: NextPage = () => {
   return (
     <div className="h-screen gradient-base ">
       <Header />
-      <section id="hero" className="pt-16 grid grid-cols-12 py-4 place-items-center">
-        <div className=" text-center col-span-5  py-4">
-          <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-          <div className="my-3 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
-            <h2 className="text-2xl ">Edmundo Arias O.</h2>
-            <p>Software Engineer</p>
-            <p>Smart Contract Developer/Auditor</p>
-          </div>
-          <hr className="mx-auto my-4 w-3/6 border-t border-secondary/75" />
-          <div className=" px-10 m-auto">
-            <Socials />
-            <div className=" flex gap-x-4  my-4">
-              <Button className="flex-1 ">Resume</Button>
-              <Button className="flex-1 text-primary" variant={"secondary"}>
-                Wanna talk?
-              </Button>
+      <section id="hero" className="p-8 grid grid-cols-12 place-items-center">
+        <div className="col-span-5 py-4 tracking-tight ">
+          <div className="grid grid-cols-[1fr_min-content] gap-x-1">
+            <span className="text-4xl text-peach col-span-2">Hi There!</span>
+            <div className=" text-sm font-light text-slate-200 self-end">
+              <h2 className="text-3xl font-semibold">
+                <span className="text-sm">here&apos;s </span>edmund&apos; arias.
+              </h2>
+              <p className="-my-1 text-peach text-lg">Software Engineer</p>
+              <p className="-my-1 text-peach text-lg">Smart Contract Developer / Auditor</p>
+              <p className="">
+                I&apos;m dedicated to safeguard against vulnerabilities at every step, embracing challenges where
+                security is a core principle.
+              </p>
             </div>
-            <Link href={"/"} className="text-accent/90 underline text-xs hover:text-accent">
+            <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
+          </div>
+
+          <Socials />
+
+          <div className="flex gap-x-4 my-4">
+            <Button className="flex-1 border-peach bg-peach text-secondary hover:bg-peach/80 text-base">Resume</Button>
+            <Button className="flex-1 text-peach text-base" variant={"secondary"}>
+              Wanna talk?
+            </Button>
+          </div>
+          <div className="flex flex-col items-center">
+            {" "}
+            <Link href={"/"} className="text-accent underline text-[12px]">
               reach out for Frontend Development
             </Link>
+            <h2 className="text-peach text-sm my-4">
+              {`{`} coding arsenal {`}`}
+            </h2>
+            <CodingArsenal />
           </div>
-          <hr className="mx-auto my-4 w-2/3 border-t border-secondary/75" />
-          <h2 className="text-primary text-sm">
-            {`{`} coding arsenal {`}`}
-          </h2>
-          <CodingArsenal />
         </div>
         <div className="my-auto col-span-7">
-          <h2 className="text-4xl tracking-tighter">My approach</h2>
           <Galaxy />
           <div className="m-auto w-2/3 text-gradient-title text-center tracking-tighter">
             <h1 className="text-4xl">From brainstorming through execution and beyond.</h1>
