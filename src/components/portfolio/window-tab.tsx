@@ -21,7 +21,7 @@ export const Window = ({
   return (
     <div
       className={cn(
-        "relative min-h-2 w-fit bg-[#0F101B] rounded-lg border-[1px] border-[#6D6D6D]/25 px-2 pt-6 pb-2 drop-shadow ",
+        "text-start relative min-h-2 w-fit bg-[#0F101B] rounded-lg border-[1px] border-[#6D6D6D]/25 px-2 pt-6 pb-2 drop-shadow ",
         className
       )}
     >

@@ -9,7 +9,7 @@ export const SectionDesign = () => {
   const design = topics.find((t) => t.title == "design")!;
 
   return (
-    <section className="min-height relative p-2">
+    <section className="min-height relative p-2 text-sm">
       <Bubble
         id={`border-gradient-${design.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -19,27 +19,30 @@ export const SectionDesign = () => {
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{design.icon}</span>
       </Bubble>
 
+      <h2 className="text-gradient tracking-tighter text-4xl text-center">
+        ... into Robust <br />
+        Architectures
+      </h2>
       <div className="mx-auto w-9/12 col-span-6 text-center  [&>div]:mt-4">
-        <h2 className=" text-gradient tracking-tighter text-4xl mb-10">... into Robust Architectures</h2>
         <div className="">
           <input type="radio" name="tabs" id="tab1" className="hidden peer/tab1" defaultChecked />
           <label
             htmlFor="tab1"
-            className="tab  border-b-2 border-secondary peer-checked/tab1:text-primary peer-checked/tab1:border-b-2 peer-checked/tab1:border-primary text-base"
+            className="tab  border-b-2 border-secondary peer-checked/tab1:text-primary peer-checked/tab1:border-b-2 peer-checked/tab1:border-primary"
           >
             {"{"} Core {"}"}
           </label>
           <input type="radio" name="tabs" id="tab2" className="hidden peer/tab2" />
           <label
             htmlFor="tab2"
-            className="tab  border-b-2 border-secondary peer-checked/tab2:text-primary peer-checked/tab2:border-b-2 peer-checked/tab2:border-primary text-base"
+            className="tab  border-b-2 border-secondary peer-checked/tab2:text-primary peer-checked/tab2:border-b-2 peer-checked/tab2:border-primary"
           >
             {"{"} Requirements{"}"}
           </label>
           <input type="radio" name="tabs" id="tab3" className="hidden peer/tab3" />
           <label
             htmlFor="tab3"
-            className="tab  border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary text-base"
+            className="tab  border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary "
           >
             {"{"} Standards {"}"}
           </label>
@@ -49,7 +52,7 @@ export const SectionDesign = () => {
               contract should do, including specific functions and interactions with other contracts or external data.{" "}
               {"*/"}
             </p>
-            <h2 className="text-center my-8 text-2xl">On & Off chain Interactions</h2>
+            <h2 className="text-center my-8 text-xl">On & Off chain Interactions</h2>
             <div className="text-start relative grid grid-rows-4 justify-items-center ">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#1F1832] "></div>
               {defiProtocols.map((protocol) => (
@@ -83,7 +86,7 @@ export const SectionDesign = () => {
             <Carousel className="hover:cursor-pointer select-none">
               <CarouselContent>
                 <CarouselItem>
-                  <div className="text-start relative grid grid-cols-[1fr_auto_1fr] items-center justify-items-center my-12 ">
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] items-center justify-items-center my-12 ">
                     <CodeWindow
                       code={`Contract {
  uint balance;
@@ -117,9 +120,9 @@ export const SectionDesign = () => {
                 </CarouselItem>
 
                 <CarouselItem>
-                  <h2 className="max-w-full my-2  text-2xl">Upgradability</h2>
+                  <h2 className="max-w-full my-2  text-xl">Upgradability</h2>
 
-                  <div className="m-auto w-fit grid  grid-cols-2 gap-4 text-start p-4 place-items-center">
+                  <div className="m-auto w-fit grid  grid-cols-2 gap-4 p-4 place-items-center">
                     <CodeWindow
                       code={`Proxy {
  fallback() {
@@ -148,9 +151,9 @@ export const SectionDesign = () => {
                   </div>
                 </CarouselItem>
                 <CarouselItem>
-                  <h2 className="max-w-full my-2 text-2xl">Account Abstraction</h2>
+                  <h2 className="max-w-full my-2 text-xl">Account Abstraction</h2>
 
-                  <div className="m-auto w-fit grid  grid-cols-2 gap-4 text-start p-6 place-items-center">
+                  <div className="m-auto w-fit grid  grid-cols-2 gap-4 p-6 place-items-center">
                     <CodeWindow
                       className="col-span-2"
                       code={`EntryPoint {
@@ -185,7 +188,7 @@ export const SectionDesign = () => {
               {"/*"} <span className="font-semibold text-primary">@notice:</span> factors like interactions,
               dependencies, token standards (e.g., ERC-20, ERC-721), and expected user behaviors. {"*/"}
             </p>
-            <h2 className="my-2  text-2xl">Tokenized</h2>
+            <h2 className="my-2  text-xl">Tokenized</h2>
             <div className="grid grid-cols-2  items-end justify-items-center text-start p-8">
               <CodeWindow
                 code={`ERC20 {

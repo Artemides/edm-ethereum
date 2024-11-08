@@ -11,7 +11,7 @@ export const SectionDevelop = () => {
   const develop = topics.find((t) => t.title == "develop")!;
 
   return (
-    <section className="min-height p-2  relative">
+    <section className="min-height p-2 relative text-sm">
       <Bubble
         id={`border-gradient-${develop.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -20,18 +20,23 @@ export const SectionDevelop = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{develop.icon}</span>
       </Bubble>
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl text-center">
         using security best <br /> practices...
       </h2>
-      <div className="mx-auto w-9/12">
-        <h3 className="mb-16 text-center text-xl font-light">
+      <p className="m-auto my-2 leading-5 text-secondary-content text-center w-2/3">
+        {"/*"} <span className="font-semibold text-primary">@dev:</span> Development is highly technical and requires a
+        detailed approach tailored to the unique requirements of the Protocol{" "}
+        <span className="font-semibold">(blockchain systems)</span>. {"*/"}
+      </p>
+      <div className="mx-auto w-9/12 my-4">
+        <p className="inline-block mb-16 text-center text-xl font-light">
           Continuous Integration <br />
           on every{" "}
           <span className="text-[#6CFE89] font-semibold">
             {" "}
             {"{"} Pull Request {"}"}
           </span>
-        </h3>
+        </p>
         <div className="relative  flash-light-to-b before:w-[2px] before:to-[#6CFE89] before:z-10 my-8">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#f06479b0] "></div>
 
@@ -63,11 +68,6 @@ export const SectionDevelop = () => {
             )}
           </div>
         </div>
-        <p className="m-2 leading-5 text-secondary-content text-center ">
-          {"/*"} <span className="font-semibold text-primary">@dev:</span> Development is highly technical and requires
-          a detailed approach tailored to the unique requirements of the Protocol{" "}
-          <span className="font-semibold">(blockchain systems)</span>. {"*/"}
-        </p>
       </div>
       <div className="flex justify-around my-8">
         {devConsiderations.map((con) => (
