@@ -58,6 +58,11 @@ p {
   background: radial-gradient(circle, transparent 65%, #724fe37f 99%);
   /* , radial-gradient(circle, purple 0%, transparent 80%) */
 }
+.estellar-cloud-gradient-inner {
+  background: radial-gradient(circle at 50% 65%, transparent 60%, #290b8b7f 100%),
+    radial-gradient(circle at 50% 65%, transparent 50%, #66666679 99%);
+  /* , radial-gradient(circle, purple 0%, transparent 80%) */
+}
 .text-gradient {
   background: linear-gradient(to bottom, #ffffff, #afefec, #81a2e6, #beaaeb); /* Example gradient */
   background-clip: text;
@@ -80,6 +85,10 @@ p {
 .drop-shadow-white {
   box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.27);
 }
+.drop-shadow-purple {
+  box-shadow: 0px -125px 200px 25px rgba(59, 34, 90, 0.6);
+}
+
 .animate-orbit {
   animation: spin 30s linear infinite;
 }
@@ -99,7 +108,9 @@ p {
 .orbit-eye-bounce {
   animation: bounce 3s infinite;
 }
-
+.rocket-bounce {
+  animation: rocket-bounce 3s infinite;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -132,6 +143,22 @@ p {
   }
 }
 
+@keyframes rocket-bounce {
+  0% {
+    transform: rotate(-45deg) translateX(-100%) translateY(0%);
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 1.5); /* modified for launch start/stop effect */
+  }
+
+  50% {
+    transform: rotate(-45deg) translateX(0%) translateY(-100%);
+    animation-timing-function: cubic-bezier(0.2, 0.11, 0.02, 0.78); /* adjusted for "floating" peak */
+  }
+
+  100% {
+    transform: rotate(-45deg) translateX(-100%) translateY(0%);
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 1.5); /* modified for launch start/stop effect */
+  }
+}
 /* code highlighting */
 
 .sol-code {
