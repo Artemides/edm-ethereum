@@ -37,8 +37,8 @@ export const Header = () => {
           <li
             key={title}
             className={cn(
-              "h-full px-5 flex flex-col justify-center border-t-2 text-sm text-secondary-content",
-              active ? "border-t-primary text-primary" : "border-t-transparent"
+              "h-full px-5 flex flex-col justify-center border-b-2 text-sm text-secondary-content",
+              active ? "border-b-peach text-peach" : "border-b-transparent"
             )}
           >
             <span>{title}</span>
