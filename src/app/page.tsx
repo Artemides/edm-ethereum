@@ -49,10 +49,10 @@ const Portfolio: NextPage = () => {
           </h2>
           <CodingArsenal />
         </div>
-        <div className="col-span-7">
+        <div className="my-auto col-span-7">
           <h2 className="text-4xl tracking-tighter">Approach</h2>
           <Galaxy />
-          <div className="m-auto w-2/3 text-gradient text-center tracking-tighter">
+          <div className="m-auto w-2/3 text-gradient-title text-center tracking-tighter">
             <h1 className="text-4xl">From brainstorming through execution and beyond.</h1>
           </div>
         </div>

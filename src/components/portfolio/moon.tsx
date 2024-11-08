@@ -10,7 +10,7 @@ type MoonProps = {
 
 export const Moon = ({ moon }: MoonProps) => {
   return (
-    <Link href={`#${moon.id}`} key={moon.title} className="">
+    <Link href={`#${moon.id}`} key={moon.title} className="inline-block hover:scale-[1.2]  transition duration-300 ">
       <Bubble
         id={`border-gradient-${moon.id}`}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "

@@ -19,7 +19,7 @@ export const Galaxy = () => {
           alt="ether"
           width={130}
           height={200}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-10 orbit-eye-bounce"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-10 orbit-eye-bounce "
         />
         <Orbit
           className="absolute w-full aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  border-[1px] border-white/5  rounded-full -z-1  animate-rotate-slow"
