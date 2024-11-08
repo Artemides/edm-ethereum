@@ -12,7 +12,7 @@ export const SectionDesign = () => {
     <section className="min-height relative p-2">
       <Bubble
         id={`border-gradient-${design.title}`}
-        className="absolute top-4 right-0 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
+        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
         bColor={design.bColor}
         bgColor={design.bgColor}
       >

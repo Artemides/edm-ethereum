@@ -91,7 +91,7 @@ export const SectionVerify = () => {
     <section className="relative px-2 py-4 text-sm">
       <Bubble
         id={`border-gradient-${verify.title}`}
-        className="absolute top-4 right-4 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
+        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
         bColor={verify.bColor}
         bgColor={verify.bgColor}
       >

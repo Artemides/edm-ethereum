@@ -70,7 +70,20 @@ export const SectionDeploy = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{deploy.icon}</span>
       </Bubble>
-      <div className="absolute top-4 h-full w-full aspect-square">
+
+      <div className="mb-auto">
+        <h2 className=" text-gradient-title tracking-tighter text-4xl  text-center">
+          ...to life, ready for the real <br />
+          world.
+        </h2>
+        <p className="px-16 leading-5 tracking-tighter text-secondary-content font-light text-center">
+          {"/*"} <span className="text-primary  font-semibold">@note:</span> Ensuring a secure and efficient deployment
+          with careful attention given to each step to minimize risk and reinforce the integrity of the contract
+          on-chain. {"*/"}
+        </p>
+      </div>
+
+      <div className="absolute -bottom-44  w-full aspect-square">
         <Orbit
           elements={orbitChains.slice(1)}
           offsetDegree={-119}
@@ -118,16 +131,6 @@ export const SectionDeploy = () => {
           </p>
         </div>
       </div>
-      <p className="px-16 leading-5 tracking-tighter text-secondary-content font-light text-center">
-        {"/*"} <span className="text-primary  font-semibold">@note:</span> Ensuring a secure and efficient deployment
-        with careful attention given to each step to minimize risk and reinforce the integrity of the contract on-chain.{" "}
-        {"*/"}
-      </p>
-
-      <h2 className=" text-gradient-title tracking-tighter text-4xl  text-center">
-        ...to life, ready for the real <br />
-        world.
-      </h2>
     </section>
   );
 };
