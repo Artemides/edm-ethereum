@@ -88,7 +88,7 @@ const certoraSteps = [
 export const SectionVerify = () => {
   const verify = topics.find((t) => t.title == "verify")!;
   return (
-    <section className="min-height px-2 py-4  relative">
+    <section className="relative px-2 py-4 text-sm">
       <Bubble
         id={`border-gradient-${verify.title}`}
         className="absolute top-4 right-4 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -97,12 +97,12 @@ export const SectionVerify = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{verify.icon}</span>
       </Bubble>
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+      <h2 className="mx-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
-      <p className="m-auto leading-5 text-sm text-secondary-content font-light text-center w-2/3">
-        &#47;* <span className="text-purple-400  font-semibold">@note:</span>I do personally recommend{" "}
-        <b className="font-bold">formal verification</b>, in order to proof or validate the properties (Invariants) of
+      <p className="m-auto leading-5 text-secondary-content text-center w-2/3">
+        &#47;* <span className="text-primary  font-semibold">@note:</span>I do personally recommend{" "}
+        <b className="font-bold">Formal verification</b>, in order to proof or validate the properties (Invariants) of
         the working Protocol within a Mathematical Approach.*&#47;
       </p>
 
@@ -122,18 +122,18 @@ export const SectionVerify = () => {
         <h2 className="col-span-2 text-[#f9e2af] font-semibold text-xl text-center mt-14 mb-36"> Preferred Tools</h2>
         <div className="relative  grid grid-cols-2 gap-x-4 z-10 ">
           <div className="bg-black/30 border-[1px] border-secondary/50 p-2 rounded-md backdrop-blur-sm  drop-shadow ">
-            <h4 className="text-[#c5a1ef] font-semibold ">
+            <h4 className="text-[#c5a1ef] text-base font-semibold ">
               Certora <span className="font-light">(Solidity based)</span>
             </h4>
             <p className="leading-5 text-sm text-secondary-content font-light">
-              {"/*"} <span className="text-[#c5a1ef] font-semibold">@note:</span>Provides mechanisms through (CVL) to
+              {"/*"} <span className="text-primary font-semibold">@note:</span>Provides mechanisms through (CVL) to
               define custom specification (invariants and rules) so as to run them against symbolic inputs {"*/"}
             </p>
           </div>
           <div className="bg-black/30 border-[1px] border-secondary/50 p-2 rounded-md backdrop-blur-sm  drop-shadow ">
-            <h4 className="text-[#c5a1ef] font-semibold">Halmos</h4>
+            <h4 className="text-[#c5a1ef] text-base font-semibold">Halmos</h4>
             <p className="leading-5 text-sm text-secondary-content font-light">
-              {"/*"} <span className="text-[#c5a1ef] font-semibold">@note:</span>A tool to proof our invariants based on
+              {"/*"} <span className="text-primary font-semibold">@note:</span>A tool to proof our invariants based on
               our testing rules and coverage {"*/"}
             </p>
           </div>
