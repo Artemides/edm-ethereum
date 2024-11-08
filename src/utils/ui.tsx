@@ -1,3 +1,10 @@
+import { SectionDeploy } from "@/components/portfolio/section-deploy";
+import { SectionDesign } from "@/components/portfolio/section-design";
+import { SectionDevelop } from "@/components/portfolio/section-develop";
+import { SectionSecurity } from "@/components/portfolio/section-security";
+import { SectionTest } from "@/components/portfolio/section-test";
+import { SectionVerify } from "@/components/portfolio/section-verify";
+
 export const highlightCertora = (code: string) => {
   const lines = code.split("\n");
 

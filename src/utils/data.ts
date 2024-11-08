@@ -2,6 +2,7 @@ import { Approach } from "./types";
 
 export const topics: Approach[] = [
   {
+    id: `sm-approach-design`,
     title: "design",
     icon: "⚙️",
     bColor: "#fff",
@@ -9,6 +10,7 @@ export const topics: Approach[] = [
     bgColor2: "#ffffff14",
   },
   {
+    id: `sm-approach-develop`,
     title: "develop",
     icon: "🛠️",
     bColor: "#94e2d5",
@@ -16,6 +18,7 @@ export const topics: Approach[] = [
     bgColor2: "#94e2d514",
   },
   {
+    id: `sm-approach-test`,
     title: "test",
     icon: "🪲",
     bColor: "#a6e3a1",
@@ -23,6 +26,7 @@ export const topics: Approach[] = [
     bgColor2: "#a6e3a114",
   },
   {
+    id: `sm-approach-secure`,
     title: "secure",
     icon: "⚔️",
     bColor: "#f38ba8",
@@ -30,6 +34,7 @@ export const topics: Approach[] = [
     bgColor2: "#f38ba814",
   },
   {
+    id: `sm-approach-verify`,
     title: "verify",
     icon: "♻️",
     bColor: "#fab387",
@@ -37,6 +42,7 @@ export const topics: Approach[] = [
     bgColor2: "#fab38714",
   },
   {
+    id: `sm-approach-deploy`,
     title: "deploy",
     icon: "🚀",
     bColor: "#f9e2af",
@@ -44,6 +50,7 @@ export const topics: Approach[] = [
     bgColor2: "#f9e2af14",
   },
   {
+    id: `sm-approach-monitor`,
     title: "monitor",
     icon: "🤖",
     bColor: "#cba6f7",

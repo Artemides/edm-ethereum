@@ -3,34 +3,16 @@ import { Bubble } from "./bubble";
 import Image from "next/image";
 import { Orbit } from "./orbit";
 import { topics } from "@/utils/data";
+import { Moon } from "./moon";
 
 export const Galaxy = () => {
-  const orbitElements = topics.map((topic, i) => {
-    return (
-      <div key={topic.title} className="">
-        <Bubble
-          id={`border-gradient-${i}`}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "
-          bColor={topic.bColor}
-          bgColor={topic.bgColor}
-        >
-          <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{topic.icon}</span>
-        </Bubble>
-        <p
-          style={{ backgroundColor: topic.bgColor2, borderColor: topic.bColor }}
-          className="mt-36 px-2 py-[2px] rounded-full border-[1px] text-sm "
-        >
-          {topic.title}
-        </p>
-      </div>
-    );
-  });
+  const moons = topics.map((topic) => <Moon moon={topic} />);
 
   return (
     <div id="universe" className="mb-24">
       <div className="m-auto relative w-[450px] aspect-square ">
         <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow "></div>
-        <Orbit className="absolute w-full estellar-cloud-gradient z-10 animate-orbit" elements={orbitElements} />
+        <Orbit className="absolute w-full estellar-cloud-gradient z-10 animate-orbit" elements={moons} />
 
         <Image
           src={"/images/portfolio/ether.webp"}

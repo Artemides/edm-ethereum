@@ -1,6 +1,7 @@
 type ApproachTitle = "design" | "develop" | "test" | "secure" | "verify" | "deploy" | "monitor";
 
 export type Approach = {
+  id: string;
   title: ApproachTitle;
   icon: string;
   bColor: string;

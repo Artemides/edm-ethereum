@@ -2,6 +2,7 @@ import Avatar from "@/components/avatar";
 import { Button } from "@/components/button";
 import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
+import { GalaxyInfo } from "@/components/portfolio/galaxy-info";
 import { Header } from "@/components/portfolio/header";
 import { Ether } from "@/components/portfolio/icons/socials-icons";
 import { SectionDeploy } from "@/components/portfolio/section-deploy";
@@ -12,26 +13,17 @@ import { SectionTest } from "@/components/portfolio/section-test";
 import { SectionVerify } from "@/components/portfolio/section-verify";
 
 import { Socials } from "@/components/portfolio/socials";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 
 const Portfolio: NextPage = () => {
   return (
-    <div className="min-h-screen gradient-base ">
+    <div className="h-screen gradient-base ">
       <Header />
-      <section id="hero" className=" grid grid-cols-12 my-4">
-        <div className="text-center py-14 col-span-5">
+      <section id="hero" className=" grid grid-cols-12 py-4">
+        <div className="text-center col-span-5">
           <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
           <div className="my-5 [&>p]:-my-1 [&>p]:text-secondary-content  [&>p]:text-sm">
             <h2 className="text-3xl ">Edmundo Arias O.</h2>
@@ -65,33 +57,7 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
       </section>
-      <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
-        <DrawerContent
-          className="h-[95%] w-[50%] fixed left-[calc(50%-25%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
-         "
-        >
-          <SectionDevelop />
-        </DrawerContent>
-      </Drawer>
-      <div className="divider  before:bg-indigo-900/25 before:h-[1px] after:h-[1px] after:bg-indigo-900/25">
-        <Ether className="w-12" />
-      </div>
-      <div className="relative grid grid-cols-2 flash-light before:via-[#361882]">
-        <SectionDesign />
-        <SectionDevelop />
-      </div>
-      <div className="divider before:h-[0] after:h-[0]">
-        <Ether className="w-12" />
-      </div>
-      <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
-        <SectionTest />
-        <SectionSecurity />
-      </div>
-      <div className="relative grid grid-cols-2 flash-light before:via-[#89FFA3]">
-        <SectionVerify />
-        <SectionDeploy />
-      </div>
+      <GalaxyInfo />
     </div>
   );
 };
