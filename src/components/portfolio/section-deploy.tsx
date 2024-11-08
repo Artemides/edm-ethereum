@@ -61,7 +61,7 @@ export const SectionDeploy = () => {
   });
 
   return (
-    <section className="min-height p-2 py-4 relative flex  flex-col justify-end">
+    <section className="min-height p-2 py-4 relative flex  flex-col justify-end text-sm">
       <Bubble
         id={`border-gradient-${deploy.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
@@ -70,7 +70,7 @@ export const SectionDeploy = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{deploy.icon}</span>
       </Bubble>
-      <div className="absolute h-full w-full aspect-square">
+      <div className="absolute top-4 h-full w-full aspect-square">
         <Orbit
           elements={orbitChains.slice(1)}
           offsetDegree={-119}
@@ -91,40 +91,42 @@ export const SectionDeploy = () => {
         ></div>
         <span className=" absolute top-[calc(50%-150px)] left-[calc(50%+10px)]  text-5xl rocket-bounce">🚀</span>
       </div>
-      <div className="my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center">
+      <div className="my-6 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center">
         {deploymentRequisites.map((step, idx) => (
           <>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
               {React.cloneElement(step.icon, { className: "w-7 h-7  text-[#c5a1ef] inline" })}{" "}
-              <p className=" my-1 text-sm tracking-tighter text-primary-content  font-semibold   ">{step.title} </p>
+              <p className=" my-1 tracking-tight text-primary-content">{step.title} </p>
             </div>
             {idx < deploymentRequisites.length - 1 && <WidthIcon className="w-5 h-5 text-[#f9e2af] " />}
           </>
         ))}
       </div>
-      <h2 className=" text-[#f9e2af] font-semibold text-xl text-center ">Network Choosing</h2>
+      <h2 className=" text-primary text-xl text-center ">Network Choosing</h2>
 
       <div className="mx-auto w-3/4 my-4 grid grid-cols-2 gap-x-4 ">
         <div>
-          <h4 className="text-[#f9e2af] font-semibold text-center">Layer 1</h4>
-          <p className="leading-5 text-sm text-secondary-content font-light text-center">
-            {"/*"} suitable for highest level of security and decentralization. {"*/"}
+          <h4 className="text-primary text-base text-center">Layer 1</h4>
+          <p className="leading-5 text-secondary-content text-center">
+            suitable for highest level of security and decentralization.
           </p>
         </div>
         <div>
-          <h4 className="text-[#f9e2af] font-semibold text-center">Layer 2</h4>
+          <h4 className="text-primary text-base font-semibold text-center">Layer 2</h4>
           <p className="leading-5 text-sm text-secondary-content font-light text-center">
-            {"/*"} suitable for applications that prioritize speed and cost efficiency. {"*/"}
+            suitable for applications that prioritize speed and cost efficiency.
           </p>
         </div>
       </div>
       <p className="px-16 leading-5 tracking-tighter text-secondary-content font-light text-center">
-        Ensuring a secure and efficient deployment with careful attention given to each step to minimize risk and
-        reinforce the integrity of the contract on-chain.
+        {"/*"} <span className="text-primary  font-semibold">@note:</span> Ensuring a secure and efficient deployment
+        with careful attention given to each step to minimize risk and reinforce the integrity of the contract on-chain.{" "}
+        {"*/"}
       </p>
 
-      <h2 className=" text-gradient-title tracking-tighter text-4xl mb-10 text-center">
-        ...to life, ready for the real world.
+      <h2 className=" text-gradient-title tracking-tighter text-4xl  text-center">
+        ...to life, ready for the real <br />
+        world.
       </h2>
     </section>
   );

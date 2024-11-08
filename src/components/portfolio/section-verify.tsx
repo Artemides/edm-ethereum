@@ -101,7 +101,7 @@ export const SectionVerify = () => {
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
       <p className="m-auto leading-5 text-secondary-content text-center w-2/3">
-        &#47;* <span className="text-primary  font-semibold">@note:</span>I do personally recommend{" "}
+        &#47;* <span className="text-primary  font-semibold">@note:</span> I do personally recommend{" "}
         <b className="font-bold">Formal verification</b>, in order to proof or validate the properties (Invariants) of
         the working Protocol within a Mathematical Approach.*&#47;
       </p>
