@@ -64,7 +64,7 @@ export const SectionTest = () => {
       <h2 className="text-4xl mb-8 text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>
-      <p className="m-auto leading-5 text-sm text-secondary-content font-light text-center w-2/3">
+      <p className="m-auto leading-5  text-secondary-content text-center w-2/3">
         {"/*"} <span className="font-semibold text-primary">@notice:</span>
         Testing in smart contracts involves several approaches to ensure correctness, security, and performance.
         {"*/"}
