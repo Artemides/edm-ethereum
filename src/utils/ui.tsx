@@ -71,6 +71,7 @@ export const highlightCertora = (code: string) => {
     const lineNumber = `<span class="editor-line-number">${index + 1}</span>`;
     return (
       <p
+        key={`spec-line${index}`}
         dangerouslySetInnerHTML={{ __html: `${lineNumber} ${highlightedLine || " "}` }}
         className="relative pl-3 m-[2px] hover:bg-accent/20 rounded-sm"
       />
@@ -149,6 +150,7 @@ export const highlightSol = (code: string) => {
     // Return JSX for each line
     return (
       <p
+        key={`sol-line${index}`}
         dangerouslySetInnerHTML={{ __html: `${lineNumber} ${highlightedLine || " "}` }}
         className="relative pl-3 m-[2px] hover:bg-accent/20 rounded-sm"
       />
