@@ -1,23 +1,15 @@
+import Link from "next/link";
+import React from "react";
 import Avatar from "@/components/avatar";
 import { Button } from "@/components/button";
 import { CodingArsenal } from "@/components/portfolio/coding-arsenal";
 import { Galaxy } from "@/components/portfolio/galaxy";
 import { GalaxyInfo } from "@/components/portfolio/galaxy-info";
 import { Header } from "@/components/portfolio/header";
-import { Ether } from "@/components/portfolio/icons/socials-icons";
-import { SectionDeploy } from "@/components/portfolio/section-deploy";
-import { SectionDesign } from "@/components/portfolio/section-design";
-import { SectionDevelop } from "@/components/portfolio/section-develop";
-import { SectionSecurity } from "@/components/portfolio/section-security";
-import { SectionTest } from "@/components/portfolio/section-test";
-import { SectionVerify } from "@/components/portfolio/section-verify";
 
 import { Socials } from "@/components/portfolio/socials";
-import { Window } from "@/components/portfolio/window-tab";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+
 import { NextPage } from "next";
-import Link from "next/link";
-import React from "react";
 
 const Portfolio: NextPage = () => {
   return (

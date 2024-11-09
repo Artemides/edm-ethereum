@@ -6,7 +6,7 @@ import { topics } from "@/utils/data";
 import { Moon } from "./moon";
 
 export const Galaxy = () => {
-  const moons = topics.map((topic) => <Moon moon={topic} />);
+  const moons = topics.map((topic) => <Moon key={topic.id} moon={topic} />);
 
   return (
     <div id="universe" className="mb-24">

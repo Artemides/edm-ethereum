@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { Ether } from "./portfolio/icons/socials-icons";
 
 type AvatarProps = {
   bordered: boolean;
@@ -22,7 +21,7 @@ const Avatar = ({ img, alt }: AvatarProps) => {
     <div className="relative row-span-2 self-center rounded-full bg-gradient-to-t from-[#524BB0] via-[#B8FBF6]/25 to-35%  aspect-square w-48 p-[4px]">
       {img ? (
         <div className="relative w-full h-full rounded-full overflow-hidden">
-          <Image className="bg-cover" src={img!} alt={alt} fill objectFit="cover" />
+          <Image className="object-cover" src={img!} alt={alt} fill sizes="200px" />
         </div>
       ) : (
         <AvatarFallback alt={alt || ""} />

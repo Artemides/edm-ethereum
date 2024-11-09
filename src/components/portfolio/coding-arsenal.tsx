@@ -30,6 +30,7 @@ const codingArsenal = [
         width={60}
         height={60}
         className=" group-hover:scale-125 transition-all duration-300"
+        sizes=""
       />
     ),
     href: "https://hardhat.org/",
