@@ -1,12 +1,14 @@
+"use client";
+
 import React from "react";
-import { Foundry, Hardhat, Rust, Solidity, Typescript } from "./icons/lang-icons";
-import { Element } from "./element";
+import { Foundry, Hardhat, NextSVG, ReactSVG, Rust, Solidity, Typescript } from "./icons/lang-icons";
 import Link from "next/link";
+import Image from "next/image";
 
 const codingArsenal = [
   {
     title: "Solidity",
-    icon: <Solidity className="w-5 group-hover:scale-125 transition-all duration-300" />,
+    icon: <Solidity className="w-[26px] group-hover:scale-125 transition-all duration-300" />,
     href: "https://soliditylang.org/",
   },
   {
@@ -16,33 +18,43 @@ const codingArsenal = [
   },
   {
     title: "Typescr.",
-    icon: <Typescript className="w-9 group-hover:scale-125 transition-all duration-300" />,
+    icon: <Typescript className="w-10 group-hover:scale-125 transition-all duration-300" />,
     href: "https://www.typescriptlang.org/",
   },
   {
     title: "Hardhat",
-    icon: <Hardhat className="w-11 group-hover:scale-125 transition-all duration-300" />,
+    icon: (
+      <Image
+        src={"/images/portfolio/lang/hardhat-logo.png"}
+        alt="hardhat"
+        width={60}
+        height={60}
+        className=" group-hover:scale-125 transition-all duration-300"
+        sizes=""
+      />
+    ),
     href: "https://hardhat.org/",
   },
   {
     title: "Rust",
-    icon: <Rust className="w-9 group-hover:scale-125 transition-all duration-300" />,
+    icon: <Rust className="w-10 group-hover:scale-125 transition-all duration-300" />,
     href: "https://www.rust-lang.org/",
   },
 ];
 
 export const CodingArsenal = () => {
   return (
-    <div className="my-4 inline-flex gap-x-2">
+    <div className="inline-flex items-end gap-x-5 ">
       {codingArsenal.map((tool) => (
-        <Element
+        <a
           key={tool.title}
           href={tool.href}
-          className="group w-20 inline-flex flex-col justify-evenly items-center "
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group  inline-flex flex-col gap-1   items-center rounded-md "
         >
           {tool.icon}
-          <small>{tool.title}</small>
-        </Element>
+        </a>
       ))}
     </div>
   );

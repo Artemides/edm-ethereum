@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkTheme: "dark",
   darkMode: ["selector", "[data-theme='dark']"],
@@ -13,10 +14,10 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#FF9959",
+          primary: "#f7dd9f",
           "primary-content": "#FFFFFF",
           secondary: "#323232",
-          "secondary-content": "#A8A8A8",
+          "secondary-content": "#d0d0d0",
           accent: "#CAB3F5",
           "accent-content": "#E9FBFF",
           neutral: "#088484",
@@ -29,6 +30,7 @@ const config: Config = {
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
+          peach: "#fab387",
 
           "--rounded-btn": "9999rem",
 
@@ -48,7 +50,7 @@ const config: Config = {
           primary: "#FF9959",
           "primary-content": "#FFFFFF",
           secondary: "#323232",
-          "secondary-content": "#A8A8A8",
+          "secondary-content": "#dedede",
           accent: "#CAB3F5",
           "accent-content": "#088484",
           neutral: "#E9FBFF",
@@ -61,6 +63,7 @@ const config: Config = {
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
+          peach: "#fab387",
 
           "--rounded-btn": "9999rem",
 
@@ -80,18 +83,53 @@ const config: Config = {
   },
   theme: {
     extend: {
+      colors: {
+        peach: "#fab387",
+      },
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
+        spot: "0px 0px 250px 105px #4d3ba9a8;",
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "rotate-slow": "rotate 30s linear infinite",
         "rotate-fast": "rotate 5s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        typing: "typing 2s steps(20, end) forwards, blink 0.7s step-end infinite",
       },
       keyframes: {
         rotate: {
-          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
-          "100%": { transform: " translate(-50%, -50%) rotate(360deg)" },
+          "0%": {
+            transform: "translate(-50%, -50%) rotate(0deg)",
+          },
+          "100%": {
+            transform: " translate(-50%, -50%) rotate(360deg)",
+          },
+        },
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
+        typing: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        blink: {
+          "0%, 50%": { borderColor: "transparent" },
+          "50%, 100%": { borderColor: "black" },
         },
       },
       borderColor: {
@@ -103,6 +141,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-animate")],
 };
 export default config;
