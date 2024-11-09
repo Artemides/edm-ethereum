@@ -29,6 +29,11 @@ p {
    */
   background: linear-gradient(to right, #161623, #0a0b16 30%, #0a0b16 60%, #161623);
 }
+.gradient-base2 {
+  /* @apply bg-gradient-to-r from-[#161623] via-[#0A0B16] via-30%  to-[#161623];
+   */
+  background: linear-gradient(to right, #11111e, #0a0b16 20%, #0a0b16 80%, #11111e);
+}
 .border-gradient {
   border: 1px solid linear-gradient(to top, #524bb0, #00000000);
 }
@@ -39,25 +44,15 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
-.universe-element {
-  @apply absolute top-1/2 left-1/2 w-10 h-10 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2;
-  /* Calculate the angle and radius for each element */
-  --angle: calc(360deg / 7 * var(--i));
-  transform: translate(-50%, -50%) rotate(var(--angle)) translate(120px);
-}
-.gradient-border {
-  padding: 10px; /* Space inside the element */
-  border-radius: 8px;
-  background-color: transparent; /* Keeps the content area transparent */
-  color: #fff; /* Text color */
-  position: relative;
-  border-width: 2px;
-  border-radius: 16px;
-  border-image: linear-gradient(to top, #949494 30%, #4d9f0c, transparent 50%) 5;
+.absolute-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+.min-height {
+  min-height: calc(100vh - 70px);
+}
 .mask-gradient-to-t {
-  mask-image: linear-gradient(black 20%, transparent);
+  mask-image: linear-gradient(black 25%, transparent);
 }
 
 .blured-shadow {
@@ -68,14 +63,39 @@ p {
   background: radial-gradient(circle, transparent 65%, #724fe37f 99%);
   /* , radial-gradient(circle, purple 0%, transparent 80%) */
 }
+.estellar-cloud-gradient-inner {
+  background: radial-gradient(circle at 50% 65%, transparent 60%, #290b8b7f 100%),
+    radial-gradient(circle at 50% 65%, transparent 50%, #66666679 99%);
+  /* , radial-gradient(circle, purple 0%, transparent 80%) */
+}
 .text-gradient {
   background: linear-gradient(to bottom, #ffffff, #afefec, #81a2e6, #beaaeb); /* Example gradient */
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.text-gradient-title {
+  background: linear-gradient(to bottom, #ffffff, #afefec, #81a2e6); /* Example gradient */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.flash-light::before {
+  @apply content-[''] absolute top-1/2 -translate-y-1/2 left-1/2 w-[1px] h-3/4 bg-gradient-to-t from-transparent  via-indigo-700 to-transparent;
+}
+.flash-light-to-b::before {
+  @apply content-[''] absolute top-1/2 -translate-y-1/2 left-1/2 w-[1px] h-3/4 bg-gradient-to-t  from-transparent to-indigo-700;
+}
+.drop-shadow {
+  box-shadow: 0px 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+.drop-shadow-white {
+  box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.27);
+}
+.drop-shadow-purple {
+  box-shadow: 0px -125px 200px 25px rgba(59, 34, 90, 0.6);
+}
 
 .animate-orbit {
-  animation: spin 45s linear infinite;
+  animation: spin 40s linear infinite;
 }
 
 .animate-orbit-reverse {
@@ -87,27 +107,31 @@ p {
 }
 
 .animate-orbit-reverse-origin {
-  animation: spin-origin 45s linear infinite reverse;
+  animation: spin-origin 40s linear infinite reverse;
 }
 
 .orbit-eye-bounce {
   animation: bounce 3s infinite;
 }
-
+.rocket-bounce {
+  animation: rocket-bounce 3s infinite;
+}
 @keyframes spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin-origin {
-  from {
+  0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-  to {
+
+  100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
@@ -120,6 +144,64 @@ p {
   }
   50% {
     transform: translateX(-50%) translateY(-40%);
-    animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0.75, 1);
   }
+}
+
+@keyframes rocket-bounce {
+  0% {
+    transform: rotate(-45deg) translateX(-100%) translateY(0%);
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 1.5); /* modified for launch start/stop effect */
+  }
+
+  50% {
+    transform: rotate(-45deg) translateX(0%) translateY(-100%);
+    animation-timing-function: cubic-bezier(0.2, 0.11, 0.02, 0.78); /* adjusted for "floating" peak */
+  }
+
+  100% {
+    transform: rotate(-45deg) translateX(-100%) translateY(0%);
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 1.5); /* modified for launch start/stop effect */
+  }
+}
+/* code highlighting */
+
+.sol-code {
+  font-family: inherit;
+}
+.sol-comment-multi {
+  color: #ff4a4a;
+  background-color: #ff4a4a2b;
+  border-radius: 4px;
+}
+.sol-comment-single {
+  color: #a8a8a8;
+}
+.sol-nat {
+  color: #ff9959;
+  font-weight: bold;
+  font-style: italic;
+}
+.sol-keyword {
+  color: #c5a1ef;
+}
+.sol-string {
+  color: #95da8e;
+}
+.sol-function-name {
+  color: #89b4fa;
+}
+.sol-object,
+.certora-var {
+  color: #f7dd9f;
+}
+.sol-number {
+  color: #f38ba8;
+}
+.sol-operator {
+  color: #84ddcb;
+}
+
+.editor-line-number {
+  @apply absolute left-0 top-0 text-gray-500 text-[11px];
 }

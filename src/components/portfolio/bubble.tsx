@@ -1,3 +1,4 @@
+import { cn } from "@/utils";
 import React from "react";
 
 type BubbleProps = {
@@ -8,8 +9,6 @@ type BubbleProps = {
   bColor?: string;
 };
 
-import { cn } from "@/utils/ui";
-
 export const Bubble = ({
   children,
   className,
@@ -17,6 +16,7 @@ export const Bubble = ({
 }: { children?: React.ReactNode; className?: string } & BubbleProps) => {
   return (
     <div className={cn("relative ", className)}>
+      <div className="absolute-center w-full aspect-square shadow-lg shadow-black/75 rounded-full "></div>
       <BubbleBorder {...props} />
       {children}
     </div>
@@ -46,7 +46,7 @@ export const BubbleBorder = ({ id, width, height, bgColor = "#fff", bColor = "#f
           cy="40"
           r="47"
           stroke={`url(#paint1_linear_2447_648_${id})`}
-          stroke-width="2"
+          strokeWidth="2"
           shapeRendering="geometricPrecision"
         />
       </g>
@@ -59,8 +59,8 @@ export const BubbleBorder = ({ id, width, height, bgColor = "#fff", bColor = "#f
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(48 -14) rotate(90) scale(94)"
         >
-          <stop offset="0.67" stop-color="#737373" stop-opacity="0" />
-          <stop offset="1" stop-color={bgColor} stop-opacity="0.46" />
+          <stop offset="0.67" stopColor="#737373" stopOpacity="0" />
+          <stop offset="1" stopColor={bgColor} stopOpacity="0.46" />
         </radialGradient>
         <linearGradient
           id={`paint1_linear_2447_648_${id}`}
@@ -70,8 +70,8 @@ export const BubbleBorder = ({ id, width, height, bgColor = "#fff", bColor = "#f
           y2="80"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.095" stop-opacity="0" />
-          <stop offset="1" stop-color={bColor} />
+          <stop offset="0.095" stopOpacity="0" />
+          <stop offset="1" stopColor={bColor} />
         </linearGradient>
       </defs>
     </svg>
