@@ -21,7 +21,6 @@ import {
   UpdateIcon,
 } from "@radix-ui/react-icons";
 import { CodeWindow } from "./code-window";
-import { Element } from "./element";
 
 const commonVulnerabilities = [
   {
@@ -97,13 +96,13 @@ export const SectionVerify = () => {
       >
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{verify.icon}</span>
       </Bubble>
-      <h2 className="mx-auto text-gradient-title tracking-tighter text-4xl mb-10 text-center">
+      <h2 className="mx-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
-      <p className="m-auto leading-5 text-secondary-content text-center w-2/3">
-        &#47;* <span className="text-primary  font-semibold">@note:</span> I do personally recommend{" "}
-        <b className="font-bold">Formal verification</b>, in order to proof or validate the properties (Invariants) of
-        the working Protocol within a Mathematical Approach.*&#47;
+      <p className="m-auto leading-5 text-secondary-content text-center px-12">
+        &#47;* <span className="text-primary  font-semibold">@note:</span> Mathematically proving that the invariants
+        (properties) always remain true, eliminating any uncertainties around potential vulnerabilities, while using
+        formal methods and tools to ensure under all possible conditions.
       </p>
 
       <div className="my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center border-x-[1px] border-x-white/25">

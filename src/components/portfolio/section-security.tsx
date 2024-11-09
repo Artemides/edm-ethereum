@@ -55,24 +55,24 @@ const commonVulnerabilities = [
 ];
 
 export const SectionSecurity = () => {
-  const secure = topics.find((t) => t.title == "secure")!;
+  const audit = topics.find((t) => t.title == "audit")!;
   return (
     <section className="min-height p-2  relative text-sm ">
       <Bubble
-        id={`border-gradient-${secure.title}`}
+        id={`border-gradient-${audit.title}`}
         className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={secure.bColor}
-        bgColor={secure.bgColor}
+        bColor={audit.bColor}
+        bgColor={audit.bgColor}
       >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{secure.icon}</span>
+        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{audit.icon}</span>
       </Bubble>
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-8 text-center">
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
         ...Embedding security as <br /> a core commitment
       </h2>
-      <p className="m-auto leading-5 text-secondary-content text-center w-2/3 font-light ">
-        &#47;* <span className="text-primary font-semibold">@audit:</span> Ensuring the security of smart contracts is
-        critical, given the immutable nature of blockchain technology and the significant financial stakes often
-        involved. *&#47;
+      <p className="m-auto leading-5 text-secondary-content text-center px-12 font-light ">
+        &#47;* <span className="text-primary font-semibold">@audit:</span> Conducting comprehensive in-depth manual and
+        automated reviews, analyzing every call trace to uncover potential vulnerabilities, ensuring the protocol is
+        secure, efficient, and trustworthy before deployment. *&#47;
       </p>
 
       <div className="my-4 tabs [&>label]:text-sm">
@@ -112,8 +112,8 @@ export const SectionSecurity = () => {
         </label>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab1:block ">
           <p className="text-secondary-content pl-4 text-center">
-            {"/*"} <span className="font-semibold text-primary">@notice:</span> Thoroughly examine the code line by line
-            to identify any issues that automated tools might miss. {"*/"}
+            {"/*"} <span className="font-semibold text-primary">@notice:</span> Thoroughly examine the code line by
+            line, trace by trace to identify any issues that automated tools might miss. {"*/"}
           </p>
         </div>
         <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab2:block ">

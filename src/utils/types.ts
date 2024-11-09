@@ -1,4 +1,4 @@
-type ApproachTitle = "design" | "develop" | "test" | "secure" | "verify" | "deploy" | "monitor";
+type ApproachTitle = "design" | "develop" | "test" | "audit" | "verify" | "deploy" | "monitor";
 
 export type Approach = {
   id: string;

@@ -42,13 +42,13 @@ export const SectionDesign = () => {
           <input type="radio" name="tabs" id="tab3" className="hidden peer/tab3" />
           <label
             htmlFor="tab3"
-            className="tab  border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary "
+            className="tab border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary "
           >
             {"{"} Standards {"}"}
           </label>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab1:block ">
             <p className="max-w-full text-secondary-content pl-4 ">
-              {"/*"} <span className="font-semibold text-primary">@notice:</span> clearly outline what the smart
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> Clearly outlining what the smart
               contract should do, including specific functions and interactions with other contracts or external data.{" "}
               {"*/"}
             </p>
@@ -79,9 +79,9 @@ export const SectionDesign = () => {
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab2:block ">
             <p className="text-secondary-content pl-4">
-              {"/*"} <span className="font-semibold text-primary">@notice:</span> security and compliance requirements:
-              Identify security constraints, such as access control, reentrancy protection, rate-limiting, and
-              compliance with regulatory requirements if applicable. {"*/"}
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> Identifying security constraints like
+              access control, reentrancy protection, randomness, gas optimization, oracle integration to ensure the
+              protocol is secure, robust, and aligned with business goals. {"*/"}
             </p>
             <Carousel className="hover:cursor-pointer select-none">
               <CarouselContent>
@@ -113,7 +113,7 @@ export const SectionDesign = () => {
                         <p>Governance</p>
                       </div>
                       <div className="border-[1px] border-accent px-4 bg-accent/5 rounded-md">
-                        <p>Finance</p>
+                        <p>Automation</p>
                       </div>
                     </div>
                   </div>
@@ -185,8 +185,9 @@ export const SectionDesign = () => {
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab3:block ">
             <p className="text-secondary-content pl-4">
-              {"/*"} <span className="font-semibold text-primary">@notice:</span> factors like interactions,
-              dependencies, token standards (e.g., ERC-20, ERC-721), and expected user behaviors. {"*/"}
+              {"/*"} <span className="font-semibold text-primary">@notice:</span> adhering to industry best practices
+              and established standards to ensure compatibility, security, efficiency, and reliability. Hence,
+              following/avoinding established/banned guidelines for smart contract architecture. {"*/"}
             </p>
             <h2 className="my-2  text-xl">Tokenized</h2>
             <div className="grid grid-cols-2  items-end justify-items-center text-start p-8">

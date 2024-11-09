@@ -64,9 +64,10 @@ export const SectionTest = () => {
       <h2 className="text-4xl text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>
-      <p className="m-auto leading-5  text-secondary-content text-center w-2/3">
-        {"/*"} <span className="font-semibold text-primary">@notice:</span>
-        Testing in smart contracts involves several approaches to ensure correctness, security, and performance.
+      <p className="m-auto leading-5  text-secondary-content text-center px-12">
+        {"/*"} <span className="font-semibold text-primary">@notice:</span> Leveraging a comprehensive set of strategies
+        to guarantee the protocol performs flawlessly under all conditions through automated test suites, while ensuring
+        it is free from vulnerabilities and ready for auditing.
         {"*/"}
       </p>
 
@@ -140,8 +141,8 @@ export const Console = ({ code }: { code: string }) => {
           finished in 1.66s (7.87ms CPU time)
         </p>
         <br />
-        {lines.map((line) => (
-          <p className="text-[10px]  text-secondary-content m-[2px] leading-[10px]">
+        {lines.map((line, i) => (
+          <p key={`coverage-${i}`} className="text-[10px]  text-secondary-content m-[2px] leading-[10px]">
             <span className="text-[#73e766]">
               {"["}Pass{"]"}
             </span>{" "}

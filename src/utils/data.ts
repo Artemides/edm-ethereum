@@ -26,8 +26,8 @@ export const topics: Approach[] = [
     bgColor2: "#a6e3a114",
   },
   {
-    id: `sm-approach-secure`,
-    title: "secure",
+    id: `sm-approach-audit`,
+    title: "audit",
     icon: "⚔️",
     bColor: "#f38ba8",
     bgColor: "#f38ba8b0",

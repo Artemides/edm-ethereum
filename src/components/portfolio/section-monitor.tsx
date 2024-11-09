@@ -48,9 +48,9 @@ export const SectionMonitor = () => {
         <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{monitor.icon}</span>
       </Bubble>
       <h2 className="m-auto text-gradient-title tracking-tighter text-4xl text-center">...Stay Reliable and Secure.</h2>
-      <p className="m-auto my-2 leading-5 text-secondary-content text-center w-2/3 font-light ">
-        &#47;* <span className="text-primary font-semibold">@notice:</span> provide complete visibility into the risks
-        and behaviors of your smart contracts, enabling you to detect potential threats, receive alerts on unusual
+      <p className="m-auto my-2 leading-5 text-secondary-content text-center px-12">
+        &#47;* <span className="text-primary font-semibold">@notice:</span> Tracking complete visibility into the risks
+        and behaviors of the Protocol, enabling us to detect potential threats, while receiving alerts on unusual
         activities, and resolve them.*&#47;
       </p>
       <h2 className="text-primary text-xl text-center">Suspicious Activity</h2>

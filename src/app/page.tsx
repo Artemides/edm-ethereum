@@ -53,10 +53,13 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
         <div className="my-auto col-span-7">
+          <span className="m-auto w-2/3 text-gradient-title text-center tracking-tighter text-2xl">
+            Together focused on...
+          </span>
           <Galaxy />
-          <div className="m-auto w-2/3 text-gradient-title text-center tracking-tighter">
-            <h1 className="text-4xl">From brainstorming through execution and beyond.</h1>
-          </div>
+          <h1 className="m-auto w-2/3 text-gradient-title text-center tracking-tighter text-4xl">
+            From brainstorming through execution and beyond.
+          </h1>
         </div>
       </section>
       <GalaxyInfo />

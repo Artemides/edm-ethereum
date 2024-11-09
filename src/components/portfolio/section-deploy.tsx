@@ -55,7 +55,7 @@ export const SectionDeploy = () => {
         className="absolute-center w-16 aspect-square z-10"
       >
         <span className="absolute-center w-2/3 z-0">{chains.icon}</span>
-        <p className="mt-28 tracking-tight font-semibold text-sm">{chains.title}</p>
+        <p className="mt-28 tracking-tight text-sm">{chains.title}</p>
       </Bubble>
     );
   });
@@ -76,10 +76,10 @@ export const SectionDeploy = () => {
           ...to life, ready for the real <br />
           world.
         </h2>
-        <p className="px-16 leading-5 tracking-tighter text-secondary-content font-light text-center">
-          {"/*"} <span className="text-primary  font-semibold">@note:</span> Ensuring a secure and efficient deployment
-          with careful attention given to each step to minimize risk and reinforce the integrity of the contract
-          on-chain. {"*/"}
+        <p className="px-12 leading-5 tracking-tighter text-secondary-content font-light text-center">
+          {"/*"} <span className="text-primary  font-semibold">@note:</span> Launching securely and efficiently to the
+          chain of your choice with careful attention given to each step to minimize risk and reinforce the integrity of
+          the contract on-chain. {"*/"}
         </p>
       </div>
 
@@ -108,8 +108,8 @@ export const SectionDeploy = () => {
         {deploymentRequisites.map((step, idx) => (
           <>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
-              {React.cloneElement(step.icon, { className: "w-7 h-7  text-[#c5a1ef] inline" })}{" "}
-              <p className=" my-1 tracking-tight text-primary-content">{step.title} </p>
+              {React.cloneElement(step.icon, { className: "w-7 h-7  text-[#ff8330] inline" })}{" "}
+              <p className=" my-1 tracking-tight text-primary-content font-semibold ">{step.title} </p>
             </div>
             {idx < deploymentRequisites.length - 1 && <WidthIcon className="w-5 h-5 text-[#f9e2af] " />}
           </>

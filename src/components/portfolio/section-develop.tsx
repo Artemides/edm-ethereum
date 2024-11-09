@@ -23,10 +23,10 @@ export const SectionDevelop = () => {
       <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl text-center">
         using security best <br /> practices...
       </h2>
-      <p className="m-auto my-2 leading-5 text-secondary-content text-center w-2/3">
-        {"/*"} <span className="font-semibold text-primary">@dev:</span> Development is highly technical and requires a
-        detailed approach tailored to the unique requirements of the Protocol{" "}
-        <span className="font-semibold">(blockchain systems)</span>. {"*/"}
+      <p className="m-auto my-2 leading-5 text-secondary-content text-center px-12">
+        {"/*"} <span className="font-semibold text-primary">@dev:</span> Crafting a highly technical process that
+        demands a tailored approach to meet the unique needs and specifications, while aligning with security standards
+        and scalability requirements for a robust solution.
       </p>
       <div className="mx-auto w-9/12 my-4">
         <p className=" mb-16 text-center text-xl">

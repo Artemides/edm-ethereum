@@ -17,7 +17,7 @@ export const sections: { [key: string]: React.ReactNode } = {
   "sm-approach-design": <SectionDesign />,
   "sm-approach-develop": <SectionDevelop />,
   "sm-approach-test": <SectionTest />,
-  "sm-approach-secure": <SectionSecurity />,
+  "sm-approach-audit": <SectionSecurity />,
   "sm-approach-verify": <SectionVerify />,
   "sm-approach-deploy": <SectionDeploy />,
   "sm-approach-monitor": <SectionMonitor />,
