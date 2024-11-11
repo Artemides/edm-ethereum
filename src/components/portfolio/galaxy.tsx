@@ -6,7 +6,7 @@ import { moons } from "@/utils/ui";
 export const Galaxy = () => {
   return (
     <div id="universe" className="mb-24">
-      <div className="m-auto relative w-[450px] aspect-square ">
+      <div className="m-auto relative w-[450px] aspect-square">
         <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow "></div>
         <Orbit className="absolute w-full estellar-cloud-gradient z-10 animate-orbit" elements={Object.values(moons)} />
 

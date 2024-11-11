@@ -17,7 +17,7 @@ const Portfolio: NextPage = () => {
       <Header />
       <section
         id="hero"
-        className="min-height pt-16  grid grid-cols-12 place-items-center 2xl:w-[1536px] 2xl:mx-auto 2xl:border-[1px] 2xl:border-indigo-900/35 "
+        className="min-height pt-16  grid grid-cols-12 place-items-center 2xl:w-[1536px] 2xl:mx-auto 2xl:border-[1px] 2xl:border-indigo-900/35 overflow-hidden"
       >
         <div className="col-span-5 px-8 py-4 tracking-tight ">
           <div className="grid grid-cols-[1fr_min-content] gap-x-1">
@@ -25,7 +25,7 @@ const Portfolio: NextPage = () => {
             <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
             <div className="col-start-1 text-sm font-light text-slate-200 self-end">
               <h2 className="">
-                here&apos;s <span className="text-4xl font-semibold text-peach">edmund&apos; arias.</span>
+                call me <span className="text-4xl font-semibold text-peach">edmund&apos;.eth</span>
               </h2>
               <p className="-my-1 text-peach  italic">Software Engineer</p>
               <p className="-my-1 text-peach  italic">Smart Contract Developer / Auditor</p>
