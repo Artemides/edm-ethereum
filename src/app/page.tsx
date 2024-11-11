@@ -21,14 +21,14 @@ const Portfolio: NextPage = () => {
       >
         <div className="col-span-5 px-8 py-4 tracking-tight ">
           <div className="grid grid-cols-[1fr_min-content] gap-x-1">
-            <span className="text-4xl text-peach ">Hi There!</span>
+            <span className="text-4xl ">Hi There!</span>
             <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
             <div className="col-start-1 text-sm font-light text-slate-200 self-end">
-              <h2 className="text-3xl font-semibold">
-                <span className="text-sm">here&apos;s </span>edmund&apos; arias.
+              <h2 className="">
+                here&apos;s <span className="text-4xl font-semibold text-peach">edmund&apos; arias.</span>
               </h2>
-              <p className="-my-1 text-peach text-lg">Software Engineer</p>
-              <p className="-my-1 text-peach text-lg">Smart Contract Developer / Auditor</p>
+              <p className="-my-1 text-peach  italic">Software Engineer</p>
+              <p className="-my-1 text-peach  italic">Smart Contract Developer / Auditor</p>
               <p className="">
                 I&apos;m dedicated to safeguard against vulnerabilities at every step, embracing challenges where
                 security is a core principle.
