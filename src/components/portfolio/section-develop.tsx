@@ -6,20 +6,17 @@ import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { CodeWindow } from "./code-window";
 import { Window } from "./window-tab";
+import { moons } from "@/utils/ui";
 
 export const SectionDevelop = () => {
-  const develop = topics.find((t) => t.title == "develop")!;
+  const sectionIcons = moons["develop"];
 
   return (
     <section className="min-height p-2 relative text-sm">
-      <Bubble
-        id={`border-gradient-${develop.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={develop.bColor}
-        bgColor={develop.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{develop.icon}</span>
-      </Bubble>
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl text-center">
         using security best <br /> practices...
       </h2>

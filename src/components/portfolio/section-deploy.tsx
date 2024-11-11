@@ -1,9 +1,10 @@
 import React from "react";
 import { Bubble } from "./bubble";
-import { topics } from "@/utils/data";
 import { Orbit } from "./orbit";
 import { Arbitrum, Ethereum, Optimism, Zksync } from "./icons/chains";
 import { CheckCircledIcon, LightningBoltIcon, MagnifyingGlassIcon, TimerIcon, WidthIcon } from "@radix-ui/react-icons";
+import { moons } from "@/utils/ui";
+import Image from "next/image";
 
 const chains = [
   {
@@ -46,7 +47,7 @@ const deploymentRequisites = [
 ];
 
 export const SectionDeploy = () => {
-  const deploy = topics.find((t) => t.title == "deploy")!;
+  const deployMoon = moons["deploy"];
   const orbitChains = chains.map((chains, i) => {
     return (
       <Bubble
@@ -62,14 +63,10 @@ export const SectionDeploy = () => {
 
   return (
     <section className="min-height p-2 py-4 relative flex  flex-col justify-end text-sm">
-      <Bubble
-        id={`border-gradient-${deploy.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={deploy.bColor}
-        bgColor={deploy.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{deploy.icon}</span>
-      </Bubble>
+      {React.cloneElement(deployMoon, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
 
       <div className="mb-auto">
         <h2 className=" text-gradient-title tracking-tighter text-4xl  text-center">
@@ -102,9 +99,22 @@ export const SectionDeploy = () => {
         estellar-cloud-gradient-inner z-0
         "
         ></div>
-        <span className=" absolute top-[calc(50%-150px)] left-[calc(50%+10px)]  text-5xl rocket-bounce">🚀</span>
+
+        <span className="absolute top-[calc(50%-150px)] left-[calc(50%)] rocket-bounce text-5xl">
+          .
+          <div className="w-12 h-12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  overflow-hidden">
+            <Image
+              src={"/images/portfolio/macos-emoji.png"}
+              alt={"deploy-rocket"}
+              height={100}
+              width={400}
+              className="max-w-max absolute object-cover "
+              style={{ transform: `translateX(-${5 * (40 + 19)}px)` }}
+            />
+          </div>
+        </span>
       </div>
-      <div className="my-6 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center">
+      <div className="my-6 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center ">
         {deploymentRequisites.map((step, idx) => (
           <>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">

@@ -1,24 +1,21 @@
 import React from "react";
-import { Bubble } from "./bubble";
 import Image from "next/image";
 import { Orbit } from "./orbit";
-import { topics } from "@/utils/data";
-import { Moon } from "./moon";
+import { moons } from "@/utils/ui";
 
 export const Galaxy = () => {
-  const moons = topics.map((topic) => <Moon key={topic.id} moon={topic} />);
-
   return (
     <div id="universe" className="mb-24">
       <div className="m-auto relative w-[450px] aspect-square ">
         <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow "></div>
-        <Orbit className="absolute w-full estellar-cloud-gradient z-10 animate-orbit" elements={moons} />
+        <Orbit className="absolute w-full estellar-cloud-gradient z-10 animate-orbit" elements={Object.values(moons)} />
 
         <Image
           src={"/images/portfolio/ether.webp"}
           alt="ether"
           width={130}
           height={200}
+          sizes="130px"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-10 orbit-eye-bounce "
         />
         <Orbit

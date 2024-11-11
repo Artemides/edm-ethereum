@@ -1,65 +1,14 @@
-import { topics } from "@/utils/data";
 import React from "react";
-import { Bubble } from "./bubble";
 import {
-  CaretRightIcon,
   ChevronRightIcon,
-  CrossCircledIcon,
-  EnterIcon,
-  ExclamationTriangleIcon,
-  EyeOpenIcon,
   GearIcon,
-  LightningBoltIcon,
   LinkBreak2Icon,
-  MagicWandIcon,
-  MixerHorizontalIcon,
   MixerVerticalIcon,
-  MixIcon,
-  PersonIcon,
   PlayIcon,
   ReloadIcon,
-  UpdateIcon,
 } from "@radix-ui/react-icons";
 import { CodeWindow } from "./code-window";
-
-const commonVulnerabilities = [
-  {
-    text: "Reentrancy",
-    icon: <ReloadIcon />,
-  },
-  {
-    text: "Overflow / Underflow",
-    icon: <MixIcon />,
-  },
-  {
-    text: "Access Control DAO",
-    icon: <PersonIcon />,
-  },
-  {
-    text: "Gas Limit and  Loops",
-    icon: <UpdateIcon />,
-  },
-  {
-    text: "Front Running",
-    icon: <EnterIcon />,
-  },
-  {
-    text: "Oracle Manipulation",
-    icon: <EyeOpenIcon />,
-  },
-  {
-    text: "Unsecure External Calls",
-    icon: <LightningBoltIcon />,
-  },
-  {
-    text: "Denial of Service",
-    icon: <ExclamationTriangleIcon />,
-  },
-  {
-    text: "Upgradeability",
-    icon: <MagicWandIcon />,
-  },
-];
+import { moons } from "@/utils/ui";
 
 const certoraSteps = [
   {
@@ -85,17 +34,14 @@ const certoraSteps = [
 ];
 
 export const SectionVerify = () => {
-  const verify = topics.find((t) => t.title == "verify")!;
+  const sectionIcons = moons["verify"];
+
   return (
     <section className="relative px-2 py-4 text-sm">
-      <Bubble
-        id={`border-gradient-${verify.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={verify.bColor}
-        bgColor={verify.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{verify.icon}</span>
-      </Bubble>
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className="mx-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
