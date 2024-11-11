@@ -62,7 +62,7 @@ export const SectionDeploy = () => {
   });
 
   return (
-    <section className="min-height p-2 py-4 relative flex  flex-col justify-end text-sm">
+    <section className="h-full p-2 py-4 relative flex  flex-col justify-end text-sm">
       {React.cloneElement(deployMoon, {
         className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
         displayName: false,

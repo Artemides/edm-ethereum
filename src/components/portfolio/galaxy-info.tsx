@@ -51,7 +51,7 @@ export const GalaxyInfo = () => {
   return (
     <Drawer open={!!active} onClose={handleClose}>
       <DrawerContent
-        className="h-[95%] w-[50%] fixed left-[calc(50%-25%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
+        className="h-[95%] 2xl:h-[75%] w-[50%] 2xl:w-[40%] fixed left-[calc(50%-25%)] 2xl:left-[calc(50%-20%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
    "
       >
         {!!active ? sections[active?.id] : null}

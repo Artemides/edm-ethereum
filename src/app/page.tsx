@@ -15,7 +15,10 @@ const Portfolio: NextPage = () => {
   return (
     <div className="h-screen gradient-base ">
       <Header />
-      <section id="hero" className="pt-16  grid grid-cols-12 place-items-center">
+      <section
+        id="hero"
+        className="min-height pt-16  grid grid-cols-12 place-items-center 2xl:w-[1536px] 2xl:mx-auto 2xl:border-[1px] 2xl:border-indigo-900/35 "
+      >
         <div className="col-span-5 px-8 py-4 tracking-tight ">
           <div className="grid grid-cols-[1fr_min-content] gap-x-1">
             <span className="text-4xl text-peach ">Hi There!</span>

@@ -37,7 +37,7 @@ export const SectionVerify = () => {
   const sectionIcons = moons["verify"];
 
   return (
-    <section className="relative px-2 py-4 text-sm">
+    <section className="h-full relative px-2 py-4 text-sm">
       {React.cloneElement(sectionIcons, {
         className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
         displayName: false,

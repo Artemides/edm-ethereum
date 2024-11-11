@@ -57,7 +57,7 @@ export const SectionSecurity = () => {
   const sectionIcons = moons["audit"];
 
   return (
-    <section className="min-height p-2  relative text-sm ">
+    <section className="h-full p-2  relative text-sm ">
       {React.cloneElement(sectionIcons, {
         className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
         displayName: false,
