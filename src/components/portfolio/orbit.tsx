@@ -24,7 +24,10 @@ export const Orbit = ({ elements, className, offsetDegree = 0, gap = 0, rotateEl
   return (
     <div
       ref={orbitRef}
-      className={cn("m-auto relative w-[100px] aspect-square border-[1px] border-white/5  rounded-full ", className)}
+      className={cn(
+        "m-auto relative w-[100px] aspect-square border-[1px] border-white/5  rounded-full will-change-transform",
+        className
+      )}
     >
       {elements.map((el, i) => {
         let angle = (360 / (gap > 0 ? gap : elements.length)) * i + offsetDegree;

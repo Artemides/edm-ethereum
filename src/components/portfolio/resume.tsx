@@ -56,20 +56,19 @@ export const Resume = () => {
                   Creating educational content that focused on the fundamentals and advanced concepts of blockchain,
                   with a specific emphasis on Ethereum for 1Cademy Blockchain Pathway.
                 </p>
-                <h2 className="font-normal text-peach">Achievements</h2>
                 <ul className="list-disc pl-5">
                   <li>
-                    Explored consensus mechanism, network protocols, and block structure, enabling the community to
+                    Explored: Consensus mechanism, network protocols, and block structure, enabling the community to
                     grasp Ethereum.
                   </li>
-                  <li>Presented an in-depth exploration of the Ethereum Virtual Machine (EVM).</li>
-                  <li>Introduced best practices for testing, auditing, manual code reviews and automated tools.</li>
-                  <li>Guided the community through the full smart contract development lifecycle.</li>
+                  <li>Presented: An in-depth exploration of the Ethereum Virtual Machine (EVM).</li>
+                  <li>Introduced: best practices for testing, auditing, manual code reviews and automated tools.</li>
+                  <li>Guided: The community through the full smart contract development lifecycle.</li>
                   <li>
-                    Taught Optimizations of EVM assembly language, allowing advanced developers to implement
+                    Taught: Optimizations of EVM assembly language, allowing advanced developers to implement
                     gas-efficiency.
                   </li>
-                  <li>Workshops on Solidity, best practices for decentralized application (dApp) development.</li>
+                  <li>Workshops: on Solidity, best practices for decentralized application (dApp) development.</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -94,20 +93,24 @@ export const Resume = () => {
                     <AccordionContent className="font-thin text-sm">
                       <h3 className="font-normal">Architecting knowledge graph database:</h3>
                       <p className="font-thin my-2">
-                        Design platform graph, where each node represent a discrete unit of knowledge, structured as an
-                        infinite, directional graph, creating a dynamic flow from foundational “parent” knowledge to
-                        complex “child” concepts.
+                        Designed an Architected a graph, where each node represent a discrete unit of knowledge,
+                        structured as an infinite, directional graph, creating a dynamic flow from foundational “parent”
+                        knowledge to complex “child” concepts.
                       </p>
                       <h3 className="font-normal">Implementation:</h3>
                       <ul className="list-disc pl-5">
-                        <li>Node type modeling and automatic learning pathway creation.</li>
                         <li>
-                          Node real-time Interaction (editing, optimistic approving or disapproving, linking and
-                          submission).
+                          Knowledge Graph Architecture: Engineered a scalable and dynamic knowledge graph, organizing a
+                          structured progression from foundational &apos;parent&apos; concepts to advanced
+                          &apos;child&apos; topics.
                         </li>
-                        <li>Node voting systems (node inclusion or lifetime removal).</li>
-                        <li>Learning pathway evaluation.</li>
-                        <li>Leaderboard (community activity stats).</li>
+                        <li>
+                          Real-Time Node Interaction: Developed features for (editing, linking, submitting etc.) with an
+                          optimistic UI approach.
+                        </li>
+                        <li>Node Voting Systems: Allow the creation of approved knowledge by the community.</li>
+                        <li>Automated Learning Pathways: Generation of pathways to optimize learning and teaching</li>
+                        <li>Leaderboard: Design a model ranking for community activity stats.</li>
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -121,27 +124,28 @@ export const Resume = () => {
                         selection, liking, disliking, creation, drafting, linking, tagging, sharing, collaboration
                         etc.).
                       </p>
-                      <h3 className="font-normal">Challenges:</h3>
-                      <p className="font-thin my-2">
-                        <span className="font-normal">High Volume Graph rendering: </span>
-                        Render an optimized large amount of nodes over and infinite map, by using react memoization
-                        techniques to avoid unnecessary re-renders, web workers to compute real-time node (positions and
-                        sizes) for repositioning and avoiding overlaps, also implement custom Rust-based WASM graph
-                        drawer.
-                      </p>
-                      <p className="font-thin my-2">
-                        <span className="font-normal"> Real-time Graph Synchronization: </span>
-                        Firebase snapshots usage to Align graph status across shared graphs.
-                      </p>
-                      <p className="font-thin my-2">
-                        <span className="font-normal"> Scroll to Node: </span>
-                        Lead users to specific nodes across the graph after (open, close, create, remove, link etc.)
-                      </p>
-                      <p className="font-thin my-2">
-                        <span className="font-normal">Real Time Tutorial: </span>
-                        Inject an interactive tutorial in the graph, which leads users across each graph element while
-                        teaching them how to use all graph features.
-                      </p>
+                      <h3 className="font-normal">Challenges And Solutions:</h3>
+                      <ul className="list-disc pl-5">
+                        <li>
+                          High Volume Graph rendering: Render an optimized large amount of nodes over and infinite map,
+                          by using react memoization techniques to avoid unnecessary re-renders, web workers to compute
+                          real-time node (positions and sizes) for repositioning and avoiding overlaps, also implement
+                          custom Rust-based WASM graph drawer.
+                        </li>
+                        <li>
+                          <span className="font-normal"> Real-time Graph Synchronization: </span>
+                          Leverage Firebase snapshots for seamless updates across shared graphs.
+                        </li>
+                        <li>
+                          <span className="font-normal">Graph Navigation: </span>
+                          Implemented &apos;Scroll to Node&apos; functionality to help users navigate across the graph.
+                        </li>
+                        <li>
+                          <span className="font-normal">Real Time Tutorial: </span>
+                          Inject an interactive tutorial in the graph, which leads users across each graph element while
+                          teaching them how to use all graph features.
+                        </li>
+                      </ul>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
