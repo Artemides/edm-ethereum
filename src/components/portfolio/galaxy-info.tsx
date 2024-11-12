@@ -56,7 +56,11 @@ export const GalaxyInfo = () => {
       </DrawerHeader>
       <DrawerContent
         title={"approach-section"}
-        className="h-[95%] 2xl:h-[75%] w-[50%] 2xl:w-[40%] fixed left-[calc(50%-25%)] 2xl:left-[calc(50%-20%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
+        className="w-full h-[85%]  fixed   gradient-base2 drop-shadow border-[1px] 
+        border-secondary/80
+        lg:w-[80%] lg:h-[95%] lg:left-[calc(50%-40%)]
+        xl:w-[50%] xl:left-[calc(50%-25%)]
+        2xl:h-[75%] 2xl:w-[40%] 2xl:left-[calc(50%-20%)]
    "
       >
         {!!active ? sections[active] : null}

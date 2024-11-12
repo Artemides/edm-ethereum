@@ -12,35 +12,36 @@ export const SectionDesign = () => {
   return (
     <section className="h-full relative p-2 text-sm">
       {React.cloneElement(sectionIcons, {
-        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        className:
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 ",
         displayName: false,
       })}
-      <h2 className="text-gradient tracking-tighter text-4xl text-center">
+      <h2 className="text-gradient tracking-tighter text-3xl lg:text-4xl text-center">
         ... into Robust <br />
         Architectures
       </h2>
-      <div className="mx-auto w-9/12 col-span-6 text-center  [&>div]:mt-4">
+      <div className="mx-auto w-full md:w-9/12 col-span-6 text-center  [&>div]:mt-4">
         <div className="">
           <input type="radio" name="tabs" id="tab1" className="hidden peer/tab1" defaultChecked />
           <label
             htmlFor="tab1"
             className="tab  border-b-2 border-secondary peer-checked/tab1:text-primary peer-checked/tab1:border-b-2 peer-checked/tab1:border-primary"
           >
-            {"{"} Core {"}"}
+            Core
           </label>
           <input type="radio" name="tabs" id="tab2" className="hidden peer/tab2" />
           <label
             htmlFor="tab2"
             className="tab  border-b-2 border-secondary peer-checked/tab2:text-primary peer-checked/tab2:border-b-2 peer-checked/tab2:border-primary"
           >
-            {"{"} Requirements{"}"}
+            Requirements
           </label>
           <input type="radio" name="tabs" id="tab3" className="hidden peer/tab3" />
           <label
             htmlFor="tab3"
             className="tab border-b-2 border-secondary peer-checked/tab3:text-primary peer-checked/tab3:border-b-2 peer-checked/tab3:border-primary "
           >
-            {"{"} Standards {"}"}
+            Standards
           </label>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab1:block ">
             <p className="max-w-full text-secondary-content pl-4 ">
@@ -50,7 +51,7 @@ export const SectionDesign = () => {
             </p>
             <h2 className="text-center my-8 text-xl">On & Off chain Interactions</h2>
             <div className="text-start relative grid grid-rows-4 justify-items-center ">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#1F1832] "></div>
+              <div className="absolute-center shadow-spot shadow-[#1F1832] "></div>
               {defiProtocols.map((protocol) => (
                 <div key={protocol.title} className={protocol.className}>
                   <Bubble
@@ -175,8 +176,8 @@ export const SectionDesign = () => {
                   </div>
                 </CarouselItem>
               </CarouselContent>
-              <CarouselPrevious className="-left-10 border-indigo-900 hover:bg-indigo-900/50" />
-              <CarouselNext className="-right-5 border-indigo-900 hover:bg-indigo-900/50" />
+              <CarouselPrevious className="left-0  lg:-left-10 border-indigo-900 hover:bg-indigo-900/50" />
+              <CarouselNext className="right-0 lg:-right-5 border-indigo-900 hover:bg-indigo-900/50" />
             </Carousel>
           </div>
           <div role="tabpanel" className="hidden col-span-3 peer-checked/tab3:block ">

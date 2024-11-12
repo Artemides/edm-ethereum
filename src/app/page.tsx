@@ -31,13 +31,13 @@ const Portfolio: NextPage = () => {
           <p className="text-3xl text-center lg:text-4xl ">Hi There!</p>
           <div className="lg:grid lg:grid-cols-[min-content_1fr]  gap-x-2 ">
             <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" className="self-center mx-auto" />
-            <div className=" text-lg font-light text-slate-200 self-end text-center lg:text-start lg:text-base">
+            <div className="  font-light text-slate-200 self-end text-center lg:text-start lg:text-base">
               <Tooltip delayDuration={0}>
                 <TooltipTrigger>
                   <p className="my-4 lg:my-1">
                     call me{" "}
                     <span className="relative text-3xl lg:text-4xl font-semibold text-peach">
-                      edmund&apos;.eth <BatchIcon className="inline-block size-5" />
+                      edmund.eth <BatchIcon className="inline-block size-5" />
                     </span>
                   </p>
                 </TooltipTrigger>
