@@ -69,7 +69,13 @@ const Portfolio: NextPage = () => {
               Resume
             </LinkButton>
 
-            <LinkButton className="flex-1 text-peach text-base" variant={"secondary"}>
+            <LinkButton
+              href="https://www.linkedin.com/in/edmundo-arias-35163a212/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-peach text-base"
+              variant={"secondary"}
+            >
               Wanna talk?
             </LinkButton>
           </div>
