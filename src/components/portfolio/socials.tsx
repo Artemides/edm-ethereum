@@ -10,22 +10,27 @@ const socials = [
   {
     title: "github",
     icon: <Github className="hover:fill-[#fff]" />,
+    link: "https://github.com/Artemides",
   },
   {
     title: "linkedin",
     icon: <Linkedin className="hover:fill-[#1f75ca]" />,
+    link: "https://www.linkedin.com/in/edmundo-arias-35163a212/",
   },
   {
     title: "upwork",
     icon: <Upwork className="hover:fill-[#6FDA44]" />,
+    link: "/",
   },
   {
     title: "codehawks",
     icon: <Codehawks className="hover:fill-[#ff692e]" />,
+    link: "/",
   },
   {
     title: "gmail",
     icon: <Gmail className="hover:fill-[#d74f4b]" />,
+    link: "/",
   },
 ];
 
@@ -34,7 +39,7 @@ export const Socials = () => {
     <div className="p-2 m-auto flex justify-center gap-x-3">
       {socials.map((social) => (
         <Link
-          href={"/"}
+          href={social.link}
           key={social.title}
           className="
         w-5 transition duration-300 hover:scale-[1.3]

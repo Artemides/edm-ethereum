@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Orbit } from "./orbit";
 import { moons } from "@/utils/ui";
+import { cn } from "@/lib/utils";
 
 export const Galaxy = () => {
   return (
@@ -9,9 +10,12 @@ export const Galaxy = () => {
       <div className="m-auto relative w-[450px] aspect-square">
         <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow "></div>
         <Orbit
-          className="absolute w-full estellar-cloud-gradient z-10 animate-orbit"
+          className={cn(
+            "absolute w-full estellar-cloud-gradient z-10 ",
+            process.env.NODE_ENV === "production" ? "animate-orbit" : ""
+          )}
           elements={Object.values(moons)}
-          rotateElements
+          rotateElements={process.env.NODE_ENV === "production"}
         />
 
         <Image
