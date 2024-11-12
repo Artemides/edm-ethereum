@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import { Bubble } from "./bubble";
-import { topics } from "@/utils/data";
 import { CurrencyDollarIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { BellIcon, DotFilledIcon, ImageIcon, MagicWandIcon, PaperPlaneIcon, PersonIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import { moons } from "@/utils/ui";
 
 const monitorUsecases = [
   {
@@ -35,18 +34,14 @@ const monitorUsecases = [
 ];
 
 export const SectionMonitor = () => {
-  const monitor = topics.find((t) => t.title == "monitor")!;
+  const sectionIcons = moons["monitor"];
 
   return (
-    <section className="relative min-height p-2  text-sm">
-      <Bubble
-        id={`border-gradient-${monitor.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={monitor.bColor}
-        bgColor={monitor.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{monitor.icon}</span>
-      </Bubble>
+    <section className="h-full relative  p-2  text-sm">
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className="m-auto text-gradient-title tracking-tighter text-4xl text-center">...Stay Reliable and Secure.</h2>
       <p className="m-auto my-2 leading-5 text-secondary-content text-center px-12">
         &#47;* <span className="text-primary font-semibold">@notice:</span> Tracking complete visibility into the risks
@@ -57,13 +52,13 @@ export const SectionMonitor = () => {
 
       <div className="mx-auto my-4 w-fit flex flex-wrap gap-x-2 justify-center items-center">
         {monitorUsecases.map((step, idx) => (
-          <>
+          <React.Fragment key={`step.title-${idx}`}>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
               {React.cloneElement(step.icon, { className: "w-6 h-6  text-[#c5a1ef] " })}{" "}
               <p className=" my-2 tracking-tight text-primary-content">{step.title} </p>
             </div>
             {idx < monitorUsecases.length - 1 && <DotFilledIcon className="w-5 h-5 text-[#f9e2af] " />}
-          </>
+          </React.Fragment>
         ))}
       </div>
       <h2 className=" text-primary text-xl text-center ">Severity</h2>

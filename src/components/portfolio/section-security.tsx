@@ -1,6 +1,4 @@
-import { topics } from "@/utils/data";
 import React from "react";
-import { Bubble } from "./bubble";
 import { Window } from "./window-tab";
 import {
   CaretRightIcon,
@@ -14,6 +12,7 @@ import {
   ReloadIcon,
   UpdateIcon,
 } from "@radix-ui/react-icons";
+import { moons } from "@/utils/ui";
 
 const commonVulnerabilities = [
   {
@@ -55,17 +54,14 @@ const commonVulnerabilities = [
 ];
 
 export const SectionSecurity = () => {
-  const audit = topics.find((t) => t.title == "audit")!;
+  const sectionIcons = moons["audit"];
+
   return (
-    <section className="min-height p-2  relative text-sm ">
-      <Bubble
-        id={`border-gradient-${audit.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={audit.bColor}
-        bgColor={audit.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{audit.icon}</span>
-      </Bubble>
+    <section className="h-full p-2  relative text-sm ">
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
         ...Embedding security as <br /> a core commitment
       </h2>

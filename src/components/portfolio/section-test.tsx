@@ -8,11 +8,9 @@ import {
 } from "@radix-ui/react-icons";
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import Image from "next/image";
 import { CodeWindow } from "./code-window";
 import { Window } from "./window-tab";
-import { Bubble } from "./bubble";
-import { topics } from "@/utils/data";
+import { moons } from "@/utils/ui";
 
 const testTopics = [
   {
@@ -48,19 +46,14 @@ const testTopics = [
 ];
 
 export const SectionTest = () => {
-  const test = topics.find((t) => t.title == "test")!;
+  const sectionIcons = moons["test"];
 
   return (
-    <section className="relative min-height p-2 text-sm">
-      <Bubble
-        id={`border-gradient-${test.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square  "
-        bColor={test.bColor}
-        bgColor={test.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{test.icon}</span>
-      </Bubble>
-
+    <section className="h-full relative p-2 text-sm">
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className="text-4xl text-gradient-title text-center">
         Challenging code to <br /> strengthen its core.
       </h2>

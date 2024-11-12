@@ -4,21 +4,17 @@ import Image from "next/image";
 import { CodeWindow } from "./code-window";
 import { contracts, defiProtocols, marketplaces, tokens, topics } from "@/utils/data";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { moons } from "@/utils/ui";
 
 export const SectionDesign = () => {
-  const design = topics.find((t) => t.title == "design")!;
+  const sectionIcons = moons["design"];
 
   return (
-    <section className="min-height relative p-2 text-sm">
-      <Bubble
-        id={`border-gradient-${design.title}`}
-        className="absolute top-4 left-12 -translate-x-1/2 -translate-y-1/2 w-14 aspect-square "
-        bColor={design.bColor}
-        bgColor={design.bgColor}
-      >
-        <span className="absolute text-[32px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{design.icon}</span>
-      </Bubble>
-
+    <section className="h-full relative p-2 text-sm">
+      {React.cloneElement(sectionIcons, {
+        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        displayName: false,
+      })}
       <h2 className="text-gradient tracking-tighter text-4xl text-center">
         ... into Robust <br />
         Architectures

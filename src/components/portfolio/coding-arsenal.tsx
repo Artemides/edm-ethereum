@@ -1,7 +1,18 @@
 "use client";
 
 import React from "react";
-import { Foundry, Hardhat, NextSVG, ReactSVG, Rust, Solidity, Typescript } from "./icons/lang-icons";
+import {
+  Foundry,
+  Hardhat,
+  MetamaskSVG,
+  NextSVG,
+  ReactSVG,
+  Rust,
+  Solidity,
+  Typescript,
+  ViemSVG,
+  WagmiSVG,
+} from "./icons/lang-icons";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -36,15 +47,40 @@ const codingArsenal = [
     href: "https://hardhat.org/",
   },
   {
+    title: "Metamask",
+    icon: <MetamaskSVG className="w-10 group-hover:scale-125 transition-all duration-300" />,
+    href: "https://metamask.io/",
+  },
+  {
     title: "Rust",
     icon: <Rust className="w-10 group-hover:scale-125 transition-all duration-300" />,
     href: "https://www.rust-lang.org/",
+  },
+  {
+    title: "React",
+    icon: <ReactSVG className="w-9 group-hover:scale-125 transition-all duration-300" />,
+    href: "https://react.dev/",
+  },
+  {
+    title: "Next",
+    icon: <NextSVG className="w-10 group-hover:scale-125 transition-all duration-300" />,
+    href: "https://nextjs.org/",
+  },
+  {
+    title: "Wagmi",
+    icon: <WagmiSVG className="w-12 group-hover:scale-125 transition-all duration-300" />,
+    href: "https://wagmi.sh/",
+  },
+  {
+    title: "Viem",
+    icon: <ViemSVG className="w-8 group-hover:scale-125 transition-all duration-300" />,
+    href: "https://viem.sh/",
   },
 ];
 
 export const CodingArsenal = () => {
   return (
-    <div className="inline-flex items-end gap-x-5 ">
+    <div className="grid grid-cols-5 items-center gap-2 ">
       {codingArsenal.map((tool) => (
         <a
           key={tool.title}

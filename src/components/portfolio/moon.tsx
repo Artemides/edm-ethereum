@@ -3,28 +3,39 @@ import { Bubble } from "./bubble";
 import { Approach } from "@/utils/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 type MoonProps = {
+  index: number;
   moon: Approach;
+  displayName?: boolean;
+  className?: string;
 };
 
-export const Moon = ({ moon }: MoonProps) => {
+export const Moon = ({ moon, index, className, displayName = true }: MoonProps) => {
   return (
-    <Link href={`#${moon.id}`} key={moon.title} className="inline-block hover:scale-[1.2]  transition duration-300 ">
+    <Link
+      href={`#${moon.id}`}
+      key={moon.title}
+      className={cn("inline-block hover:scale-[1.2]  transition duration-300 ", className)}
+    >
       <Bubble
         id={`border-gradient-${moon.id}`}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square "
         bColor={moon.bColor}
         bgColor={moon.bgColor}
       >
-        <span className="absolute text-[40px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{moon.icon}</span>
+        <Image src={moon.icon} alt={moon.title} height={40} width={40} className="absolute-center " />
       </Bubble>
-      <p
-        style={{ backgroundColor: moon.bgColor2, borderColor: moon.bColor }}
-        className="mt-36 px-2 py-[2px] rounded-full border-[1px] text-sm "
-      >
-        {moon.title}
-      </p>
+      {displayName && (
+        <p
+          style={{ backgroundColor: moon.bgColor2, borderColor: moon.bColor }}
+          className="mt-36 px-2 py-[2px] rounded-full border-[1px] text-sm "
+        >
+          {moon.title}
+        </p>
+      )}
     </Link>
   );
 };

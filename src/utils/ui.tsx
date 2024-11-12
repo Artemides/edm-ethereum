@@ -1,9 +1,7 @@
-import { SectionDeploy } from "@/components/portfolio/section-deploy";
-import { SectionDesign } from "@/components/portfolio/section-design";
-import { SectionDevelop } from "@/components/portfolio/section-develop";
-import { SectionSecurity } from "@/components/portfolio/section-security";
-import { SectionTest } from "@/components/portfolio/section-test";
-import { SectionVerify } from "@/components/portfolio/section-verify";
+import { Moon } from "@/components/portfolio/moon";
+import { topics } from "./data";
+import React from "react";
+import { ApproachTitle } from "./types";
 
 export const highlightCertora = (code: string) => {
   const lines = code.split("\n");
@@ -183,3 +181,8 @@ export const highlightParagraph = (text: string) => {
     </>
   );
 };
+
+export const moons: Record<ApproachTitle, React.ReactElement> = topics.reduce((record, topic, idx) => {
+  record[topic.title as ApproachTitle] = <Moon key={topic.id} moon={topic} index={idx} />;
+  return record;
+}, {} as Record<ApproachTitle, React.ReactElement>);
