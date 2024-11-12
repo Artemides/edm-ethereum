@@ -27,6 +27,10 @@ const anchorVariants = cva(
 
 type LinkButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & VariantProps<typeof anchorVariants>;
 
-export const LinkButton = ({ href, variant, size, className, ...props }: LinkButtonProps) => {
-  return <Link href={href || "/"} className={cn(anchorVariants({ variant, size, className }))} {...props}></Link>;
+export const LinkButton = ({ href, variant, size, children, className, ...props }: LinkButtonProps) => {
+  return (
+    <Link href={href || "/"} className={cn(anchorVariants({ variant, size, className }))} {...props}>
+      {children}
+    </Link>
+  );
 };

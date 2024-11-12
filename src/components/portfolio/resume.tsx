@@ -2,11 +2,19 @@ import React from "react";
 import { LinkButton } from "../link-button";
 import { DownloadIcon } from "@radix-ui/react-icons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import Link from "next/link";
 
 export const Resume = () => {
   return (
     <section className="h-full  relative text-sm flex flex-col items-center px-4">
-      <LinkButton className="inline-flex gap-x-2 self-end" size={"sm"}>
+      <LinkButton
+        download={"edmundo-arias-resume.pdf"}
+        href={"/resume/edmundo-arias.pdf"}
+        className="inline-flex gap-x-2 self-end"
+        size={"sm"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         download
         <DownloadIcon className="w-5 h-5" />
       </LinkButton>
@@ -156,8 +164,8 @@ export const Resume = () => {
                   to understand the core objectives of the Humanitarian Migration Quality System. System Design and
                 </p>
                 <p className="font-thin my-2">
-                  <span className="font-normal"> ArchSystem Design and Architectureitecture:</span> Design high level
-                  system considering a relational database for System Entities.
+                  <span className="font-normal"> System Design and Architectureitecture:</span> Design high level system
+                  considering a relational database for System Entities.
                 </p>
                 <h3 className="font-normal">Challenges:</h3>
 
