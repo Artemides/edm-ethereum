@@ -1,30 +1,34 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import { SectionDevelop } from "./section-develop";
 import { topics } from "@/utils/data";
-import { Approach } from "@/utils/types";
+import { Approach, ApproachTitle } from "@/utils/types";
 import { SectionDesign } from "./section-design";
 import { SectionTest } from "./section-test";
 import { SectionSecurity } from "./section-security";
 import { SectionVerify } from "./section-verify";
 import { SectionDeploy } from "./section-deploy";
 import { SectionMonitor } from "./section-monitor";
+import Resume from "./resume";
 
-export const sections: { [key: string]: React.ReactNode } = {
-  "sm-approach-design": <SectionDesign />,
-  "sm-approach-develop": <SectionDevelop />,
-  "sm-approach-test": <SectionTest />,
-  "sm-approach-audit": <SectionSecurity />,
-  "sm-approach-verify": <SectionVerify />,
-  "sm-approach-deploy": <SectionDeploy />,
-  "sm-approach-monitor": <SectionMonitor />,
+type SectionInfo = Record<`sm-info-${ApproachTitle | "resume"}`, ReactNode>;
+
+export const sections: SectionInfo = {
+  "sm-info-design": <SectionDesign />,
+  "sm-info-develop": <SectionDevelop />,
+  "sm-info-test": <SectionTest />,
+  "sm-info-audit": <SectionSecurity />,
+  "sm-info-verify": <SectionVerify />,
+  "sm-info-deploy": <SectionDeploy />,
+  "sm-info-monitor": <SectionMonitor />,
+  "sm-info-resume": <Resume />,
 };
 
 export const GalaxyInfo = () => {
-  const [active, setActive] = useState<Approach | null>(null);
+  const [active, setActive] = useState<keyof SectionInfo | null>(null);
   const router = useRouter();
   const params = useParams();
   const handleClose = () => {
@@ -34,14 +38,11 @@ export const GalaxyInfo = () => {
   useEffect(() => {
     console.log("Mounting info");
     const handleChange = () => {
-      const hash = window.location.hash;
+      let hash = window.location.hash.slice(1);
 
-      console.log("hash:", hash);
-      const topic = topics.find((t) => t.id === hash.substring(1));
-      if (!topic) return;
+      if (!Object.keys(sections).includes(hash)) return;
 
-      console.log({ topic });
-      setActive(hash ? topic : null);
+      setActive(hash as keyof SectionInfo);
     };
     handleChange();
 
@@ -51,10 +52,11 @@ export const GalaxyInfo = () => {
   return (
     <Drawer open={!!active} onClose={handleClose}>
       <DrawerContent
+        title={"approach-section"}
         className="h-[95%] 2xl:h-[75%] w-[50%] 2xl:w-[40%] fixed left-[calc(50%-25%)] 2xl:left-[calc(50%-20%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
    "
       >
-        {!!active ? sections[active?.id] : null}
+        {!!active ? sections[active] : null}
       </DrawerContent>
     </Drawer>
   );

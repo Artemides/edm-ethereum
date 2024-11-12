@@ -52,13 +52,13 @@ export const SectionMonitor = () => {
 
       <div className="mx-auto my-4 w-fit flex flex-wrap gap-x-2 justify-center items-center">
         {monitorUsecases.map((step, idx) => (
-          <>
+          <React.Fragment key={`step.title-${idx}`}>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
               {React.cloneElement(step.icon, { className: "w-6 h-6  text-[#c5a1ef] " })}{" "}
               <p className=" my-2 tracking-tight text-primary-content">{step.title} </p>
             </div>
             {idx < monitorUsecases.length - 1 && <DotFilledIcon className="w-5 h-5 text-[#f9e2af] " />}
-          </>
+          </React.Fragment>
         ))}
       </div>
       <h2 className=" text-primary text-xl text-center ">Severity</h2>
