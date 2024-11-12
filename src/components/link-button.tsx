@@ -13,9 +13,9 @@ const anchorVariants = cva(
       size: {
         auto: "h-auto py-5",
         default: "h-[50px] py-2",
-        sm: "px-4 py-2",
+        sm: "px-2 py-4 sm:px-4 sm:py-2",
         md: "px-6 py-3",
-        xl: "h-[75px]",
+        xl: "",
       },
     },
     defaultVariants: {

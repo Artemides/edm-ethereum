@@ -7,7 +7,13 @@ import { cn } from "@/lib/utils";
 export const Galaxy = () => {
   return (
     <div id="universe" className="mb-24">
-      <div className="m-auto relative w-[450px] aspect-square">
+      <div
+        className="m-auto relative  
+        w-[300px]
+        aspect-square
+        sm:w-[450px] 
+      "
+      >
         <div className="absolute w-[1px] aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blured-shadow "></div>
         <Orbit
           className={cn(
@@ -18,14 +24,15 @@ export const Galaxy = () => {
           rotateElements={process.env.NODE_ENV === "production"}
         />
 
-        <Image
-          src={"/images/portfolio/ether.webp"}
-          alt="ether"
-          width={130}
-          height={200}
-          sizes="130px"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-10 orbit-eye-bounce "
-        />
+        <div className="absolute-center size-1/3  z-10 orbit-eye-bounce">
+          <Image
+            src={"/images/portfolio/ether.webp"}
+            alt="ether"
+            fill
+            sizes="(max-width: 640px) 80px, 130px"
+            className=" object-contain "
+          />
+        </div>
         <Orbit
           className="absolute w-full aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  border-[1px] border-white/5  rounded-full -z-1  animate-rotate-slow"
           elements={new Array(5).fill(null).map((_, idx) => (

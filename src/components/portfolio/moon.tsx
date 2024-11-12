@@ -18,7 +18,7 @@ export const Moon = ({ moon, index, className, displayName = true }: MoonProps) 
     <Link
       href={`#${moon.id}`}
       key={moon.title}
-      className={cn("inline-block hover:scale-[1.2]  transition duration-300 ", className)}
+      className={cn("inline-block hover:scale-[1.2]  transition duration-300 scale-75 sm:scale-100", className)}
     >
       <Bubble
         id={`border-gradient-${moon.id}`}
