@@ -10,10 +10,6 @@ import { Socials } from "@/components/portfolio/socials";
 
 import { NextPage } from "next";
 import { LinkButton } from "@/components/link-button";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import Resume from "@/components/portfolio/resume";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { BatchIcon } from "@/components/portfolio/icons/socials-icons";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Window } from "@/components/portfolio/window-tab";
