@@ -20,7 +20,7 @@ const socials = [
   {
     title: "upwork",
     icon: <Upwork className="hover:fill-[#6FDA44]" />,
-    link: "/",
+    link: "https://www.upwork.com/freelancers/~01b2a5d89594a3099c",
   },
   {
     title: "codehawks",
@@ -30,7 +30,7 @@ const socials = [
   {
     title: "gmail",
     icon: <Gmail className="hover:fill-[#d74f4b]" />,
-    link: "/",
+    link: "mailto:edmpulasky@gmail.com",
   },
 ];
 
@@ -41,6 +41,8 @@ export const Socials = () => {
         <Link
           href={social.link}
           key={social.title}
+          target={social.link !== "/" ? "_blank" : ""}
+          rel="noopener noreferrer"
           className="
         w-5 transition duration-300 hover:scale-[1.3]
         [&>svg]:fill-secondary-content

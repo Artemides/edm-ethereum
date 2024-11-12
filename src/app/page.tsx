@@ -78,8 +78,12 @@ const Portfolio: NextPage = () => {
             </LinkButton>
           </div>
           <div className="flex flex-col items-center">
-            {" "}
-            <Link href={"/"} className="text-accent underline text-[12px]">
+            <Link
+              href={"https://www.linkedin.com/in/edmundo-arias-35163a212/"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline text-[12px]"
+            >
               reach out for Frontend Development
             </Link>
             <h2 className="text-peach text-sm my-4">
