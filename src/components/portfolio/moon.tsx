@@ -26,16 +26,7 @@ export const Moon = ({ moon, index, className, displayName = true }: MoonProps) 
         bColor={moon.bColor}
         bgColor={moon.bgColor}
       >
-        <div className="w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  overflow-hidden">
-          <Image
-            src={"/images/portfolio/macos-emoji.png"}
-            alt={moon.title}
-            height={80}
-            width={380}
-            className="max-w-max absolute object-cover "
-            style={{ transform: `translateX(-${index * (40 + 16.5)}px)` }}
-          />
-        </div>
+        <Image src={moon.icon} alt={moon.title} height={40} width={40} className="absolute-center " />
       </Bubble>
       {displayName && (
         <p

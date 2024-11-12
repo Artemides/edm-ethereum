@@ -103,26 +103,19 @@ export const SectionDeploy = () => {
         <span className="absolute top-[calc(50%-150px)] left-[calc(50%)] rocket-bounce text-5xl">
           .
           <div className="w-12 h-12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  overflow-hidden">
-            <Image
-              src={"/images/portfolio/macos-emoji.png"}
-              alt={"deploy-rocket"}
-              height={100}
-              width={400}
-              className="max-w-max absolute object-cover "
-              style={{ transform: `translateX(-${5 * (40 + 19)}px)` }}
-            />
+            <Image src={"/images/portfolio/emoji/rocket.png"} alt={"deploy-rocket"} height={100} width={400} />
           </div>
         </span>
       </div>
       <div className="my-6 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center ">
         {deploymentRequisites.map((step, idx) => (
-          <>
+          <React.Fragment key={step.title}>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
               {React.cloneElement(step.icon, { className: "w-7 h-7  text-[#ff8330] inline" })}{" "}
               <p className=" my-1 tracking-tight text-primary-content font-semibold ">{step.title} </p>
             </div>
             {idx < deploymentRequisites.length - 1 && <WidthIcon className="w-5 h-5 text-[#f9e2af] " />}
-          </>
+          </React.Fragment>
         ))}
       </div>
       <h2 className=" text-primary text-xl text-center ">Network Choosing</h2>

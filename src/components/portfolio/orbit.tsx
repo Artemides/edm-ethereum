@@ -10,7 +10,7 @@ type OrbitProps = {
   rotateElements?: boolean;
 };
 
-export const Orbit = ({ elements, className, offsetDegree = 0, gap = 0, rotateElements = true }: OrbitProps) => {
+export const Orbit = ({ elements, className, offsetDegree = 0, gap = 0, rotateElements = false }: OrbitProps) => {
   const [orbitDim, setOrbitDim] = useState({ width: 0, height: 0 });
   const orbitRef = useRef<HTMLDivElement>(null);
   const refs = elements.map(() => createRef<HTMLDivElement>());
@@ -39,7 +39,7 @@ export const Orbit = ({ elements, className, offsetDegree = 0, gap = 0, rotateEl
             key={i}
             ref={refs[i]}
             className={cn(
-              "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  transition-all duration-1000",
+              "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  transition-all duration-1000 text-4xl",
               rotateElements ? " animate-orbit-reverse-origin" : ""
             )}
             style={{ ...(top && left ? { top, left } : {}) }}

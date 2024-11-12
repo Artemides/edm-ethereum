@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
-import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 import { SectionDevelop } from "./section-develop";
 import { topics } from "@/utils/data";
 import { Approach, ApproachTitle } from "@/utils/types";
@@ -36,7 +36,6 @@ export const GalaxyInfo = () => {
     setActive(null);
   };
   useEffect(() => {
-    console.log("Mounting info");
     const handleChange = () => {
       let hash = window.location.hash.slice(1);
 
@@ -51,6 +50,10 @@ export const GalaxyInfo = () => {
 
   return (
     <Drawer open={!!active} onClose={handleClose}>
+      <DrawerTitle className="hidden">info</DrawerTitle>
+      <DrawerHeader className="hidden">
+        <DrawerDescription>approach info</DrawerDescription>
+      </DrawerHeader>
       <DrawerContent
         title={"approach-section"}
         className="h-[95%] 2xl:h-[75%] w-[50%] 2xl:w-[40%] fixed left-[calc(50%-25%)] 2xl:left-[calc(50%-20%)] gradient-base2 drop-shadow border-[1px] border-secondary/80
