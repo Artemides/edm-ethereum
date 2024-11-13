@@ -14,32 +14,33 @@ export const SectionDevelop = () => {
   return (
     <section className="h-full p-2 relative text-sm">
       {React.cloneElement(sectionIcons, {
-        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        className:
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75 ",
         displayName: false,
       })}
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl text-center">
-        using security best <br /> practices...
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-2xl text-center lg:px-28 lg:text-4xl ">
+        using security best practices...
       </h2>
-      <p className="m-auto my-2 leading-5 text-secondary-content text-center px-12">
+      <p className="m-auto px-1 my-2 leading-5 text-secondary-content text-center lg:px-12">
         {"/*"} <span className="font-semibold text-primary">@dev:</span> Crafting a highly technical process that
         demands a tailored approach to meet the unique needs and specifications, while aligning with security standards
         and scalability requirements for a robust solution.
       </p>
-      <div className="mx-auto w-9/12 my-4">
-        <p className=" mb-16 text-center text-xl">
+      <div className="mx-auto w-full md:w-9/12 my-4">
+        <p className=" mb-16 text-center md:text-xl">
           Continuous Integration <br />
           on every{" "}
           <span className="text-[#6CFE89] font-semibold">
             {" "}
-            {"{"} Pull Request {"}"}
+            {"{"}Pull Request{"}"}
           </span>
         </p>
-        <div className="relative  flash-light-to-b before:w-[2px] before:to-[#6CFE89] before:z-10 my-8">
+        <div className="relative      ">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-spot shadow-[#f06479b0] "></div>
 
           <Bubble
             id={`develop-border-gradient-github`}
-            className="absolute -top-[7px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square"
+            className="absolute top-3 md:-top-[7px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 aspect-square scale-75 lg:scale-100 flash-light-to-b2 before:w-[2px] before:to-[#6CFE89] before:z-10"
             bColor="#6CFE89"
             bgColor="#6CFE897f"
           >
@@ -48,7 +49,7 @@ export const SectionDevelop = () => {
             </span>
           </Bubble>
 
-          <div className="grid grid-cols-2 gap-x-8 items-start gap-y-4 pt-20">
+          <div className="grid grid-cols-2 gap-x-8 items-start gap-y-2 md:gap-y-4 pt-20">
             {devPullRequests.map((pr) =>
               pr.success && !!!pr.ci ? (
                 <PullRequest key={pr.text} success={pr.success} text={pr.text} pulse={false} />

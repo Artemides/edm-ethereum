@@ -16,23 +16,28 @@ import { Window } from "@/components/portfolio/window-tab";
 
 const Portfolio: NextPage = () => {
   return (
-    <div className="h-screen gradient-base ">
-      <Header />
+    <div className="lg:h-screen gradient-base ">
+      {/* <Header /> */}
       <section
         id="hero"
-        className="min-height pt-16  grid grid-cols-12 place-items-center 2xl:w-[1536px] 2xl:mx-auto 2xl:border-[1px] 2xl:border-indigo-900/35 overflow-hidden"
+        className="min-height   
+       
+        overflow-hidden
+        lg:grid lg:grid-cols-12 lg:place-items-center 
+        
+        2xl:w-[1536px] 2xl:mx-auto"
       >
-        <div className="col-span-5 px-8 py-4 tracking-tight ">
-          <div className="grid grid-cols-[1fr_min-content] gap-x-1">
-            <span className="text-4xl ">Hi There!</span>
-            <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" size="" bordered={true} />
-            <div className="col-start-1 text-sm font-light text-slate-200 self-end">
+        <div className="col-span-6 px-8 py-4 tracking-tight md:w-3/4 md:mx-auto lg:w-full ">
+          <p className="text-3xl text-center lg:text-4xl ">Hi There!</p>
+          <div className="lg:grid lg:grid-cols-[min-content_1fr]  gap-x-2 ">
+            <Avatar img="/images/portfolio/edmundus.jpeg" alt="edmundo arias" className="self-center mx-auto" />
+            <div className="  font-light text-slate-200 self-end text-center lg:text-start lg:text-base">
               <Tooltip delayDuration={0}>
                 <TooltipTrigger>
-                  <p className="my-1">
+                  <p className="my-4 lg:my-1">
                     call me{" "}
-                    <span className="relative text-4xl font-semibold text-peach">
-                      edmund&apos;.eth <BatchIcon className="inline-block size-5" />
+                    <span className="relative text-3xl lg:text-4xl font-semibold text-peach">
+                      edmund.eth <BatchIcon className="inline-block size-5" />
                     </span>
                   </p>
                 </TooltipTrigger>
@@ -56,7 +61,7 @@ const Portfolio: NextPage = () => {
               <p className="-my-1 text-peach font-medium">Software Engineer</p>
               <p className="-my-1 text-peach font-medium">Smart Contract Developer / Auditor</p>
               <p className="">
-                I&apos;m dedicated to safeguard against vulnerabilities at every step, embracing challenges where
+                I&apos;m dedicated to safeguarding against vulnerabilities at every step, embracing challenges where
                 security is a core principle.
               </p>
             </div>
@@ -64,8 +69,8 @@ const Portfolio: NextPage = () => {
 
           <Socials />
 
-          <div className="flex gap-x-4 my-4">
-            <LinkButton href="#sm-info-resume" className="flex-1 bg-peach text-secondary hover:bg-peach/80 text-base">
+          <div className="flex gap-x-4 my-4 xl:px-24">
+            <LinkButton href="#sm-info-resume" className="flex-1 bg-peach  text-base " size={"sm"}>
               Resume
             </LinkButton>
 
@@ -75,6 +80,7 @@ const Portfolio: NextPage = () => {
               rel="noopener noreferrer"
               className="flex-1 text-peach text-base"
               variant={"secondary"}
+              size={"sm"}
             >
               Wanna talk?
             </LinkButton>
@@ -94,13 +100,26 @@ const Portfolio: NextPage = () => {
             <CodingArsenal />
           </div>
         </div>
-        <div className="my-auto col-span-7">
-          <span className="m-auto w-2/3 text-gradient-title text-center tracking-tighter text-2xl">
+        <div className="pb-8 lg:py-0 my-auto col-span-6 ">
+          <p
+            className="m-auto my-8 
+          text-gradient-title text-center tracking-tighter
+          text-3xl
+          lg:w-2/3"
+          >
             Together focused on...
-          </span>
+          </p>
           <Galaxy />
-          <h1 className="m-auto w-2/3 text-gradient-title text-center tracking-tighter text-4xl">
-            From brainstorming through execution and beyond.
+          <h1
+            className="
+            m-auto 
+            px-2
+            text-gradient-title text-center tracking-tighter
+            text-3xl
+            lg:px-12 lg:text-4xl"
+          >
+            From brainstorming through <br className="hidden sm:inline" />
+            execution and beyond.
           </h1>
         </div>
       </section>
