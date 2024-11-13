@@ -59,13 +59,14 @@ export const SectionSecurity = () => {
   return (
     <section className="h-full p-2  relative text-sm ">
       {React.cloneElement(sectionIcons, {
-        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        className:
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75",
         displayName: false,
       })}
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-2xl lg:text-4xl mb-6 text-center">
         ...Embedding security as <br /> a core commitment
       </h2>
-      <p className="m-auto leading-5 text-secondary-content text-center px-12 font-light ">
+      <p className="m-auto leading-5 text-secondary-content text-center px-2 lg:px-12 font-light ">
         &#47;* <span className="text-primary font-semibold">@audit:</span> Conducting comprehensive in-depth manual and
         automated reviews, analyzing every call trace to uncover potential vulnerabilities, ensuring the protocol is
         secure, efficient, and trustworthy before deployment. *&#47;
@@ -83,48 +84,60 @@ export const SectionSecurity = () => {
           htmlFor="security-tab1"
           className="tab  border-b-2 border-secondary peer-checked/security-tab1:text-[#f38ba8] peer-checked/security-tab1:border-b-2 peer-checked/security-tab1:border-[#f38ba8]"
         >
-          {"{"} Manual Review {"}"}
+          Manual Review
         </label>
         <input type="radio" name="security-tabs" id="security-tab2" className="hidden peer/security-tab2" />
         <label
           htmlFor="security-tab2"
           className="tab  border-b-2 border-secondary peer-checked/security-tab2:text-[#f38ba8] peer-checked/security-tab2:border-b-2 peer-checked/security-tab2:border-[#f38ba8]"
         >
-          {"{"} Static Analysis {"}"}
+          Static Analysis
         </label>
         <input type="radio" name="security-tabs" id="security-tab3" className="hidden peer/security-tab3" />
         <label
           htmlFor="security-tab3"
           className="tab  border-b-2 border-secondary peer-checked/security-tab3:text-[#f38ba8] peer-checked/security-tab3:border-b-2 peer-checked/security-tab3:border-[#f38ba8]"
         >
-          {"{"} Internal {"}"}
+          Internal
         </label>
         <input type="radio" name="security-tabs" id="security-tab4" className="hidden peer/security-tab4" />
         <label
           htmlFor="security-tab4"
           className="tab  border-b-2 border-secondary peer-checked/security-tab4:text-[#f38ba8] peer-checked/security-tab4:border-b-2 peer-checked/security-tab4:border-[#f38ba8]"
         >
-          {"{"} Private {"}"}
+          Private
         </label>
-        <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab1:block ">
+        <div
+          role="tabpanel"
+          className="hidden col-span-4 lg:col-start-2 lg:col-span-2 peer-checked/security-tab1:block "
+        >
           <p className="text-secondary-content pl-4 text-center">
             {"/*"} <span className="font-semibold text-primary">@notice:</span> Thoroughly examine the code line by
             line, trace by trace to identify any issues that automated tools might miss. {"*/"}
           </p>
         </div>
-        <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab2:block ">
+        <div
+          role="tabpanel"
+          className="hidden col-span-4 lg:col-start-2 lg:col-span-2 peer-checked/security-tab2:block "
+        >
           <p className="text-secondary-content pl-4 text-center">
             {"/*"} <span className="font-semibold text-primary">@notice:</span> Run static analysis tools (e.g., Slither
             or Aderyn) to detect common vulnerabilities such as reentrancy. {"*/"}
           </p>
         </div>
-        <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab3:block ">
+        <div
+          role="tabpanel"
+          className="hidden col-span-4 lg:col-start-2 lg:col-span-2 peer-checked/security-tab3:block "
+        >
           <p className="text-secondary-content pl-4 text-center">
             {"/*"} <span className="font-semibold text-primary">@notice:</span> Engage third-party auditors who
             specialize in Solidity and blockchain security for a full audit report. {"*/"}
           </p>
         </div>
-        <div role="tabpanel" className="hidden col-start-2 col-span-2 peer-checked/security-tab4:block ">
+        <div
+          role="tabpanel"
+          className="hidden col-span-4 lg:col-start-2 lg:col-span-2 peer-checked/security-tab4:block "
+        >
           <p className="text-secondary-content pl-4 text-center">
             {"/*"} <span className="font-semibold text-primary">@notice:</span> Work closely together with an auditing
             firm or independent security expert under a confidentiality agreement. {"*/"}
@@ -152,9 +165,11 @@ export const SectionSecurity = () => {
             hover:bg-transparent hover:scale-110 transition hover:cursor-pointer hover:backdrop-blur-lg hover:z-20  group
             "
           >
-            <span className="mb-3 inline text-[###f2cdcd] text-center">{v.text} </span>
+            <span className="mb-3 inline text-[###f2cdcd] text-center text-ellipsis break-words overflow-hidden">
+              {v.text}{" "}
+            </span>
             {React.cloneElement(v.icon, {
-              className: "w-5 h-5  text-[#f06479] inline group-hover:scale-150 transition",
+              className: " w-5 h-5  text-[#f06479] inline group-hover:scale-150 transition",
             })}{" "}
           </div>
         ))}

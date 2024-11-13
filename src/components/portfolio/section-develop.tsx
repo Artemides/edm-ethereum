@@ -18,7 +18,7 @@ export const SectionDevelop = () => {
           "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75 ",
         displayName: false,
       })}
-      <h2 className=" m-auto text-gradient-title tracking-tighter text-3xl text-center lg:px-28 lg:text-4xl ">
+      <h2 className=" m-auto text-gradient-title tracking-tighter text-2xl text-center lg:px-28 lg:text-4xl ">
         using security best practices...
       </h2>
       <p className="m-auto px-1 my-2 leading-5 text-secondary-content text-center lg:px-12">

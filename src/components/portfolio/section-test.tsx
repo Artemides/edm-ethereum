@@ -55,7 +55,7 @@ export const SectionTest = () => {
           "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75 ",
         displayName: false,
       })}
-      <h2 className="text-3xl text-gradient-title text-center lg:text-4xl lg:px-28">
+      <h2 className="text-2xl text-gradient-title text-center lg:text-4xl lg:px-28">
         Challenging code to <br /> strengthen its core.
       </h2>
       <p className="m-auto leading-5  text-secondary-content text-center px-2 lg:px-12">

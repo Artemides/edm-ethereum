@@ -2,10 +2,9 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from "../ui/drawer";
 import { SectionDevelop } from "./section-develop";
-import { topics } from "@/utils/data";
-import { Approach, ApproachTitle } from "@/utils/types";
+import { ApproachTitle } from "@/utils/types";
 import { SectionDesign } from "./section-design";
 import { SectionTest } from "./section-test";
 import { SectionSecurity } from "./section-security";
@@ -61,6 +60,7 @@ export const GalaxyInfo = () => {
         lg:w-[80%] lg:h-[95%] lg:left-[calc(50%-40%)]
         xl:w-[50%] xl:left-[calc(50%-25%)]
         2xl:h-[75%] 2xl:w-[40%] 2xl:left-[calc(50%-20%)]
+        
    "
       >
         {!!active ? sections[active] : null}
