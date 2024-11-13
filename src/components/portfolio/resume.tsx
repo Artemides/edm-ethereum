@@ -10,8 +10,7 @@ export const Resume = () => {
       <LinkButton
         download={"edmundo-arias-resume.pdf"}
         href={"/resume/edmundo-arias.pdf"}
-        className="inline-flex gap-x-2 self-end"
-        size={"sm"}
+        className="inline-flex gap-x-2 self-end py-2 px-4"
         target="_blank"
         rel="noopener noreferrer"
       >
