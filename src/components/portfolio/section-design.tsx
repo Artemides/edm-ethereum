@@ -13,7 +13,7 @@ export const SectionDesign = () => {
     <section className="h-full relative p-2 text-sm">
       {React.cloneElement(sectionIcons, {
         className:
-          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 ",
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75 ",
         displayName: false,
       })}
       <h2 className="text-gradient tracking-tighter text-2xl lg:text-4xl text-center">
