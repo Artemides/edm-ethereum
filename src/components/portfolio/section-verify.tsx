@@ -54,13 +54,13 @@ export const SectionVerify = () => {
 
       <div className="my-2 lg:my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center ">
         {certoraSteps.map((step, idx) => (
-          <>
+          <React.Fragment key={step.text}>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
               {React.cloneElement(step.icon, { className: " w-6 h-6  text-[#94e2d5] inline" })}{" "}
               <p className=" my-1 text-sm tracking-tighter text-[#f9e2af]  font-semibold   ">{step.text} </p>
             </div>
             {idx < certoraSteps.length - 1 && <ChevronRightIcon className="w-5 h-5  " />}
-          </>
+          </React.Fragment>
         ))}
       </div>
 

@@ -25,7 +25,7 @@ const Portfolio: NextPage = () => {
         overflow-hidden
         lg:grid lg:grid-cols-12 lg:place-items-center 
         
-        2xl:w-[1536px] 2xl:mx-auto 2xl:border-[1px] 2xl:border-indigo-900/35 "
+        2xl:w-[1536px] 2xl:mx-auto"
       >
         <div className="col-span-6 px-8 py-4 tracking-tight md:w-3/4 md:mx-auto lg:w-full ">
           <p className="text-3xl text-center lg:text-4xl ">Hi There!</p>
