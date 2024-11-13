@@ -115,7 +115,7 @@ export const SectionDeploy = () => {
         />
         <Orbit
           elements={orbitChains.slice(0, 1)}
-          className="absolute-center   w-[350px] sm:w-2/3 md:w-1/2 lg:w-1/2 border-none z-10"
+          className="absolute-center   w-[350px] sm:w-2/3 md:w-1/2 lg:w- border-none z-10"
           rotateElements={false}
           offsetDegree={-90.5}
         />
