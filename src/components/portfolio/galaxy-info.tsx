@@ -31,7 +31,7 @@ export const GalaxyInfo = () => {
   const router = useRouter();
   const params = useParams();
   const handleClose = () => {
-    router.replace(window.location.pathname);
+    router.replace(window.location.pathname, { scroll: false });
     setActive(null);
   };
   useEffect(() => {
@@ -59,9 +59,7 @@ export const GalaxyInfo = () => {
         border-secondary/80
         lg:w-[80%] lg:h-[95%] lg:left-[calc(50%-40%)]
         xl:w-[50%] xl:left-[calc(50%-25%)]
-        2xl:h-[75%] 2xl:w-[40%] 2xl:left-[calc(50%-20%)]
-        
-   "
+        2xl:h-[75%] 2xl:w-[40%] 2xl:left-[calc(50%-20%)]"
       >
         {!!active ? sections[active] : null}
       </DrawerContent>

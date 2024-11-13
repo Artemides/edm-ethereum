@@ -13,10 +13,11 @@ type MoonProps = {
   className?: string;
 };
 
-export const Moon = ({ moon, index, className, displayName = true }: MoonProps) => {
+export const Moon = ({ moon, className, displayName = true }: MoonProps) => {
   return (
     <Link
       href={`#${moon.id}`}
+      scroll={false}
       key={moon.title}
       className={cn("inline-block hover:scale-[1.2]  transition duration-300 scale-75 sm:scale-100", className)}
     >
