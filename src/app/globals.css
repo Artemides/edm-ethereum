@@ -84,6 +84,10 @@ p {
 .flash-light-to-b::before {
   @apply content-[''] absolute top-1/2 -translate-y-1/2 left-1/2 w-[1px] h-3/4 bg-gradient-to-t  from-transparent to-indigo-700;
 }
+
+.flash-light-to-b2::before {
+  @apply content-[''] absolute -bottom-[249px] left-1/2 w-[1px] h-[250px] bg-gradient-to-t  from-transparent to-indigo-700;
+}
 .drop-shadow {
   box-shadow: 0px 0px 0px 6px rgba(0, 0, 0, 0.25);
 }
