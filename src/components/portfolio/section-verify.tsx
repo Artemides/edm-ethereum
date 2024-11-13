@@ -39,19 +39,20 @@ export const SectionVerify = () => {
   return (
     <section className="h-full relative px-2 py-4 text-sm">
       {React.cloneElement(sectionIcons, {
-        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        className:
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75 ",
         displayName: false,
       })}
-      <h2 className="mx-auto text-gradient-title tracking-tighter text-4xl mb-6 text-center">
+      <h2 className="mx-auto text-gradient-title tracking-tighter text-2xl  lg:text-4xl mb-6 text-center">
         ...Proving the unbreakable <br /> beyond assumptions.
       </h2>
-      <p className="m-auto leading-5 text-secondary-content text-center px-12">
+      <p className="m-auto leading-5 text-secondary-content text-center px-2 lg:px-12">
         &#47;* <span className="text-primary  font-semibold">@note:</span> Mathematically proving that the invariants
         (properties) always remain true, eliminating any uncertainties around potential vulnerabilities, while using
         formal methods and tools to ensure under all possible conditions.
       </p>
 
-      <div className="my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center border-x-[1px] border-x-white/25">
+      <div className="my-2 lg:my-12 mx-auto w-fit flex flex-wrap gap-x-2 justify-center items-center ">
         {certoraSteps.map((step, idx) => (
           <>
             <div className="flex flex-col items-center group transition px-2 py-1 rounded-sm">
@@ -63,8 +64,11 @@ export const SectionVerify = () => {
         ))}
       </div>
 
-      <div className="relative w-4/5 mx-auto ">
-        <h2 className="col-span-2 text-[#f9e2af] font-semibold text-xl text-center mt-14 mb-36"> Preferred Tools</h2>
+      <div className="relative w-full lg:w-4/5 mx-auto ">
+        <h2 className="col-span-2 text-[#f9e2af] font-semibold text-xl text-center  sm:mt-14 sm:mb-36">
+          {" "}
+          Preferred Tools
+        </h2>
         <div className="relative  grid grid-cols-2 gap-x-4 z-10 ">
           <div className="bg-black/30 border-[1px] border-secondary/50 p-2 rounded-md backdrop-blur-sm  drop-shadow ">
             <h4 className="text-[#c5a1ef] text-base font-semibold ">
