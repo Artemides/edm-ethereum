@@ -39,11 +39,14 @@ export const SectionMonitor = () => {
   return (
     <section className="h-full relative  p-2  text-sm">
       {React.cloneElement(sectionIcons, {
-        className: "absolute top-4 -translate-y-1/2 w-20 aspect-square scale-75",
+        className:
+          "absolute -top-32 right-1/2  translate-x-1/2 lg:-left-5 lg:top-5 lg:-translate-y-1/2 w-20 aspect-square scale-75 sm:scale-75",
         displayName: false,
       })}
-      <h2 className="m-auto text-gradient-title tracking-tighter text-4xl text-center">...Stay Reliable and Secure.</h2>
-      <p className="m-auto my-2 leading-5 text-secondary-content text-center px-12">
+      <h2 className="m-auto text-gradient-title tracking-tighter text-2xl lg:text-4xl text-center">
+        ...Stay Reliable and Secure.
+      </h2>
+      <p className="m-auto my-2 leading-5 text-secondary-content text-center px-2  lg:px-12">
         &#47;* <span className="text-primary font-semibold">@notice:</span> Tracking complete visibility into the risks
         and behaviors of the Protocol, enabling us to detect potential threats, while receiving alerts on unusual
         activities, and resolve them.*&#47;
@@ -63,7 +66,7 @@ export const SectionMonitor = () => {
       </div>
       <h2 className=" text-primary text-xl text-center ">Severity</h2>
       <div
-        className="mt-16 mb-6 mx-auto relative w-1/2 h-[2px] bg-gradient-to-r from-[#a6e3a1] via-[#f9e2af] to-[#f38ba8]
+        className="mt-16 mb-6 mx-auto relative w-full md:w-1/2 h-[2px] bg-gradient-to-r from-[#a6e3a1] via-[#f9e2af] to-[#f38ba8]
            before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2  before:w-4 before:h-4 before:bg-[#a6e3a1] before:rounded-full
            after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2  after:w-4 after:h-4 after:bg-[#f38ba8] after:rounded-full
         "
@@ -81,11 +84,11 @@ export const SectionMonitor = () => {
         </div>
       </div>
       <h2 className=" text-primary text-xl text-center">Preferred Tools</h2>
-      <p className="m-auto leading-5 text-secondary-content text-center w-2/3 font-light ">
+      <p className="m-auto leading-5 text-secondary-content text-center w-full md:w-2/3 font-light ">
         Because of their native integrations with Foundry, Hardhat, Github and Slack I prefer
       </p>
       <div className="flex justify-center items-center gap-x-2 p-4">
-        <span className="text-xs">Open Zeppelin</span>
+        <span className="hidden sm:block text-xs">Open Zeppelin</span>
         <Image
           src={"/images/portfolio/oz.png"}
           alt="open-zeppelin-logo"
@@ -93,7 +96,7 @@ export const SectionMonitor = () => {
           height={40}
           className="rounded-md"
         />
-        <span className="text-xs">Alchemy</span>
+        <span className="hidden sm:block text-xs ">Alchemy</span>
 
         <Image
           src={"/images/portfolio/alchemy.jpeg"}
@@ -102,7 +105,7 @@ export const SectionMonitor = () => {
           height={40}
           className="rounded-md"
         />
-        <span className="text-xs">Etherscan</span>
+        <span className=" hidden sm:block text-xs">Etherscan</span>
 
         <Image
           src={"/images/portfolio/etherscan.jpg"}
@@ -111,7 +114,7 @@ export const SectionMonitor = () => {
           height={40}
           className="rounded-md"
         />
-        <span className="text-xs">Chainlink</span>
+        <span className=" hidden sm:block text-xs">Chainlink</span>
 
         <Image
           src={"/images/portfolio/defi/link.png"}
@@ -121,7 +124,7 @@ export const SectionMonitor = () => {
           className="rounded-md"
         />
       </div>
-      <div className="absolute -bottom-4 w-full aspect-square pointer-events-none">
+      <div className="hidden  md:block md:absolute -bottom-4 w-full aspect-square pointer-events-none">
         <Image
           src={"/images/portfolio/dashboard.avif"}
           alt="alchemy-dashboard"
