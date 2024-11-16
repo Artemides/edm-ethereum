@@ -20,7 +20,7 @@ const Portfolio: NextPage = () => {
       <Header className="hidden lg:block" />
       <section
         id="hero"
-        className="h-screen   
+        className="min-height   
        
         overflow-hidden
         lg:grid lg:grid-cols-12 lg:place-items-center 
@@ -116,8 +116,7 @@ const Portfolio: NextPage = () => {
             px-2
             text-gradient-title text-center tracking-tighter
             text-3xl
-            lg:px-12 lg:text-4xl
-            "
+            lg:px-12 lg:text-4xl"
           >
             From brainstorming through <br className="hidden sm:inline" />
             execution and beyond.
