@@ -1,4 +1,5 @@
 import { cn } from "@/utils";
+import Image from "next/image";
 import React from "react";
 
 const routes = [
@@ -29,9 +30,14 @@ const routes = [
   },
 ];
 
-export const Header = () => {
+export const Header = ({ className }: { className?: string }) => {
   return (
-    <nav className="sticky top-0 w-full h-[70px] bg-[#11111Bca] backdrop-blur-md  border-b-[1px] border-b-indigo-900/40 shadow-md shadow-black z-20">
+    <nav
+      className={cn(
+        "sticky top-0 w-full h-[70px] bg-[#11111Bca] backdrop-blur-md  border-b-[1px] border-b-indigo-900/40 shadow-md shadow-black z-20",
+        className
+      )}
+    >
       <ul className="m-auto h-full w-fit flex  items-center ">
         {routes.map(({ active, title }) => (
           <li

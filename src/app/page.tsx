@@ -17,7 +17,7 @@ import { Window } from "@/components/portfolio/window-tab";
 const Portfolio: NextPage = () => {
   return (
     <div className="lg:h-screen gradient-base ">
-      {/* <Header /> */}
+      <Header className="hidden lg:block" />
       <section
         id="hero"
         className="min-height   
