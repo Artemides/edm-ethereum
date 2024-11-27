@@ -9,7 +9,7 @@ export const Resume = () => {
     <section className="h-full  relative text-sm flex flex-col items-center px-4">
       <LinkButton
         download={"edmundo-arias-resume.pdf"}
-        href={"/resume/edmundo-arias.pdf"}
+        href={"/resume/edmundo-arias-blockchain.pdf"}
         className="inline-flex gap-x-2 self-end py-2 px-4"
         target="_blank"
         rel="noopener noreferrer"
@@ -39,14 +39,56 @@ export const Resume = () => {
         </div>
         <span className="self-center">Work Experience</span>
         <div className="[&>p]:m-0 w-full">
-          <Accordion type="single" collapsible defaultValue={"desc-1"}>
+          <Accordion type="single" collapsible defaultValue={"desc-0"}>
+            <AccordionItem value="desc-0">
+              <AccordionTrigger className="p-0 ">
+                <div className="w-full flex justify-between items-center pr-4">
+                  <p className="m-0 text-base font-semibold text-peach flex justify-between">
+                    Stakedotlink - Chainlink Labs &#x2022; N.Y 🇺🇸
+                  </p>
+                  <span className="text-xs text-peach font-light">march 2024 - aug 2024</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="font-thin text-sm">
+                <h2 className="font-normal text-peach">Blockchain Developer (Solidity)</h2>
+                <p className="font-thin my-2">
+                  Develop of stake.link protocol, the first-of-its-kind delegated liquid staking protocol which enables
+                  anyone to provide LINK collateral to and receive a share of rewards from the most reliable and
+                  performant Chainlink node operators.
+                </p>
+                <ul className="list-disc pl-5">
+                  <li>
+                    Designed and implemented: Priority Pool for queuing eventual stakes of ERC-20 tokens into the
+                    StakingPool based on reSDL governance token priority.
+                  </li>
+                  <li>
+                    Co-architected: Automated Staking of token deposits, seamlessly integrated with Chainlink automation
+                    to allow stake-and-forget user experience.
+                  </li>
+                  <li>
+                    Implemented: Stake deposits into StakingPool for its distribution across strategies into Operator V
+                    aults or Community V aults to maximize yield, along with liquid staking token receipts and account
+                    shares.
+                  </li>
+                  <li>
+                    Automated: WithdrawalPool withdraws by avoiding strategy deallocation, instead leveraging queued
+                    tokens availability for auto-withdraws via keepers.
+                  </li>
+                  <li>
+                    Participated: Into rigorous internal audits, invariant testing and formal verification suites to
+                    eliminate e2e vulnerabilities.
+                  </li>
+                  <li>Workshops: on Solidity, best practices for decentralized application (dApp) development.</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
             <AccordionItem value="desc-1">
               <AccordionTrigger className="p-0 ">
                 <div className="w-full flex justify-between items-center pr-4">
                   <p className="m-0 text-base font-semibold text-peach flex justify-between">
-                    1Cademy (Blockchain community) Honor Education &#x2022; U.S 🇺🇸
+                    1Cademy (Blockchain community) &#x2022; U.S 🇺🇸
                   </p>
-                  <span className="text-xs text-peach font-light">jan 2024 - sept 2024</span>
+                  <span className="text-xs text-peach font-light">sept 2024 - march 2024</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="font-thin text-sm">
@@ -75,7 +117,7 @@ export const Resume = () => {
               <AccordionTrigger className="p-0">
                 <div className="w-full flex justify-between items-center pr-4">
                   <p className="m-0 text-base  font-semibold text-peach">1Cademy - Honor Education &#x2022; U.S 🇺🇸</p>
-                  <span className="text-xs text-peach font-light"> aug 2022 - dec 2023</span>
+                  <span className="text-xs text-peach font-light"> aug 2022 - sept 2023</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="font-thin text-sm pr-6">
