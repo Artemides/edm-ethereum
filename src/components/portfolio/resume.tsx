@@ -9,7 +9,7 @@ export const Resume = () => {
     <section className="h-full  relative text-sm flex flex-col items-center px-4">
       <LinkButton
         download={"edmundo-arias-resume.pdf"}
-        href={"/resume/edmundo-arias-blockchain.pdf"}
+        href={"/resume/edmundo-arias.pdf"}
         className="inline-flex gap-x-2 self-end py-2 px-4"
         target="_blank"
         rel="noopener noreferrer"
